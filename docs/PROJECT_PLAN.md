@@ -194,11 +194,28 @@ Stage 5: TEARDOWN GENERATION
 ```
 
 ### Tech Stack
-- **Frontend**: HTML + CSS + JavaScript (vanilla, no framework)
-- **PDF Parsing**: pdf.js (Mozilla, client-side)
-- **PPT Generation**: PptxGenJS (client-side PPTX)
-- **PDF Export**: jsPDF (client-side PDF from slides)
-- **Styling**: Premium dark theme, glassmorphism, gradients, micro-animations
+- **Frontend**: HTML5 + Vanilla CSS3 + Modern JavaScript (ES Modules, zero heavy frameworks)
+- **BYOK LLM Engine**: Direct client-to-API calls for 4 major providers:
+  - **OpenAI**: `https://api.openai.com/v1/chat/completions` (GPT-4o, GPT-4o-mini)
+  - **Google Gemini**: `https://generativelanguage.googleapis.com/v1beta/models/...:generateContent` (Gemini 2.0 Flash, Gemini 1.5 Pro)
+  - **Anthropic Claude**: `https://api.anthropic.com/v1/messages` (Claude 3.5 Sonnet with direct browser header)
+  - **Groq**: `https://api.groq.com/openai/v1/chat/completions` (Llama 3.3 70B, ultra-fast low latency)
+- **PDF Parsing**: pdf.js (Mozilla, 100% client-side in-browser text extraction)
+- **PPT Generation**: PptxGenJS (client-side PPTX synthesis)
+- **PDF Export**: jsPDF + html2canvas (client-side slide-to-PDF rendering)
+- **Styling**: Premium dark aesthetic, glassmorphism, fluid responsive layouts, micro-interactions
+
+---
+
+## 🔐 Bring Your Own Key (BYOK) Architecture
+
+To allow zero-cost hosting, open deployment, and complete privacy:
+1. **Zero Server Footprint**: The application has NO backend server. It can be hosted on GitHub Pages, Vercel, or Netlify as a static site.
+2. **Local Key Storage**: API keys are saved exclusively in the user's browser `localStorage` (or session-only memory if user prefers). Keys NEVER touch any intermediate server or proxy.
+3. **Multi-Provider Switcher**: Users can seamlessly switch between OpenAI, Google Gemini, Anthropic Claude, and Groq based on available quota and preferences.
+4. **Key Validation & Test**: Built-in test ping to verify credentials and connectivity before initiating summary generation.
+5. **No Key Required for Prompts**: Stage 1 & Stage 2 (Prompt Generation) work 100% without any API key, allowing users to copy prompts into ChatGPT/Claude web interfaces freely.
+6. **Heuristic Offline Fallback**: If no key is entered during Stage 3, a rule-based extractive summary is generated so users can still preview the workflow.
 
 ---
 
@@ -236,19 +253,20 @@ Based on McKinsey Pyramid Principle + PM Portfolio best practices.
 
 ### Phase 1: Foundation
 - [x] Project plan and architecture (v2)
-- [ ] Create CONTEXT.md document
-- [ ] Create all 8 skills with SKILL.md files
-- [ ] Set up web app structure (HTML/CSS/JS)
+- [x] Create CONTEXT.md document
+- [x] Create all 8 skills with SKILL.md files
+- [ ] Set up web app structure (HTML/CSS/JS) with BYOK Settings Modal
 
 ### Phase 2: Prompt Engine
 - [ ] Implement all 6 pillar prompt generators
 - [ ] Copy-to-clipboard and edit functionality
-- [ ] Prompt preview with syntax highlighting
+- [ ] Prompt preview with syntax highlighting & filter tags
 
-### Phase 3: Research Upload & Summary
+### Phase 3: BYOK LLM & Research Upload
+- [ ] Direct client LLM connectors (OpenAI, Gemini, Claude, Groq)
 - [ ] PDF upload and parsing with pdf.js
-- [ ] Summary document generation from uploaded research
-- [ ] Summary preview and download
+- [ ] LLM-powered summary document generation from uploaded research
+- [ ] Summary preview and download (Markdown & plain text)
 
 ### Phase 4: Brainstorm & Scope
 - [ ] Interactive brainstorm panel

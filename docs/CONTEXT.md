@@ -50,11 +50,16 @@ The final teardown follows McKinsey's Pyramid Principle + PM portfolio best prac
 ## Application Architecture
 
 ### Technology
-- Pure client-side: HTML + CSS + JavaScript (vanilla)
-- PDF parsing: pdf.js (Mozilla)
-- PPT generation: PptxGenJS
-- PDF export: jsPDF
-- No backend required — all processing happens in the browser
+- **Pure Client-Side**: HTML5 + Vanilla CSS3 + Modern ES6+ JavaScript (no build step required)
+- **BYOK (Bring Your Own Key) LLM Integration**:
+  - Connects directly from user's browser to AI providers: OpenAI, Google Gemini, Anthropic Claude, and Groq.
+  - Zero server overhead: 100% private, credentials stored only in the user's `localStorage` or session memory.
+  - No API key required for Stage 1 & 2 (prompt generation is pure client-side framework synthesis).
+  - Offline extractive summary fallback if no LLM key is configured.
+- **PDF Parsing**: pdf.js (Mozilla, in-browser client-side PDF document parsing)
+- **PPT Generation**: PptxGenJS (client-side PowerPoint presentation generation)
+- **PDF Export**: jsPDF + html2canvas (client-side slide deck to PDF export)
+- **Hosting**: 100% static file compatible (GitHub Pages, Vercel, Netlify) with zero backend infrastructure needed.
 
 ### User Flow
 
