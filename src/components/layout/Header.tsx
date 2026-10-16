@@ -1,0 +1,92 @@
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Sparkles, BookOpen, CheckCircle2 } from 'lucide-react'
+import { useApp } from '../../context/AppContext'
+import { STAGES } from '../../lib/constants'
+
+export const Header: React.FC = () => {
+  const { state } = useApp()
+  const location = useLocation()
+
+  const currentStageInfo = STAGES.find((s) => s.path === location.pathname) || STAGES[0]
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 glass-header" role="banner">
+      <div className="h-14 w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Left: Brand + Breadcrumb */}
+        <div className="flex items-center gap-3 min-w-0">
+          <Link
+            to="/"
+            aria-label="Product Discovery & Teardown Studio Home"
+            className="flex items-center gap-2.5 shrink-0 group focus:outline-none focus:ring-2 focus:ring-[#7C5CFC] rounded-lg p-1"
+          >
+            <div className="relative shrink-0">
+              <img
+                src="/icon.png"
+                alt="Product Discovery & Teardown Studio"
+                className="w-8 h-8 rounded-lg object-contain shadow-[0_0_14px_rgba(124,92,252,0.4)] group-hover:shadow-[0_0_20px_rgba(124,92,252,0.7)] group-hover:scale-105 transition-all"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-semibold text-sm sm:text-base text-white tracking-tight leading-tight">
+                Product Discovery <span className="text-[#7C5CFC]">&amp;</span> Teardown
+              </span>
+              <span className="text-[10px] text-[#8B93B0] font-mono tracking-wider uppercase -mt-0.5 hidden sm:inline">
+                Studio Edition
+              </span>
+            </div>
+          </Link>
+
+          {/* Product Breadcrumb with truncation & full tooltip for long names */}
+          {state.product.name && (
+            <div className="hidden md:flex items-center gap-1.5 text-xs text-[#8B93B0] shrink-0 pl-2 border-l border-[#2A3150]">
+              <span className="text-[#8B93B0]/60">›</span>
+              <span
+                title={`${state.product.name} ${state.product.companyName ? `(${state.product.companyName})` : ''}`}
+                className="px-2 py-0.5 rounded bg-[#1C2237] text-[#F0F2F8] font-medium font-mono text-[11px] border border-[#2A3150] truncate max-w-[220px] lg:max-w-xs flex items-center gap-1.5 cursor-default"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#34D399] shrink-0" />
+                <span className="truncate">{state.product.name}</span>
+                {state.product.companyName && (
+                  <span className="text-[#8B93B0] truncate">({state.product.companyName})</span>
+                )}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Right: Stage Badge & Status Badges */}
+        <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
+          {/* Active Stage Badge */}
+          <div
+            aria-live="polite"
+            className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#1C2237] border border-[#2A3150] text-xs font-mono text-[#8B93B0]"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7C5CFC] animate-pulse" />
+            <span>STAGE 0{currentStageInfo.number}</span>
+            <span className="text-[#2A3150]">/</span>
+            <span className="text-[#F0F2F8] font-semibold">{currentStageInfo.badge}</span>
+          </div>
+
+          {/* Protocol Badge */}
+          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-[#8B93B0] px-2.5 py-1 rounded bg-[#131827] border border-[#2A3150]/60">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399]" />
+            <span>6-PILLAR PROTOCOL</span>
+          </div>
+
+          {/* Docs Link */}
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Documentation on GitHub"
+            className="flex items-center gap-1 text-xs text-[#8B93B0] hover:text-white px-2.5 py-1 rounded hover:bg-[#1C2237] focus:outline-none focus:ring-2 focus:ring-[#7C5CFC] transition-colors"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Docs</span>
+          </a>
+        </div>
+      </div>
+    </header>
+  )
+}
