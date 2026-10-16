@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-container": "#003120", "surface-bright": "#353945", "primary-container": "#947dff", "inverse-on-surface": "#2c303c", "surface-container-lowest": "#0a0e19", "tertiary-fixed": "#68fcbf", "surface-container-highest": "#313441", "on-tertiary-fixed": "#002114", "tertiary-fixed-dim": "#45dfa4", "surface-variant": "#313441", "primary-fixed-dim": "#cabeff", "secondary": "#7bd0ff", "tertiary": "#45dfa4", "inverse-surface": "#dfe2f2", "on-primary-fixed": "#1c0062", "on-error-container": "#ffdad6", "on-surface-variant": "#c9c4d8", "outline-variant": "#484555", "on-secondary-fixed": "#001e2c", "error": "#ffb4ab", "surface-container-low": "#171b27", "surface-tint": "#cabeff", "primary": "#cabeff", "tertiary-container": "#00a574", "on-surface": "#dfe2f2", "on-primary-container": "#2b0088", "secondary-container": "#00a6e0", "on-primary": "#32009a", "primary-fixed": "#e6deff", "on-secondary-fixed-variant": "#004c69", "outline": "#938ea1", "error-container": "#93000a", "on-primary-fixed-variant": "#4918c8", "secondary-fixed-dim": "#7bd0ff", "on-background": "#dfe2f2", "background": "#0f131e", "surface-container-high": "#262a36", "on-secondary": "#00354a", "on-error": "#690005", "surface-dim": "#0f131e", "surface-container": "#1b1f2b", "on-tertiary-fixed-variant": "#005137", "on-tertiary": "#003825", "inverse-primary": "#613de0", "secondary-fixed": "#c4e7ff", "on-secondary-container": "#00374d", "surface": "#0f131e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "0.75rem", "gutter-lg": "1.5rem", "gutter": "1rem", "space-lg": "1rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "margin-lg": "2rem", "space-xs": "0.25rem", "margin": "1rem", "margin-md": "1.5rem" }, "fontFamily": { "label-xs": ["JetBrains Mono"], "headline-xl": ["Inter"], "body-sm": ["Inter"], "label-sm": ["JetBrains Mono"], "headline-xl-mobile": ["Inter"], "body-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-md": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"] }, "fontSize": { "label-xs": ["10px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "600" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-md": ["13px", { "lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-14 w-full px-gutter-lg flex items-center justify-between"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-sm shrink-0"><img alt="Product Discovery &amp; Teardown Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UpLhiDAoGOfDB0zVNzOXyiY-hNkbEqdZEQnjTuQ83e8KDIiJL_mVya-GiHBwJ0bKj6iHDTT2zuMXkQf32IEsWRPqX6okFQu3hX348oPzAFRXedxCyY7u1SX8QFwlBu1UcaTKhs9H9ua3WYxg2XoiJS0iK0FAzA-9nFnzSbBar7njsegxMEXzhFSLNPq842YWLE_FKdOEh3XKbDXaO8qCeJMUWH945bWuRc5MreafVBCAhIHSEZVg16BHsg"/><span class="font-headline-md text-headline-md text-on-surface tracking-tight whitespace-nowrap">Product Discovery &amp; Teardown</span></div><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant shrink-0"><span class="font-label-md text-label-md text-outline">›</span><span class="font-label-md text-label-md px-space-xs py-0.5 rounded bg-surface-container-low text-on-surface font-medium truncate max-w-xs">Linear App (Linear Orbit Inc.)</span></div></div><div class="flex items-center gap-space-md shrink-0"><a class="hidden lg:inline-flex items-center text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="documentation" href="#">Docs</a><button class="hidden sm:inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-outline text-[16px]">search</span><span class="font-label-xs text-label-xs text-on-surface-variant">⌘K</span></button><button aria-label="Toggle theme" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><button aria-label="Notifications" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors relative" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-tertiary"></span></button><div class="pl-space-xs flex items-center shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyExVdOGT9-shf84YrFRY1wKtr0I27wiw6INB8TybiRZr2ODUjxto3BmG6rIgrhFA7d6YqPglgOuXg2-GXY__twMcJzVhz_HdKzKNKAlzGgWMsFWNFkuhkdmoc8hXDjIqij07qqxaYeNCyBds5y60EqY9t28x9N-2G8UrXVIZ6Ql7HXW_tNEYLMIwlMBu4zivs0eerViOM3IBNHq09VV2_Ie9OYRCOKJq5ghyOjcWcZJGqdDF2hTCDQ"/></div></div></div><div class="h-14 w-full bg-surface-container-lowest/80 backdrop-blur-md px-gutter-lg flex items-center overflow-x-auto"><nav class="flex items-center gap-space-sm min-w-max w-full justify-between" data-active-classes="bg-surface-container-high text-primary shadow-[0_0_12px_rgba(148,125,255,0.25)] ring-1 ring-primary/40 font-semibold"><a class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="product-input" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">1</span><span class="font-body-sm text-body-sm whitespace-nowrap">Product Input</span></a><span class="text-outline-variant font-label-xs text-label-xs select-none">→</span><a class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="research-prompts" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">2</span><span class="font-body-sm text-body-sm whitespace-nowrap">Research Prompts</span></a><span class="text-outline-variant font-label-xs text-label-xs select-none">→</span><a class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="research-guide" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">3</span><span class="font-body-sm text-body-sm whitespace-nowrap">Research Guide</span></a><span class="text-outline-variant font-label-xs text-label-xs select-none">→</span><a class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="upload-and-parse" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">4</span><span class="font-body-sm text-body-sm whitespace-nowrap">Upload &amp; Parse</span></a><span class="text-outline-variant font-label-xs text-label-xs select-none">→</span><a aria-current="page" class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg transition-all bg-surface-container-high text-primary shadow-[0_0_12px_rgba(148,125,255,0.25)] ring-1 ring-primary/40 font-semibold" data-path="insight-explorer" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">5</span><span class="font-body-sm text-body-sm whitespace-nowrap">Insight Explorer</span></a><span class="text-outline-variant font-label-xs text-label-xs select-none">→</span><a class="group flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all" data-path="build-your-deck" href="#"><span class="w-5 h-5 rounded-full flex items-center justify-center font-label-xs text-label-xs bg-surface-container-high text-on-surface-variant group-hover:text-on-surface">6</span><span class="font-body-sm text-body-sm whitespace-nowrap">Build Your Deck</span></a></nav></div></header><main class="w-full pt-28 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive & State Styles for Dynamic Terminal Workstation -->
+<style>
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px -2px rgba(148, 125, 255, 0.35); }
+      50% { box-shadow: 0 0 32px 2px rgba(148, 125, 255, 0.6); }
+    }
+    .stepper-glow-active {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+  </style>
+<!-- Step Progression Bar Overlay Sync with Shell Step 5 Active -->
+<div class="w-full bg-surface-container-lowest border-b border-surface-container-high/60 px-gutter-lg py-2.5">
+<div class="max-w-7xl mx-auto flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs">
+<div class="flex items-center gap-space-lg flex-wrap">
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-mono text-on-surface">1. INPUT</span>
+</span>
+<span class="text-outline-variant">›</span>
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-mono text-on-surface">2. PROMPTS</span>
+</span>
+<span class="text-outline-variant">›</span>
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-mono text-on-surface">3. GUIDE</span>
+</span>
+<span class="text-outline-variant">›</span>
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-mono text-on-surface">4. PARSE</span>
+</span>
+<span class="text-outline-variant">›</span>
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-primary/10 text-primary ring-1 ring-primary/40 stepper-glow-active">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-mono font-bold tracking-wider">STAGE 5: INSIGHT EXPLORER (ACTIVE)</span>
+</div>
+<span class="text-outline-variant">›</span>
+<span class="flex items-center gap-1.5 opacity-40">
+<span class="font-mono">6. DECK COMPOSE</span>
+</span>
+</div>
+<div class="hidden xl:flex items-center gap-space-md">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Target: <strong class="text-on-surface">Linear Orbit Inc. (Q3 Teardown)</strong></span>
+</span>
+<span class="text-outline-variant">|</span>
+<span class="font-mono text-primary">LIVE INGESTION: 47 NODES OK</span>
+</div>
+</div>
+</div>
+<!-- Primary Workstation Two-Column Grid Area -->
+<div class="w-full px-gutter-lg py-space-xl max-w-[1560px] mx-auto">
+<div class="flex flex-col lg:flex-row gap-gutter-lg items-start">
+<!-- LEFT SIDEBAR: RESEARCH PILLARS & RUNTIME STATS -->
+<aside class="w-full lg:w-72 shrink-0 bg-surface-container-low/95 rounded-xl border border-surface-container-highest/80 shadow-2xl p-space-md backdrop-blur-md flex flex-col gap-space-lg">
+<!-- Sidebar Header -->
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<span class="font-label-xs text-label-xs tracking-widest text-on-surface font-semibold uppercase">Research Pillars</span>
+</div>
+<span class="font-label-xs text-label-xs text-outline bg-surface-container px-2 py-0.5 rounded font-mono">6/6 PARSED</span>
+</div>
+<!-- Pillar Navigation Menu -->
+<nav class="flex flex-col gap-1" id="pillarNav">
+<!-- All Pillars -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary">grid_view</span>
+<span class="font-body-md text-body-md truncate font-medium">All Pillars</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:bg-primary-container/20 group-hover:text-primary">47</span>
+</button>
+<!-- 1. Strategic & Business (Active) -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all bg-primary/10 border-l-[3px] border-tertiary text-on-surface shadow-[0_0_16px_rgba(69,223,164,0.12)]" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_currentColor]"></span>
+<span class="font-body-md text-body-md truncate font-semibold text-on-surface">Strategic &amp; Business</span>
+</div>
+<span class="font-label-xs text-label-xs bg-tertiary/20 text-tertiary border border-tertiary/30 px-2 py-0.5 rounded font-mono font-bold">9</span>
+</button>
+<!-- 2. Market & Competition -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span class="font-body-md text-body-md truncate font-medium">Market &amp; Competition</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:text-on-surface">8</span>
+</button>
+<!-- 3. Target Users & JTBD -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md truncate font-medium">Target Users &amp; JTBD</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:text-on-surface">11</span>
+</button>
+<!-- 4. Architecture & Tech -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="font-body-md text-body-md truncate font-medium">Architecture &amp; Tech</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:text-on-surface">7</span>
+</button>
+<!-- 5. Behavioral Mechanics -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-body-md text-body-md truncate font-medium">Behavioral Mechanics</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:text-on-surface">6</span>
+</button>
+<!-- 6. Defensibility & Ethics -->
+<button class="group flex items-center justify-between px-space-md py-2.5 rounded-lg text-left transition-all hover:bg-surface-container-high/60 text-on-surface-variant hover:text-on-surface" type="button">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-body-md text-body-md truncate font-medium">Defensibility &amp; Ethics</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded font-mono text-on-surface-variant group-hover:text-on-surface">6</span>
+</button>
+</nav>
+<!-- Dynamic Teardown Stats Panel -->
+<div class="mt-space-sm bg-surface-container p-space-md rounded-lg border border-surface-container-highest/90 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-outline font-semibold">Teardown Health</span>
+<span class="font-label-xs text-label-xs text-tertiary font-mono flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary"></span> SYNCHRONIZED
+            </span>
+</div>
+<!-- Micro Analytics Ring & Metric -->
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
+<svg class="w-16 h-16 -rotate-90 transform" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md leading-none text-on-surface font-bold">88<span class="text-[10px] text-tertiary font-normal">%</span></span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">Coverage Score</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-mono mt-0.5">5/6 High Confidence</span>
+<div class="w-full bg-surface-container-highest rounded-full h-1 mt-2 overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-secondary h-1 rounded-full w-[88%]"></div>
+</div>
+</div>
+</div>
+<!-- Key Quantitative Rollups -->
+<div class="grid grid-cols-2 gap-2 pt-space-xs border-t border-surface-container-highest/60">
+<div class="bg-surface-container-low p-2 rounded flex flex-col">
+<span class="font-label-xs text-label-xs text-outline">Total Insights</span>
+<span class="font-label-md text-label-md text-on-surface font-bold font-mono mt-0.5">47</span>
+</div>
+<div class="bg-primary/10 p-2 rounded flex flex-col border border-primary/25">
+<span class="font-label-xs text-label-xs text-primary font-semibold">Selected Deck</span>
+<span class="font-label-md text-label-md text-primary font-bold font-mono mt-0.5" id="selectedDeckCount">12</span>
+</div>
+</div>
+<!-- Framework Cross-Check Indicator -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs pt-1">
+<span class="text-outline">Frameworks Tested:</span>
+<span class="font-mono text-secondary">BMC, 7 Powers, Fogg</span>
+</div>
+</div>
+<!-- Quick Export Utility Mini-Banner -->
+<div class="rounded-lg bg-surface-container-high/40 p-3 border border-surface-container-highest/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">file_download</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Raw JSON Export</span>
+</div>
+<button class="text-primary hover:text-primary-fixed text-label-xs font-mono font-semibold hover:underline" type="button">
+            EXPORT
+          </button>
+</div>
+</aside>
+<!-- MAIN CONTENT: FILTER BAR, METRIC STRIP, AND INSIGHT MASONRY/GRID -->
+<main class="flex-1 w-full min-w-0 flex flex-col">
+<!-- Top Filter & Analytical Control Terminal -->
+<section class="w-full bg-surface-container-low/95 rounded-xl border border-surface-container-highest/80 shadow-xl p-space-md backdrop-blur-md mb-gutter-lg flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Real-time Omnibox Search -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-10 pr-12 rounded-lg bg-surface-container border border-surface-container-highest text-on-surface font-body-sm text-body-sm placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all font-mono" placeholder="Search 47 insights, metrics, quotes, sources..." type="text"/>
+<span class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-label-xs text-label-xs">⌘F</span>
+</div>
+<!-- Sorting & Layout Perspective Toggles -->
+<div class="flex items-center gap-space-sm justify-between sm:justify-end">
+<div class="relative">
+<button class="h-10 px-space-md rounded-lg bg-surface-container border border-surface-container-highest text-on-surface font-body-sm text-body-sm flex items-center gap-2 hover:bg-surface-container-high transition-colors" type="button">
+<span class="text-outline text-label-xs">SORT:</span>
+<span class="font-medium text-on-surface">Highest Confidence</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<!-- View Segment Switcher -->
+<div class="h-10 p-1 rounded-lg bg-surface-container-lowest border border-surface-container-highest/70 flex items-center">
+<button aria-label="Grid View" class="px-2.5 h-full rounded bg-surface-container-high text-primary shadow-sm flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="List View" class="px-2.5 h-full rounded text-outline hover:text-on-surface flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter Pills Matrix -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 pt-1 no-scrollbar border-t border-surface-container-highest/40">
+<button class="shrink-0 px-3 py-1.5 rounded-md font-label-xs text-label-xs font-semibold bg-surface-container-highest text-on-surface ring-1 ring-primary/40 flex items-center gap-1.5 transition-all" type="button">
+<span>All Types</span>
+<span class="bg-surface-container-low px-1.5 py-0.2 rounded font-mono text-primary">47</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-md font-label-xs text-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Metric</span>
+<span class="opacity-60 font-mono">14</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-md font-label-xs text-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Finding</span>
+<span class="opacity-60 font-mono">16</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-md font-label-xs text-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span>Gap</span>
+<span class="opacity-60 font-mono">7</span>
+</button>
+<button class="shrink-0 px-3 py-1.5 rounded-md font-label-xs text-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Recommendation</span>
+<span class="opacity-60 font-mono">10</span>
+</button>
+<div class="ml-auto pl-space-md shrink-0 hidden md:flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-outline font-mono">SHOWING:</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold font-mono">6 CARDS EXPANDED</span>
+</div>
+</div>
+</section>
+<!-- INSIGHT CARD GRID (3-Column Dense Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter-lg items-stretch">
+<!-- CARD 1: Metric (Selected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-primary/50 shadow-lg relative flex flex-col justify-between hover:border-primary hover:-translate-y-1 transition duration-200 bg-gradient-to-br from-primary/5 via-surface-container-low to-surface-container-low">
+<div class="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"></div>
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary/15 text-secondary border border-secondary/30 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">bar_chart</span>
+<span>METRIC</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary text-on-primary font-label-xs text-label-xs font-semibold shadow-sm transition-all hover:bg-primary-fixed" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>In Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-primary-fixed transition-colors">
+                Revenue is primarily enterprise &amp; team seat-based at $12–$15/user/mo
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                Over 73% of ARR comes from paid team expansion beyond the initial 5-seat free tier. Net revenue retention reported at ~135%.
+              </p>
+</div>
+<!-- Quantitative Data Micro-Visualization -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">EXPANSION CONVERSION</span>
+<span class="font-label-md text-label-md text-secondary font-mono font-bold">73.4% ARR</span>
+</div>
+<!-- Micro Bar Sparkline -->
+<div class="flex items-end gap-1 h-7">
+<div class="w-1.5 h-3 bg-secondary/30 rounded-t-sm"></div>
+<div class="w-1.5 h-4 bg-secondary/40 rounded-t-sm"></div>
+<div class="w-1.5 h-5 bg-secondary/60 rounded-t-sm"></div>
+<div class="w-1.5 h-6 bg-secondary/80 rounded-t-sm"></div>
+<div class="w-1.5 h-7 bg-secondary rounded-t-sm"></div>
+</div>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-tertiary flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="text-on-surface ml-1">High Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 1.2 Revenue Streams</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">Business Model Canvas</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary font-mono">Pillar 1</span>
+</div>
+</div>
+</article>
+<!-- CARD 2: Finding (Unselected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-surface-container-highest shadow-lg relative flex flex-col justify-between hover:border-slate-400 hover:-translate-y-1 transition duration-200">
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-tertiary/15 text-tertiary border border-tertiary/30 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+<span>FINDING</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container border border-surface-container-highest text-on-surface font-label-xs text-label-xs font-medium hover:border-primary hover:text-primary transition-all" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]">add</span>
+<span>Add to Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-primary transition-colors">
+                Local-first sync engine achieves sub-50ms UI latency
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                Linear uses an IndexedDB offline-first synchronization architecture that guarantees 0 network latency on keystroke operations.
+              </p>
+</div>
+<!-- Latency Gauge Visual Representation -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">BENCHMARK LATENCY</span>
+<span class="font-label-md text-label-md text-tertiary font-mono font-bold">12ms (IndexedDB)</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-xs text-label-xs text-on-surface font-mono">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary">4.1x vs Jira</span>
+</div>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-tertiary flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="text-on-surface ml-1">High Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 4.1 System Topology</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">Architecture Audit</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary-fixed font-mono">Pillar 4</span>
+</div>
+</div>
+</article>
+<!-- CARD 3: Gap (Selected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-primary/50 shadow-lg relative flex flex-col justify-between hover:border-primary hover:-translate-y-1 transition duration-200 bg-gradient-to-br from-amber-500/5 via-surface-container-low to-surface-container-low">
+<div class="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-80"></div>
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-400/15 text-amber-300 border border-amber-400/30 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>GAP</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary text-on-primary font-label-xs text-label-xs font-semibold shadow-sm transition-all hover:bg-primary-fixed" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>In Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-amber-300 transition-colors">
+                Enterprise compliance (SOC2 Type II, FedRAMP) lagging behind Jira
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                Missing field-level encryption and strict audit retention controls prevent adoption in regulated financial &amp; healthcare sectors.
+              </p>
+</div>
+<!-- Vulnerability Bar Strip -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">ENTERPRISE CHURN RISK</span>
+<span class="font-label-md text-label-md text-amber-300 font-mono font-bold">Moderate Vulnerability</span>
+</div>
+<span class="material-symbols-outlined text-amber-400 text-[20px]">shield_with_heart</span>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-amber-400 flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px] opacity-30">circle</span>
+<span class="text-on-surface ml-1">Medium Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 2.4 Enterprise Barriers</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">Competitive Moat</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-amber-300 font-mono">Pillar 2</span>
+</div>
+</div>
+</article>
+<!-- CARD 4: Recommendation (Selected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-primary/50 shadow-lg relative flex flex-col justify-between hover:border-primary hover:-translate-y-1 transition duration-200 bg-gradient-to-br from-primary-container/10 via-surface-container-low to-surface-container-low">
+<div class="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-80"></div>
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-primary-container/20 text-primary-fixed border border-primary-container/40 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">track_changes</span>
+<span>RECOMMENDATION</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary text-on-primary font-label-xs text-label-xs font-semibold shadow-sm transition-all hover:bg-primary-fixed" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>In Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-primary-fixed transition-colors">
+                Position as Developer Workflow OS via GitHub/Slack bi-directional sync
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                Double down on automated PR branch tracking and command-k integrations to deepen the defensibility moat against Jira Product Discovery.
+              </p>
+</div>
+<!-- Moat Matrix Vector Callout -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">STRATEGIC PLAYBOOK</span>
+<span class="font-label-md text-label-md text-primary-fixed font-mono font-bold">Cornered Resource</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary-fixed font-label-xs text-label-xs font-mono">P0 Priority</span>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-tertiary flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="text-on-surface ml-1">High Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 6.2 Strategic Roadmap</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">7 Powers</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary-fixed-dim font-mono">Pillar 6</span>
+</div>
+</div>
+</article>
+<!-- CARD 5: Finding (Unselected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-surface-container-highest shadow-lg relative flex flex-col justify-between hover:border-slate-400 hover:-translate-y-1 transition duration-200">
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary/15 text-secondary border border-secondary/30 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+<span>FINDING</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container border border-surface-container-highest text-on-surface font-label-xs text-label-xs font-medium hover:border-primary hover:text-primary transition-all" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]">add</span>
+<span>Add to Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-secondary transition-colors">
+                Frictionless keyboard shortcuts drive 4.2x daily session engagement
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                Power users execute 68% of task triage commands strictly via hotkeys (C for create, X for select, CMD+K for action palette).
+              </p>
+</div>
+<!-- Behavioral Hook Strip -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">TRIAGE HOTKEY ADOPTION</span>
+<span class="font-label-md text-label-md text-secondary font-mono font-bold">68.2% Operations</span>
+</div>
+<div class="flex gap-1 font-mono text-[10px] text-on-surface-variant">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant">C</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant">X</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-tertiary flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="text-on-surface ml-1">High Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 5.2 Habit Loops</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">Fogg Behavior Model</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-error font-mono">Pillar 5</span>
+</div>
+</div>
+</article>
+<!-- CARD 6: Metric (Selected) -->
+<article class="group rounded-xl p-5 bg-surface-container-low border border-primary/50 shadow-lg relative flex flex-col justify-between hover:border-primary hover:-translate-y-1 transition duration-200 bg-gradient-to-br from-error/5 via-surface-container-low to-surface-container-low">
+<div class="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-error to-transparent opacity-80"></div>
+<div>
+<!-- Header Strip -->
+<div class="flex items-center justify-between gap-2 mb-3.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-error/15 text-error border border-error/30 font-label-xs text-label-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>METRIC</span>
+</span>
+<button class="deck-btn inline-flex items-center gap-1 px-2.5 py-1 rounded bg-primary text-on-primary font-label-xs text-label-xs font-semibold shadow-sm transition-all hover:bg-primary-fixed" onclick="toggleDeck(this)" type="button">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>In Deck</span>
+</button>
+</div>
+<!-- Main Title -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2.5 group-hover:text-error transition-colors">
+                Product-led viral coefficient estimated at K=1.4 via cross-org guest access
+              </h3>
+<!-- Narrative Extract -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-5">
+                External client tickets and shared roadmaps drive 28% of qualified enterprise inbound pipeline without dedicated outbound sales.
+              </p>
+</div>
+<!-- Viral Loop Metric Card -->
+<div class="mb-4 p-2.5 rounded bg-surface-container border border-surface-container-highest/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-outline font-mono">VIRALITY EXPONENT</span>
+<span class="font-label-md text-label-md text-error font-mono font-bold">K = 1.40 (Organic)</span>
+</div>
+<span class="material-symbols-outlined text-error text-[20px]">hub</span>
+</div>
+<!-- Metadata Footer -->
+<div class="pt-3 border-t border-surface-container-highest/60 flex flex-col gap-2 font-label-xs text-label-xs">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-amber-400 flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="material-symbols-outlined text-[12px] opacity-30">circle</span>
+<span class="text-on-surface ml-1">Medium Confidence</span>
+</span>
+<span class="text-outline font-mono">§ 1.4 Distribution Channels</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono">Viral Loops / PLG</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary font-mono">Pillar 1</span>
+</div>
+</div>
+</article>
+</div>
+<!-- STICKY FLOATING ACTION BAR FOR DECK SYNTHESIS -->
+<div class="sticky bottom-6 z-40 mt-8 w-full">
+<div class="bg-surface-container-high/95 backdrop-blur-xl border border-primary/50 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(148,125,255,0.25)] p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Left Info & Pillar Distribution Indicator -->
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight" id="deckStatusHeadline">
+                    12 Insights Selected for Deck
+                  </span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-mono font-medium">Ready to Synthesize</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pillar Balance:</span>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary" title="Pillar 1: 3 insights"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-400" title="Pillar 2: 2 insights"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary" title="Pillar 3: 2 insights"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed" title="Pillar 4: 2 insights"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-error" title="Pillar 5: 1 insight"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container" title="Pillar 6: 2 insights"></span>
+</div>
+<span class="font-label-xs text-label-xs text-outline font-mono ml-1">6/6 Covered</span>
+</div>
+</div>
+</div>
+<!-- Right Stage Transition CTA -->
+<div class="flex items-center gap-space-md w-full sm:w-auto shrink-0">
+<button class="hidden md:inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-container border border-surface-container-highest text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Preview Deck (12 Slides)</span>
+</button>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-headline-md text-headline-md font-bold shadow-[0_0_24px_rgba(148,125,255,0.45)] hover:bg-primary-fixed hover:shadow-[0_0_32px_rgba(148,125,255,0.7)] transition-all transform active:scale-[0.98]" data-path="build-your-deck" href="#" id="buildDeckBtn">
+<span>Build Your Deck (12 Insights)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Interactive State Engine Script -->
+<script>
+    let selectedCount = 12;
+
+    function toggleDeck(btn) {
+      const card = btn.closest('article');
+      const isSelected = btn.classList.contains('bg-primary');
+
+      if (isSelected) {
+        // Toggle to unselected
+        btn.classList.remove('bg-primary', 'text-on-primary', 'hover:bg-primary-fixed');
+        btn.classList.add('bg-surface-container', 'border', 'border-surface-container-highest', 'text-on-surface', 'hover:border-primary', 'hover:text-primary');
+        btn.innerHTML = `<span class="material-symbols-outlined text-[13px]">add</span><span>Add to Deck</span>`;
+        
+        card.classList.remove('border-primary/50');
+        card.classList.add('border-surface-container-highest');
+        selectedCount = Math.max(0, selectedCount - 1);
+      } else {
+        // Toggle to selected
+        btn.classList.add('bg-primary', 'text-on-primary', 'hover:bg-primary-fixed');
+        btn.classList.remove('bg-surface-container', 'border', 'border-surface-container-highest', 'text-on-surface', 'hover:border-primary', 'hover:text-primary');
+        btn.innerHTML = `<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check</span><span>In Deck</span>`;
+        
+        card.classList.add('border-primary/50');
+        card.classList.remove('border-surface-container-highest');
+        selectedCount += 1;
+      }
+
+      // Update counters in floating bar & sidebar
+      document.getElementById('selectedDeckCount').innerText = selectedCount;
+      document.getElementById('deckStatusHeadline').innerText = `${selectedCount} Insights Selected for Deck`;
+      const ctaBtn = document.getElementById('buildDeckBtn');
+      ctaBtn.querySelector('span:first-child').innerText = `Build Your Deck (${selectedCount} Insights)`;
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-gutter px-gutter-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-label-xs text-label-xs text-outline">PRODUCT DISCOVERY &amp; TEARDOWN ENGINE</span><span class="font-label-xs text-label-xs text-on-surface-variant">v2.4.0</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a><a class="hover:text-on-surface transition-colors" data-path="keyboard-shortcuts" href="#">Shortcuts</a><a class="hover:text-on-surface transition-colors" data-path="system-status" href="#">Status</a></div></footer></body></html>
