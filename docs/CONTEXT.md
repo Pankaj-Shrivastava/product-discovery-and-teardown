@@ -2,7 +2,7 @@
 
 ## What This Project Is
 
-A client-side web application that empowers Product Managers to systematically research any app/product and produce a portfolio-ready teardown document. The tool generates structured deep-search prompts, processes uploaded research, and builds a polished 10-slide teardown deck.
+A client-side React web application that empowers Product Managers to systematically research any app/product and produce a portfolio-ready teardown document. The tool generates structured deep-search prompts, guides users through external AI-powered research, deterministically parses uploaded summary documents, and presents insights in an interactive explorer for the user to build their own presentation deck.
 
 ## Problem Statement
 
@@ -31,7 +31,10 @@ Research is organized into 6 distinct pillars ensuring MECE (Mutually Exclusive,
 | 5. Behavioral Psychology | Hook model, cognitive biases, onboarding psychology | Nir Eyal, Fogg B=MAT, BJ Fogg |
 | 6. Trust, Safety & Ethics | Dark patterns, algorithmic fairness, data governance | Privacy by Design, Ethical Design |
 
-### 3. Legal & Ethical Guardrails
+### 3. Zero LLM Dependency
+The app itself makes **zero AI/LLM API calls**. Prompt generation is pure client-side template composition. Summary document parsing is deterministic (AST-based). Users run prompts in their own AI tools (ChatGPT, Gemini, Claude, Perplexity) and bring back the research as a summary document.
+
+### 4. Legal & Ethical Guardrails
 - **No intellectual property** — No proprietary code, internal documents, or trade secrets
 - **No PII** — No personally identifiable information of any individual
 - **No confidential data** — No leaked financials, internal memos, or NDA-covered material
@@ -39,7 +42,7 @@ Research is organized into 6 distinct pillars ensuring MECE (Mutually Exclusive,
 - **Public images only** — Screenshots from app stores, marketing sites, public demos
 - **Attribution** — Sources cited where applicable
 
-### 4. Portfolio-Ready Output
+### 5. Portfolio-Ready Output
 The final teardown follows McKinsey's Pyramid Principle + PM portfolio best practices:
 - Maximum 10 slides (signal over noise)
 - Minimum 14pt text (readability)
@@ -50,47 +53,68 @@ The final teardown follows McKinsey's Pyramid Principle + PM portfolio best prac
 ## Application Architecture
 
 ### Technology
-- **Pure Client-Side**: HTML5 + Vanilla CSS3 + Modern ES6+ JavaScript (no build step required)
-- **BYOK (Bring Your Own Key) LLM Integration**:
-  - Connects directly from user's browser to AI providers: OpenAI, Google Gemini, Anthropic Claude, and Groq.
-  - Zero server overhead: 100% private, credentials stored only in the user's `localStorage` or session memory.
-  - No API key required for Stage 1 & 2 (prompt generation is pure client-side framework synthesis).
-  - Offline extractive summary fallback if no LLM key is configured.
-- **PDF Parsing**: pdf.js (Mozilla, in-browser client-side PDF document parsing)
+- **Framework**: React 19 + TypeScript + Vite
+- **Styling**: Tailwind CSS v4 + shadcn/ui components
+- **State Management**: React Context + useReducer
+- **Routing**: React Router v7
+- **Animations**: Framer Motion
+- **Summary Doc Parsing**: unified + remark + rehype (deterministic Markdown AST parser)
+- **File Upload**: react-dropzone (drag & drop)
 - **PPT Generation**: PptxGenJS (client-side PowerPoint presentation generation)
 - **PDF Export**: jsPDF + html2canvas (client-side slide deck to PDF export)
-- **Hosting**: 100% static file compatible (GitHub Pages, Vercel, Netlify) with zero backend infrastructure needed.
+- **Hosting**: 100% static SPA — Vercel (primary), GitHub Pages (fallback)
+
+### Security Decision: No BYOK
+
+This application intentionally does **NOT** implement Bring Your Own Key (BYOK) LLM integration. Reasons:
+
+1. **XSS vulnerability**: API keys stored in `localStorage` are accessible to any XSS attack or malicious browser extension
+2. **Supply-chain risk**: Any npm dependency can silently read `localStorage` and exfiltrate API keys
+3. **Network interception**: Keys sent in browser HTTP headers are vulnerable to MITM via compromised proxies or networks
+4. **No revocation control**: No server-side mechanism to detect abuse or revoke compromised keys
+5. **Not needed**: Stages 1-2 are pure template synthesis. For research, users use their own AI tool interfaces directly.
+
+Instead, the app guides users to run prompts in their preferred AI tool's own interface (ChatGPT, Gemini, Claude, Perplexity), which handles authentication and security properly.
 
 ### User Flow
 
 ```
 ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
 │   Stage 1    │     │   Stage 2    │     │   Stage 3    │
-│   INPUT      │────▶│   PROMPTS    │────▶│   UPLOAD &   │
-│   Product    │     │   Generate 6 │     │   SUMMARIZE  │
-│   Name       │     │   prompts    │     │   Research   │
+│   INPUT      │────▶│   PROMPTS    │────▶│   RESEARCH   │
+│   Product    │     │   Generate 6 │     │   GUIDE      │
+│   Name +     │     │   prompts    │     │   How to use │
+│   Context    │     │              │     │   AI tools   │
 └──────────────┘     └──────────────┘     └──────┬───────┘
                                                   │
-┌──────────────┐     ┌──────────────┐             │
-│   Stage 5    │     │   Stage 4    │             │
-│   TEARDOWN   │◀────│   BRAINSTORM │◀────────────┘
-│   Generate   │     │   & SCOPE    │
-│   10 slides  │     │   Finalize   │
-└──────────────┘     └──────────────┘
+┌──────────────┐     ┌──────────────┐     ┌──────▼───────┐
+│   Stage 6    │     │   Stage 5    │     │   Stage 4    │
+│   BUILD      │◀────│   INSIGHT    │◀────│   UPLOAD &   │
+│   YOUR DECK  │     │   EXPLORER   │     │   PARSE      │
+│   Select,    │     │   Interactive │     │   Summary    │
+│   Reorder,   │     │   insight    │     │   Doc        │
+│   Export     │     │   presentation│    │   Drag&Drop  │
+└──────────────┘     └──────────────┘     └──────────────┘
 ```
 
 ### Key Stage Details
 
-**Stage 3 — Summary Generation**: After uploading up to 6 research PDFs, the app extracts content and generates a unified summary document organized by research pillar. This summary becomes the foundation for all downstream work.
+**Stage 1 — Product Input**: User enters the product name, company name, and selects category (e.g., Social, Productivity, E-commerce), platform type (Mobile, Web, Desktop, Cross-platform), and business model (B2C, B2B, Marketplace). These inputs personalize the generated prompts.
 
-**Stage 4 — Brainstorm & Scope**: An interactive panel where users review summary highlights, toggle sections to include/exclude from the teardown, add custom sections, and reorder via drag-and-drop. This ensures the user has full creative control over what goes into the final deck.
+**Stage 2 — Prompt Generation**: The app composes 6 deep-research prompts by weaving the product context into the SKILL.md templates. Each prompt is framework-backed, lens-comprehensive, and includes ethical guardrails. Users copy prompts with one click.
 
-**Stage 5 — Teardown Generation**: The scoped content is mapped into the 10-slide McKinsey framework, formatted with action titles, public images, and clean visual design. Downloadable as PPTX and PDF.
+**Stage 3 — Research Guide**: An in-app guide showing users how to paste prompts into ChatGPT, Gemini, Claude, or Perplexity, run the research, and compile a summary document. Includes a downloadable summary template and a recommended workflow using Google NotebookLM for synthesis.
+
+**Stage 4 — Upload & Parse**: Users drag-and-drop their summary document (Markdown or plain text). The app deterministically parses it into structured insights using AST-based Markdown parsing, fuzzy header-to-pillar mapping, and framework detection.
+
+**Stage 5 — Insight Explorer**: A beautiful, interactive presentation of parsed insights organized by pillar. Features masonry card layout, pillar sidebar navigation, filtering by type/confidence/framework, full-text search, and one-click selection for the deck. This is the hero UX experience of the app.
+
+**Stage 6 — Build Your Deck**: Users select insights from the explorer, reorder them via drag-and-drop into a 10-slide structure, customize titles and layouts, choose a color theme, and export as PPTX or PDF.
 
 ## 10-Slide Teardown Structure
 
 | # | Slide | Purpose |
-|---|-------|---------|
+|---|-------|---------| 
 | 1 | Title & Thesis | Product name, one-line thesis, author, date |
 | 2 | Executive Summary | Core verdict, 3 key findings, strategic implication |
 | 3 | Business Model & Market | Revenue model, TAM/SAM, competitive 2×2 matrix |
@@ -125,7 +149,8 @@ Each skill contains PM frameworks, structured prompt templates, and evaluation c
 product-discovery-and-teardown/
 ├── docs/
 │   ├── CONTEXT.md              ← This file
-│   └── PROJECT_PLAN.md         ← Detailed project plan
+│   ├── architecture.md         ← Full system architecture
+│   └── implementation-plan.md  ← Phased implementation plan
 ├── skills/
 │   ├── product-strategic-research/
 │   │   └── SKILL.md
@@ -143,11 +168,24 @@ product-discovery-and-teardown/
 │   │   └── SKILL.md
 │   └── teardown-visual-assets/
 │       └── SKILL.md
-├── src/                        ← Web application source
-│   ├── index.html
-│   ├── css/
-│   ├── js/
-│   └── assets/
+├── src/
+│   ├── main.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   ├── components/
+│   ├── pages/
+│   ├── lib/
+│   ├── context/
+│   ├── types/
+│   └── data/
+├── plugins/
+│   └── vite-plugin-skills/
+├── public/
+├── index.html
+├── vite.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+├── package.json
 ├── LICENSE
 └── README.md
 ```

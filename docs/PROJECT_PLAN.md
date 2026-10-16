@@ -1,14 +1,14 @@
-# 🔬 Product Discovery & Teardown — Project Plan (v2)
+# 🔬 Product Discovery & Teardown — Project Plan (v3)
 
 ## Overview
 
-A web application + skill system that helps a Product Manager perform **structured deep research** on any app/product, generate **targeted AI prompts** across multiple research lenses, and ultimately produce a **polished teardown document** for their portfolio.
+A **100% client-side React web application** that helps Product Managers perform **structured deep research** on any app/product, generate **targeted AI prompts** across 6 research pillars, and build a **polished teardown presentation** for their portfolio — all without any backend, API keys, or LLM integration.
 
 ### Core Workflow
 ```
-Input Product Name → Generate Prompts (6 pillars) → Copy & Research in AI Tools
-→ Upload Research PDFs → Generate Summary Document → Brainstorm Teardown Scope
-→ Generate 10-Slide Teardown Deck → Download PPTX + PDF → Add to Portfolio
+Input Product Name → Generate 6 Research Prompts → Copy & Research in AI Tools
+→ Create Summary Doc (guided) → Upload & Parse Summary → Explore Insights
+→ Build Your Deck → Download PPTX + PDF → Add to Portfolio
 ```
 
 ### Legal & Ethical Guardrails
@@ -18,6 +18,9 @@ Input Product Name → Generate Prompts (6 pillars) → Copy & Research in AI To
 - ✅ **Public information only** — All research based on publicly available sources
 - ✅ **Public images only** — Screenshots from app stores, marketing sites, and public demos
 - ✅ **Attribution** — Sources cited where applicable
+
+### Security Decision: No BYOK
+This project intentionally avoids Bring Your Own Key (BYOK) LLM integration due to browser-side security risks (XSS key exposure, supply-chain attacks, network interception). Users run prompts in their own AI tools externally.
 
 ---
 
@@ -126,7 +129,7 @@ All research organized into **6 Pillars**, each generating its own deep-search p
 ### Teardown Production Skills
 
 | # | Skill Name | Purpose |
-|---|-----------|---------|
+|---|-----------|---------| 
 | 7 | `teardown-design-theme` | Analyze the app's design language, extract brand colors/fonts, apply to teardown deck |
 | 8 | `teardown-visual-assets` | Guide downloading public screenshots/images, organize into slide-ready library |
 
@@ -134,88 +137,101 @@ All research organized into **6 Pillars**, each generating its own deep-search p
 
 ## 🌐 Web Application Architecture
 
-### Revised User Flow (5 Stages)
+### Revised User Flow (6 Stages)
 
 ```
 Stage 1: INPUT
 ┌─────────────────────────────────────────┐
 │  Enter Product/App Name                 │
-│  [Start Research →]                     │
+│  Select category, platform, biz model   │
+│  [Generate Research Prompts →]          │
 └──────────────────┬──────────────────────┘
                    │
 Stage 2: PROMPT GENERATION
 ┌──────────────────▼──────────────────────┐
 │  6 Research Prompt Cards                │
-│  Each with [Generate] [Copy 📋] [Edit]  │
+│  Each with [Copy 📋] [Preview] [Edit]   │
 │  ┌─────┐ ┌─────┐ ┌─────┐              │
 │  │ P1  │ │ P2  │ │ P3  │              │
 │  └─────┘ └─────┘ └─────┘              │
 │  ┌─────┐ ┌─────┐ ┌─────┐              │
 │  │ P4  │ │ P5  │ │ P6  │              │
 │  └─────┘ └─────┘ └─────┘              │
+│  [Copy All] [Download .md]              │
 └──────────────────┬──────────────────────┘
                    │
-Stage 3: UPLOAD & SUMMARIZE
+Stage 3: RESEARCH GUIDE
 ┌──────────────────▼──────────────────────┐
-│  Upload Research PDFs (up to 6)         │
-│  [Upload] [Upload] [Upload] ...         │
+│  How to Use Your Prompts                │
+│  ┌────────┐ ┌────────┐ ┌────────┐      │
+│  │ChatGPT │ │ Gemini │ │ Claude │      │
+│  └────────┘ └────────┘ └────────┘      │
+│  ┌────────┐                             │
+│  │Perplxty│  Pro: Use NotebookLM to     │
+│  └────────┘  synthesize all 6 outputs   │
 │                                         │
-│  [Generate Summary Document →]          │
-│  Preview & download full summary        │
+│  [📥 Download Summary Template]          │
+│  [Continue to Upload →]                 │
 └──────────────────┬──────────────────────┘
                    │
-Stage 4: BRAINSTORM & SCOPE
+Stage 4: UPLOAD & PARSE
 ┌──────────────────▼──────────────────────┐
-│  Interactive Brainstorm Panel           │
-│                                         │
-│  Summary highlights displayed           │
-│  Suggested teardown sections            │
-│  [Include] [Exclude] toggles per topic  │
-│  Add custom sections                    │
-│  Reorder via drag & drop               │
-│                                         │
-│  [Finalize Scope →]                     │
+│  ┌──────────────────────────────────┐   │
+│  │                                  │   │
+│  │   Drag & drop your summary      │   │
+│  │   document here (.md or .txt)    │   │
+│  │                                  │   │
+│  └──────────────────────────────────┘   │
+│  Parse progress → pillar mapping →      │
+│  confidence scoring                     │
+│  [Explore Insights →]                   │
 └──────────────────┬──────────────────────┘
                    │
-Stage 5: TEARDOWN GENERATION
+Stage 5: INSIGHT EXPLORER
 ┌──────────────────▼──────────────────────┐
-│  10-Slide Teardown Preview              │
-│  ┌──────────────────────────────┐       │
-│  │  Slide 1/10  [◀] [▶]        │       │
-│  │  ┌────────────────────────┐  │       │
-│  │  │                        │  │       │
-│  │  │    Slide Preview       │  │       │
-│  │  │                        │  │       │
-│  │  └────────────────────────┘  │       │
-│  └──────────────────────────────┘       │
-│                                         │
+│  ┌─────────┬───────────────────────┐    │
+│  │ PILLARS │  Insight Cards Grid   │    │
+│  │ ● Strat │  ┌─────┐ ┌─────┐     │    │
+│  │ ○ Markt │  │Card │ │Card │     │    │
+│  │ ○ Users │  └─────┘ └─────┘     │    │
+│  │ ○ Tech  │  ┌─────┐ ┌─────┐     │    │
+│  │ ○ Behav │  │Card │ │Card │     │    │
+│  │ ○ Ethcs │  └─────┘ └─────┘     │    │
+│  │─────────│                       │    │
+│  │ 47 total│  Filter | Search     │    │
+│  │ 12 sel. │  [+ Add to Deck]     │    │
+│  └─────────┴───────────────────────┘    │
+│  [Build Your Deck →]                    │
+└──────────────────┬──────────────────────┘
+                   │
+Stage 6: BUILD YOUR DECK
+┌──────────────────▼──────────────────────┐
+│  ┌────────────┬────────────────────┐    │
+│  │ Slide List │  Slide Preview     │    │
+│  │ (drag to   │  ┌──────────────┐  │    │
+│  │  reorder)  │  │              │  │    │
+│  │            │  │  Live WYSIWYG│  │    │
+│  │ 1. Title   │  │  Preview     │  │    │
+│  │ 2. Summary │  │              │  │    │
+│  │ 3. Market  │  └──────────────┘  │    │
+│  │ ...        │                    │    │
+│  └────────────┴────────────────────┘    │
 │  [Download PPTX] [Download PDF]         │
 └─────────────────────────────────────────┘
 ```
 
 ### Tech Stack
-- **Frontend**: HTML5 + Vanilla CSS3 + Modern JavaScript (ES Modules, zero heavy frameworks)
-- **BYOK LLM Engine**: Direct client-to-API calls for 4 major providers:
-  - **OpenAI**: `https://api.openai.com/v1/chat/completions` (GPT-4o, GPT-4o-mini)
-  - **Google Gemini**: `https://generativelanguage.googleapis.com/v1beta/models/...:generateContent` (Gemini 2.0 Flash, Gemini 1.5 Pro)
-  - **Anthropic Claude**: `https://api.anthropic.com/v1/messages` (Claude 3.5 Sonnet with direct browser header)
-  - **Groq**: `https://api.groq.com/openai/v1/chat/completions` (Llama 3.3 70B, ultra-fast low latency)
-- **PDF Parsing**: pdf.js (Mozilla, 100% client-side in-browser text extraction)
+- **Framework**: React 19 + TypeScript + Vite
+- **Styling**: Tailwind CSS v4 + shadcn/ui
+- **State**: React Context + useReducer
+- **Routing**: React Router v7
+- **Animations**: Framer Motion
+- **Markdown Parsing**: unified + remark + rehype
+- **File Upload**: react-dropzone
+- **Drag & Drop**: @dnd-kit/core
 - **PPT Generation**: PptxGenJS (client-side PPTX synthesis)
 - **PDF Export**: jsPDF + html2canvas (client-side slide-to-PDF rendering)
-- **Styling**: Premium dark aesthetic, glassmorphism, fluid responsive layouts, micro-interactions
-
----
-
-## 🔐 Bring Your Own Key (BYOK) Architecture
-
-To allow zero-cost hosting, open deployment, and complete privacy:
-1. **Zero Server Footprint**: The application has NO backend server. It can be hosted on GitHub Pages, Vercel, or Netlify as a static site.
-2. **Local Key Storage**: API keys are saved exclusively in the user's browser `localStorage` (or session-only memory if user prefers). Keys NEVER touch any intermediate server or proxy.
-3. **Multi-Provider Switcher**: Users can seamlessly switch between OpenAI, Google Gemini, Anthropic Claude, and Groq based on available quota and preferences.
-4. **Key Validation & Test**: Built-in test ping to verify credentials and connectivity before initiating summary generation.
-5. **No Key Required for Prompts**: Stage 1 & Stage 2 (Prompt Generation) work 100% without any API key, allowing users to copy prompts into ChatGPT/Claude web interfaces freely.
-6. **Heuristic Offline Fallback**: If no key is entered during Stage 3, a rule-based extractive summary is generated so users can still preview the workflow.
+- **Deployment**: Vercel (primary), GitHub Pages (fallback)
 
 ---
 
@@ -235,7 +251,7 @@ Based on McKinsey Pyramid Principle + PM Portfolio best practices.
 ### Slide Structure
 
 | Slide | Title Pattern | Content |
-|-------|--------------|---------|
+|-------|--------------|---------| 
 | **1** | Title & Thesis | Product name, one-line thesis, your name, date |
 | **2** | Executive Summary | Core verdict, 3 key findings, strategic implication |
 | **3** | Business Model & Market | Revenue model, TAM/SAM, competitive 2×2 matrix |
@@ -251,39 +267,64 @@ Based on McKinsey Pyramid Principle + PM Portfolio best practices.
 
 ## 📋 Implementation Phases
 
-### Phase 1: Foundation
-- [x] Project plan and architecture (v2)
-- [x] Create CONTEXT.md document
-- [x] Create all 8 skills with SKILL.md files
-- [ ] Set up web app structure (HTML/CSS/JS) with BYOK Settings Modal
+### Phase 0: Scaffolding
+- [ ] Vite + React + TypeScript + Tailwind v4 project setup
+- [ ] shadcn/ui initialization
+- [ ] React Router setup with 6 stage routes
+- [ ] App shell with header, progress bar, page transitions
 
-### Phase 2: Prompt Engine
-- [ ] Implement all 6 pillar prompt generators
-- [ ] Copy-to-clipboard and edit functionality
-- [ ] Prompt preview with syntax highlighting & filter tags
+### Phase 1: Product Input (Stage 1)
+- [ ] Product name and company input form
+- [ ] Category, platform, business model selectors
+- [ ] Validation and navigation to Stage 2
 
-### Phase 3: BYOK LLM & Research Upload
-- [ ] Direct client LLM connectors (OpenAI, Gemini, Claude, Groq)
-- [ ] PDF upload and parsing with pdf.js
-- [ ] LLM-powered summary document generation from uploaded research
-- [ ] Summary preview and download (Markdown & plain text)
+### Phase 2: Skills Data Pipeline
+- [ ] Vite plugin or build script to parse SKILL.md → JSON
+- [ ] TypeScript types for skill data
+- [ ] Validation of all 6 skills loaded
 
-### Phase 4: Brainstorm & Scope
-- [ ] Interactive brainstorm panel
-- [ ] Section include/exclude toggles
-- [ ] Custom section addition
-- [ ] Drag-and-drop reordering
+### Phase 3: Prompt Composition Engine
+- [ ] Template interpolation with product context
+- [ ] Lens question injection into prompt templates
+- [ ] Category/platform-aware filtering
+- [ ] Cross-pillar deduplication
 
-### Phase 5: Teardown Generator
-- [ ] 10-slide builder following McKinsey framework
-- [ ] PPTX generation with PptxGenJS (14pt min text)
+### Phase 4: Prompt Generation UI (Stage 2)
+- [ ] 6-card prompt grid with copy/preview/edit
+- [ ] Full prompt preview modal
+- [ ] Batch actions (copy all, download)
+- [ ] Transition to Stage 3
+
+### Phase 5: Research Guide (Stage 3)
+- [ ] AI tool recommendation cards
+- [ ] Summary document template download
+- [ ] NotebookLM synthesis workflow guide
+- [ ] Example summary (collapsible)
+
+### Phase 6: Upload & Parse (Stage 4)
+- [ ] Drag-and-drop file upload (react-dropzone)
+- [ ] Deterministic Markdown parser (remark AST)
+- [ ] Fuzzy header-to-pillar mapping
+- [ ] Insight extraction and confidence scoring
+
+### Phase 7: Insight Explorer (Stage 5)
+- [ ] Pillar sidebar navigation
+- [ ] Masonry insight card grid
+- [ ] Card types (finding, metric, gap, recommendation, framework)
+- [ ] Filtering, search, selection for deck
+
+### Phase 8: Deck Builder (Stage 6)
+- [ ] Drag-and-drop slide reordering
+- [ ] Live slide preview
+- [ ] Theme selection
+- [ ] PPTX generation with PptxGenJS
 - [ ] PDF export
-- [ ] Public image integration
 
-### Phase 6: Polish
-- [ ] Premium UI with animations
-- [ ] Responsive design
-- [ ] Error handling and edge cases
+### Phase 9: Polish & Deploy
+- [ ] Performance optimization
+- [ ] Accessibility audit
+- [ ] Vercel deployment
+- [ ] README and documentation
 
 ---
 
@@ -291,24 +332,24 @@ Based on McKinsey Pyramid Principle + PM Portfolio best practices.
 
 ```mermaid
 graph TD
-    A["Enter Product Name"] --> B["Generate 6 Research Prompts"]
+    A["Enter Product Name + Context"] --> B["Generate 6 Research Prompts"]
     B --> C1["Prompt 1: Strategic"]
     B --> C2["Prompt 2: Market"]
     B --> C3["Prompt 3: Users"]
     B --> C4["Prompt 4: Technical"]
     B --> C5["Prompt 5: Behavioral"]
     B --> C6["Prompt 6: Ethics"]
-    C1 --> D["Paste in AI Tools & Research"]
+    C1 --> D["Research Guide: Paste in AI Tools"]
     C2 --> D
     C3 --> D
     C4 --> D
     C5 --> D
     C6 --> D
-    D --> E["Upload Research PDFs"]
-    E --> F["Generate Summary Document"]
-    F --> G["Brainstorm Teardown Scope"]
-    G --> H["Finalize 10-Slide Structure"]
-    H --> I["Generate Teardown Deck"]
+    D --> E["Create Summary Doc"]
+    E --> F["Upload & Parse Summary"]
+    F --> G["Explore Insights"]
+    G --> H["Select Insights for Deck"]
+    H --> I["Build & Customize Deck"]
     I --> J1["Download PPTX"]
     I --> J2["Download PDF"]
     J1 --> K["Add to Portfolio 🎯"]
