@@ -1,32 +1,132 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Sparkles, ArrowRight, ShieldCheck, Cpu, Target, Compass, Terminal } from 'lucide-react'
+import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  ArrowRight,
+  ShieldCheck,
+  CheckCircle2,
+  AlertTriangle,
+  Layers,
+  Info,
+  AlertCircle,
+} from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { PageTransition } from '../components/layout/PageTransition'
 import { PILLARS } from '../lib/constants'
+import { ProductInput } from '../types'
+import { ProductNameInput } from '../components/product-input/ProductNameInput'
+import { CompanyNameInput } from '../components/product-input/CompanyNameInput'
+import { CategorySelector } from '../components/product-input/CategorySelector'
+import { PlatformSelector } from '../components/product-input/PlatformSelector'
+import { BusinessModelSelector } from '../components/product-input/BusinessModelSelector'
+import { AdditionalContext } from '../components/product-input/AdditionalContext'
+import { QuickPresets } from '../components/product-input/QuickPresets'
 
 export const Stage1_ProductInput: React.FC = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const { state, dispatch } = useApp()
 
-  const handleNext = () => {
+  const [touched, setTouched] = useState<{
+    name?: boolean
+    companyName?: boolean
+  }>({})
+  const [shakeTrigger, setShakeTrigger] = useState(0)
+
+  // Redirect notification message if coming from unauthorized Stage 2 direct access
+  const redirectMessage = (location.state as { message?: string } | null)?.message
+
+  const isNameValid = state.product.name.trim().length >= 2
+  const isCompanyValid = state.product.companyName.trim().length >= 1
+  const isFormValid = isNameValid && isCompanyValid
+
+  const getNameError = (): string | undefined => {
+    if (!state.product.name.trim()) {
+      return 'Product name is required'
+    }
+    if (state.product.name.trim().length < 2) {
+      return 'Enter the full product name (minimum 2 characters)'
+    }
+    return undefined
+  }
+
+  const getCompanyError = (): string | undefined => {
+    if (!state.product.companyName.trim()) {
+      return 'Company or maker name is required'
+    }
+    return undefined
+  }
+
+  const handleUpdate = (field: keyof ProductInput, value: unknown) => {
+    dispatch({
+      type: 'SET_PRODUCT',
+      payload: { [field]: value },
+    })
+  }
+
+  const handleSelectPreset = (preset: ProductInput) => {
+    dispatch({
+      type: 'SET_PRODUCT',
+      payload: preset,
+    })
+    setTouched({ name: true, companyName: true })
+  }
+
+  const handleSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault()
+
+    setTouched({ name: true, companyName: true })
+
+    if (!isFormValid) {
+      setShakeTrigger((prev) => prev + 1)
+      return
+    }
+
     dispatch({ type: 'COMPLETE_STAGE', payload: 1 })
     navigate('/prompts')
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    // If Enter is pressed outside textarea, attempt submit
+    if (e.key === 'Enter' && (e.target as HTMLElement).tagName !== 'TEXTAREA') {
+      e.preventDefault()
+      handleSubmit()
+    }
+  }
+
+  // Count filled fields for completion progress
+  const requiredCount = 2
+  const filledRequiredCount = (isNameValid ? 1 : 0) + (isCompanyValid ? 1 : 0)
+  const isAllFilled = isFormValid
+
   return (
     <PageTransition>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col items-center">
+      <div
+        className="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full flex flex-col items-center"
+        onKeyDown={handleKeyDown}
+      >
+        {/* Direct access redirect alert message if present */}
+        {redirectMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full mb-4 px-4 py-3 rounded-xl bg-[#FBBF24]/10 border border-[#FBBF24]/40 text-[#FBBF24] text-xs flex items-center gap-2.5 shadow-lg"
+          >
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span className="font-medium">{redirectMessage}</span>
+          </motion.div>
+        )}
+
         {/* Stage Tracker Pill */}
-        <div className="flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#1C2237] border border-[#2A3150] text-xs font-mono text-[#CABEFF]">
+        <div className="flex items-center gap-2 mb-4 px-3.5 py-1 rounded-full bg-[#1C2237] border border-[#2A3150] text-xs font-mono text-[#CABEFF] shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#7C5CFC] animate-ping" />
           <span>STAGE 01 / 06 : SPECIFICATION</span>
           <span className="text-[#2A3150]">•</span>
-          <span className="text-[#34D399]">PRODUCT INGESTION</span>
+          <span className="text-[#34D399] font-medium">PRODUCT INGESTION</span>
         </div>
 
         {/* Hero Section */}
-        <div className="text-center max-w-2xl mb-8 flex flex-col items-center">
+        <div className="text-center max-w-xl mb-8 flex flex-col items-center">
           <div className="mb-4 relative group">
             <div className="absolute -inset-1.5 bg-gradient-to-r from-[#7C5CFC] via-[#38BDF8] to-[#34D399] rounded-2xl blur-md opacity-35 group-hover:opacity-60 transition duration-500" />
             <img
@@ -35,88 +135,239 @@ export const Stage1_ProductInput: React.FC = () => {
               className="relative w-16 h-16 rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
             />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3">
-            Discover any product like a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C5CFC] via-[#CABEFF] to-[#38BDF8]">Pro PM</span>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+            Discover any product like a{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C5CFC] via-[#CABEFF] to-[#38BDF8]">
+              Pro PM
+            </span>
           </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-[#7C5CFC] to-[#38BDF8] rounded-full mx-auto mb-3 shadow-[0_0_12px_rgba(124,92,252,0.5)]" />
-          <p className="text-sm sm:text-base text-[#8B93B0]">
+          <p className="text-sm sm:text-base text-[#8B93B0] leading-relaxed">
             Generate framework-backed research prompts across 6 strategic pillars, guide multi-LLM teardowns, and synthesize insights into presentation decks.
           </p>
         </div>
 
-        {/* Ingestion Preview Card */}
-        <div className="w-full glass-panel-elevated rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-          {/* Card Header Meta */}
-          <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#2A3150]/60">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#34D399] shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-white">
-                Active Product Target: {state.product.name || 'Not Configured'}
+        {/* Curated Presets Bar */}
+        <div className="w-full mb-6">
+          <QuickPresets
+            onSelectPreset={handleSelectPreset}
+            currentName={state.product.name}
+          />
+        </div>
+
+        {/* Main Product Input Form Card */}
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className={`w-full rounded-2xl p-5 sm:p-8 relative transition-all duration-300 border ${
+            isAllFilled
+              ? 'glass-panel-elevated ring-1 ring-[#7C5CFC]/30 shadow-[0_16px_48px_-12px_rgba(124,92,252,0.25)]'
+              : 'glass-panel'
+          }`}
+        >
+          {/* Card Dynamic Status Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#2A3150]/70 gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <span
+                className={`w-2.5 h-2.5 rounded-full shrink-0 transition-all duration-300 ${
+                  isAllFilled
+                    ? 'bg-[#34D399] shadow-[0_0_10px_rgba(52,211,153,0.8)]'
+                    : 'bg-[#FBBF24] shadow-[0_0_8px_rgba(251,191,36,0.6)] animate-pulse'
+                }`}
+              />
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-white truncate">
+                {isAllFilled ? (
+                  <span
+                    className="flex items-center gap-1.5 truncate max-w-xs sm:max-w-md"
+                    title={`${state.product.name} (${state.product.companyName})`}
+                  >
+                    <span className="text-white font-semibold truncate">
+                      Target:{' '}
+                      {state.product.name.length > 40
+                        ? `${state.product.name.slice(0, 40)}...`
+                        : state.product.name}
+                    </span>
+                    <span className="text-[#8B93B0] font-normal truncate">
+                      (
+                      {state.product.companyName.length > 30
+                        ? `${state.product.companyName.slice(0, 30)}...`
+                        : state.product.companyName}
+                      )
+                    </span>
+                  </span>
+                ) : (
+                  <span>Specify Product Target</span>
+                )}
               </span>
             </div>
-            <span className="text-[11px] font-mono text-[#8B93B0] bg-[#131827] px-2.5 py-0.5 rounded border border-[#2A3150]">
-              PRECISION CALIBRATED
-            </span>
-          </div>
 
-          {/* Quick Context Summary */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="p-4 rounded-xl bg-[#131827] border border-[#2A3150]">
-              <div className="text-xs text-[#8B93B0] font-mono mb-1">01. PRODUCT</div>
-              <div className="text-base font-semibold text-white">{state.product.name}</div>
-              <div className="text-xs text-[#8B93B0] mt-0.5">{state.product.companyName}</div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#131827] border border-[#2A3150]">
-              <div className="text-xs text-[#8B93B0] font-mono mb-1">02. CATEGORY &amp; MODEL</div>
-              <div className="text-base font-semibold text-white">{state.product.category}</div>
-              <div className="text-xs text-[#8B93B0] mt-0.5">{state.product.businessModel} • {state.product.platform}</div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#131827] border border-[#2A3150]">
-              <div className="text-xs text-[#8B93B0] font-mono mb-1">03. ACTIVE PROTOCOLS</div>
-              <div className="text-base font-semibold text-[#34D399]">6 Strategic Pillars</div>
-              <div className="text-xs text-[#8B93B0] mt-0.5">AST Parser Engine Ready</div>
+            <div className="flex items-center gap-2 shrink-0">
+              <span
+                className={`text-[11px] font-mono px-2.5 py-0.5 rounded border transition-colors ${
+                  isAllFilled
+                    ? 'bg-[#34D399]/15 text-[#34D399] border-[#34D399]/40 font-semibold'
+                    : 'bg-[#131827] text-[#8B93B0] border-[#2A3150]'
+                }`}
+              >
+                {isAllFilled
+                  ? 'READY TO GENERATE'
+                  : `${filledRequiredCount}/${requiredCount} REQUIRED FIELDS`}
+              </span>
             </div>
           </div>
 
-          {/* Pillar Grid Preview */}
-          <div className="mb-6">
-            <div className="text-xs font-mono text-[#8B93B0] uppercase tracking-wider mb-3">
-              Included Research Pillars
+          {/* Form Fields Stack */}
+          <div className="flex flex-col gap-6">
+            {/* 1.1 Product Name Input */}
+            <ProductNameInput
+              value={state.product.name}
+              onChange={(val) => handleUpdate('name', val)}
+              onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+              error={getNameError()}
+              touched={touched.name}
+              shakeTrigger={shakeTrigger}
+            />
+
+            {/* 1.1 Company Name Input */}
+            <CompanyNameInput
+              value={state.product.companyName}
+              onChange={(val) => handleUpdate('companyName', val)}
+              onBlur={() => setTouched((prev) => ({ ...prev, companyName: true }))}
+              error={getCompanyError()}
+              touched={touched.companyName}
+              shakeTrigger={shakeTrigger}
+            />
+
+            {/* 1.1 Category Selector */}
+            <CategorySelector
+              value={state.product.category}
+              onChange={(val) => handleUpdate('category', val)}
+            />
+
+            {/* 1.1 Platform Selector */}
+            <PlatformSelector
+              value={state.product.platform}
+              onChange={(val) => handleUpdate('platform', val)}
+            />
+
+            {/* 1.1 Business Model Selector */}
+            <BusinessModelSelector
+              value={state.product.businessModel}
+              onChange={(val) => handleUpdate('businessModel', val)}
+            />
+
+            {/* 1.1 Additional Context (Optional) */}
+            <div className="flex flex-col gap-2">
+              <AdditionalContext
+                value={state.product.additionalContext}
+                onChange={(val) => handleUpdate('additionalContext', val)}
+              />
+
+              {/* Edge Case: Unknown/Niche Product Guidance Tip */}
+              <div className="p-3 rounded-xl bg-[#131827]/70 border border-[#2A3150]/60 flex items-start gap-2.5 text-xs text-[#8B93B0]">
+                <Info className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  <span className="text-white font-medium">Early-stage or niche product?</span>{' '}
+                  Public AI data may be limited. Add known user personas, workflows, or target
+                  monetization to <span className="text-[#A78BFA] font-medium">Additional Context</span> for
+                  sharper prompt synthesis.
+                </p>
+              </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          </div>
+
+          {/* Pillars Coverage Preview (Empty state -> filled state feedback) */}
+          <div className="mt-8 pt-6 border-t border-[#2A3150]/70">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#8B93B0] flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-[#34D399]" />
+                <span>6 Research Pillars to be Composed</span>
+              </span>
+              <span className="text-[11px] font-mono text-[#34D399]">100% Client-Side AST</span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {PILLARS.map((p) => (
                 <div
                   key={p.id}
-                  className="p-2.5 rounded-lg bg-[#131827]/70 border border-[#2A3150]/60 flex items-center gap-2"
+                  className={`p-2.5 rounded-lg border text-xs transition-all duration-200 flex items-center gap-2 ${
+                    isAllFilled
+                      ? 'bg-[#131827] border-[#2A3150] text-[#F0F2F8]'
+                      : 'bg-[#131827]/40 border-[#2A3150]/40 text-[#8B93B0]'
+                  }`}
                 >
                   <span
                     className="w-2 h-2 rounded-full shrink-0"
-                    style={{ backgroundColor: p.color }}
+                    style={{
+                      backgroundColor: p.color,
+                      boxShadow: isAllFilled ? `0 0 8px ${p.color}80` : 'none',
+                    }}
                   />
-                  <span className="text-xs text-[#F0F2F8] truncate font-medium">
-                    {p.shortTitle}
-                  </span>
+                  <span className="truncate font-medium">{p.shortTitle}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Action Footer */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#2A3150]/60">
-            <span className="text-xs text-[#8B93B0] flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#34D399]" />
-              Zero API keys required • Client-side privacy
-            </span>
-            <button
-              onClick={handleNext}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#7C5CFC] to-[#9B7FFF] text-white font-semibold text-sm hover:shadow-[0_0_20px_rgba(124,92,252,0.4)] transition-all flex items-center justify-center gap-2 group cursor-pointer"
+          {/* Form Action Footer */}
+          <div className="mt-8 pt-6 border-t border-[#2A3150]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs text-[#8B93B0] order-2 sm:order-1">
+              <ShieldCheck className="w-4 h-4 text-[#34D399] shrink-0" />
+              <span>Zero server dependencies • Client-side privacy</span>
+            </div>
+
+            <div
+              className="w-full sm:w-auto order-1 sm:order-2 flex flex-col items-center sm:items-end gap-1.5"
+              onClick={() => {
+                if (!isFormValid) {
+                  setTouched({ name: true, companyName: true })
+                  setShakeTrigger((prev) => prev + 1)
+                }
+              }}
             >
-              <span>Proceed to Prompt Generation</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+              <button
+                type="submit"
+                disabled={!isFormValid}
+                className={`w-full sm:w-auto min-h-[48px] px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer ${
+                  isFormValid
+                    ? 'bg-gradient-to-r from-[#7C5CFC] via-[#8B6DFD] to-[#9B7FFF] text-white hover:shadow-[0_0_24px_rgba(124,92,252,0.5)] hover:scale-[1.02] active:scale-[0.98]'
+                    : 'bg-[#1C2237] text-[#8B93B0] border border-[#2A3150] cursor-not-allowed opacity-60'
+                }`}
+                title={
+                  isFormValid
+                    ? 'Proceed to prompt generation'
+                    : 'Please fill in product name and company to proceed'
+                }
+              >
+                <span>Generate Research Prompts</span>
+                <ArrowRight
+                  className={`w-4 h-4 transition-transform ${
+                    isFormValid ? 'group-hover:translate-x-1' : ''
+                  }`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {!isFormValid && (touched.name || touched.companyName) && (
+                  <motion.span
+                    initial={{ opacity: 0, y: -2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -2 }}
+                    className="text-[11px] text-[#FBBF24] flex items-center gap-1 font-mono"
+                  >
+                    <AlertTriangle className="w-3 h-3" />
+                    Complete required fields to continue
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
+        </form>
+
+        {/* Helpful Footnote */}
+        <div className="mt-6 flex items-center gap-2 text-xs text-[#8B93B0]/70 font-mono">
+          <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399]" />
+          <span>Press Enter anywhere in the form to generate prompts</span>
         </div>
       </div>
     </PageTransition>

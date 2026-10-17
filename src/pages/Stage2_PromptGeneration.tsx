@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Copy, Terminal, Check, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Copy } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { PageTransition } from '../components/layout/PageTransition'
 import { PILLARS } from '../lib/constants'
@@ -8,6 +8,15 @@ import { PILLARS } from '../lib/constants'
 export const Stage2_PromptGeneration: React.FC = () => {
   const navigate = useNavigate()
   const { state, dispatch } = useApp()
+
+  useEffect(() => {
+    if (!state.product.name.trim()) {
+      navigate('/', {
+        replace: true,
+        state: { message: 'Start by entering a product name' },
+      })
+    }
+  }, [state.product.name, navigate])
 
   const handleNext = () => {
     dispatch({ type: 'COMPLETE_STAGE', payload: 2 })

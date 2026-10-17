@@ -1,4 +1,4 @@
-import { AppState, GeneratedPrompt, InsightCard, PillarInsights, ProductInput, StageNumber } from '../types'
+import { AppState, GeneratedPrompt, PillarInsights, ProductInput, StageNumber } from '../types'
 
 export type AppAction =
   | { type: 'SET_PRODUCT'; payload: Partial<ProductInput> }
@@ -10,12 +10,12 @@ export type AppAction =
   | { type: 'RESET_STATE' }
 
 export const initialProduct: ProductInput = {
-  name: 'Linear',
-  companyName: 'Linear Orbit, Inc.',
+  name: '',
+  companyName: '',
   category: 'Productivity & Tools',
   platform: 'Cross-platform',
   businessModel: 'B2B',
-  additionalContext: 'Focus on issue triage, keyboard-first velocity, syncing engine, and multiplayer workspace model.',
+  additionalContext: '',
 }
 
 export const initialState: AppState = {

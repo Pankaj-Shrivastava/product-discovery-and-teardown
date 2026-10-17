@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Sparkles, BookOpen, CheckCircle2 } from 'lucide-react'
+import { BookOpen, CheckCircle2 } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 import { STAGES } from '../../lib/constants'
 
