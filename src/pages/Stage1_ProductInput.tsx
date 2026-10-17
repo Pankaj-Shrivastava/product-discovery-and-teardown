@@ -21,6 +21,7 @@ import { PlatformSelector } from '../components/product-input/PlatformSelector'
 import { BusinessModelSelector } from '../components/product-input/BusinessModelSelector'
 import { AdditionalContext } from '../components/product-input/AdditionalContext'
 import { QuickPresets } from '../components/product-input/QuickPresets'
+import { composeAllPrompts } from '../lib/prompt-engine/composer'
 
 export const Stage1_ProductInput: React.FC = () => {
   const navigate = useNavigate()
@@ -82,6 +83,8 @@ export const Stage1_ProductInput: React.FC = () => {
       return
     }
 
+    const generatedPrompts = composeAllPrompts(state.product)
+    dispatch({ type: 'SET_PROMPTS', payload: generatedPrompts })
     dispatch({ type: 'COMPLETE_STAGE', payload: 1 })
     navigate('/prompts')
   }

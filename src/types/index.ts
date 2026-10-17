@@ -42,13 +42,33 @@ export interface PillarMeta {
   description: string
 }
 
+export interface GeneratedPromptMetadata {
+  productName: string
+  companyName: string
+  category: string
+  platform: string
+  businessModel: string
+  generatedAt: string
+}
+
 export interface GeneratedPrompt {
-  pillarId: PillarId
+  id: string
   pillarNumber: number
-  pillarTitle: string
-  content: string
+  pillarName: string
+  promptName: string
+  icon: string
+  color: string
+  fullPrompt: string
+  wordCount: number
   lensCount: number
-  frameworks: string[]
+  frameworkCount: number
+  estimatedResearchTime: string
+  metadata: GeneratedPromptMetadata
+  // Backward compatibility fields
+  content?: string
+  pillarId?: PillarId
+  pillarTitle?: string
+  frameworks?: string[]
   copied?: boolean
 }
 

@@ -7,6 +7,7 @@
     "parse-skills": "tsx scripts/parse-skills.ts",
     "prebuild": "tsx scripts/parse-skills.ts",
     "test:skills": "tsx scripts/test-skills.ts",
+    "test:prompts": "tsx scripts/test-prompts.ts",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",

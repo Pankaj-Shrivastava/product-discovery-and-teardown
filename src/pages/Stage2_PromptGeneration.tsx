@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Copy } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { PageTransition } from '../components/layout/PageTransition'
 import { PILLARS } from '../lib/constants'
+import { composeAllPrompts } from '../lib/prompt-engine/composer'
 
 export const Stage2_PromptGeneration: React.FC = () => {
   const navigate = useNavigate()
@@ -15,8 +16,11 @@ export const Stage2_PromptGeneration: React.FC = () => {
         replace: true,
         state: { message: 'Start by entering a product name' },
       })
+    } else if (state.prompts.length === 0) {
+      const generated = composeAllPrompts(state.product)
+      dispatch({ type: 'SET_PROMPTS', payload: generated })
     }
-  }, [state.product.name, navigate])
+  }, [state.product, state.prompts.length, navigate, dispatch])
 
   const handleNext = () => {
     dispatch({ type: 'COMPLETE_STAGE', payload: 2 })
