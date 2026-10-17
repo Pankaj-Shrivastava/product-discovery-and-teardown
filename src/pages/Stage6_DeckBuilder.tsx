@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, Presentation, Download, Share2, Sparkles, RotateCcw } from 'lucide-react'
+import { ArrowLeft, Presentation, Download, RotateCcw } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { useApp } from '../context/AppContext'
 

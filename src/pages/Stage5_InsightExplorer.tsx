@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Search, Filter, Layers, CheckSquare, Sparkles, Tag } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Search, Filter, CheckSquare } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { useApp } from '../context/AppContext'
 import { PILLARS } from '../lib/constants'

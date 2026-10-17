@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Upload, FileCode, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Upload, ShieldCheck } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
 import { useApp } from '../context/AppContext'
 
 export const Stage4_UploadParse: React.FC = () => {
   const navigate = useNavigate()
-  const { state, dispatch } = useApp()
+  const { dispatch } = useApp()
 
   const handleNext = () => {
     dispatch({ type: 'COMPLETE_STAGE', payload: 4 })
