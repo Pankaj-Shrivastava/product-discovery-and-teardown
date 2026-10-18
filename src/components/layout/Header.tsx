@@ -20,11 +20,11 @@ export const Header: React.FC = () => {
             aria-label="Product Discovery & Teardown Studio Home"
             className="flex items-center gap-2.5 shrink-0 group focus:outline-none focus:ring-2 focus:ring-[#4355B9] rounded-lg p-1"
           >
-            <div className="relative shrink-0">
+            <div className="relative shrink-0 flex items-center justify-center">
               <img
                 src="/icon.png"
                 alt="Product Discovery & Teardown Studio"
-                className="w-8 h-8 rounded-lg object-contain shadow-[0_2px_8px_rgba(67,85,185,0.25)] group-hover:shadow-[0_4px_12px_rgba(67,85,185,0.35)] group-hover:scale-105 transition-all"
+                className="w-8 h-8 object-contain drop-shadow-[0_2px_6px_rgba(67,85,185,0.25)] group-hover:drop-shadow-[0_4px_10px_rgba(67,85,185,0.35)] group-hover:scale-105 transition-all select-none"
               />
             </div>
             <div className="flex flex-col">

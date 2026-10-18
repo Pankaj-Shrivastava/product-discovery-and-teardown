@@ -130,12 +130,12 @@ export const Stage1_ProductInput: React.FC = () => {
 
         {/* Hero Section */}
         <div className="text-center max-w-xl mb-8 flex flex-col items-center">
-          <div className="mb-4 relative group">
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-[#4355B9] via-[#2563EB] to-[#107C41] rounded-2xl blur-md opacity-25 group-hover:opacity-40 transition duration-500" />
+          <div className="mb-4 relative group flex items-center justify-center">
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#4355B9]/20 via-[#2563EB]/15 to-[#107C41]/20 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition duration-500 pointer-events-none" />
             <img
               src="/icon.png"
               alt="Product Discovery & Teardown Studio"
-              className="relative w-16 h-16 rounded-2xl object-contain shadow-lg ring-1 ring-black/5"
+              className="relative w-18 h-18 object-contain drop-shadow-[0_12px_24px_rgba(67,85,185,0.22)] group-hover:scale-105 transition-all duration-300 select-none"
             />
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1A202C] mb-3">
