@@ -299,6 +299,8 @@ export const Stage2_PromptGeneration: React.FC = () => {
           onSaveEdit={handleSavePromptEdit}
           onCopy={handleCopySinglePrompt}
           isCopied={activePrompt ? recentlyCopiedId === activePrompt.id : false}
+          allPrompts={state.prompts}
+          onSelectPrompt={(id) => setActivePreviewPromptId(id)}
         />
       </div>
     </PageTransition>

@@ -1,24 +1,23 @@
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Copy,
   Check,
-  Maximize2,
-  ChevronDown,
-  ChevronUp,
+  Eye,
   Clock,
   Layers,
   Sparkles,
   BookOpen,
+  ArrowUpRight,
 } from 'lucide-react'
 import type { GeneratedPrompt } from '../../types'
 import { PillarIcon } from './PillarIcon'
-import { PromptSyntaxViewer } from './PromptSyntaxViewer'
+import { getSkillByPillarNumber } from '../../data/skills'
 
 interface PromptCardProps {
   prompt: GeneratedPrompt
-  isExpanded: boolean
-  onToggleExpand: () => void
+  isExpanded?: boolean
+  onToggleExpand?: () => void
   onOpenPreview: () => void
   onCopy: (prompt: GeneratedPrompt) => void
   isCopied?: boolean
@@ -26,8 +25,6 @@ interface PromptCardProps {
 
 export const PromptCard: React.FC<PromptCardProps> = ({
   prompt,
-  isExpanded,
-  onToggleExpand,
   onOpenPreview,
   onCopy,
   isCopied = false,
@@ -38,13 +35,18 @@ export const PromptCard: React.FC<PromptCardProps> = ({
   const wordCount = prompt.wordCount
   const sweetSpotPercent = Math.min(100, Math.round((wordCount / 1600) * 100))
 
+  // Retrieve skill frameworks for executive chip display
+  const skill = getSkillByPillarNumber(prompt.pillarNumber)
+  const topFrameworks = skill?.frameworks?.slice(0, 3) || []
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
-      // Don't intercept if user has text selected
       if (!window.getSelection()?.toString()) {
         e.preventDefault()
         onCopy(prompt)
       }
+    } else if (e.key === 'Enter') {
+      onOpenPreview()
     }
   }
 
@@ -58,32 +60,32 @@ export const PromptCard: React.FC<PromptCardProps> = ({
       className="group relative rounded-2xl glass-panel border border-[#E2E8F0] hover:border-[#4355B9]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden outline-none focus:ring-2 focus:ring-[#4355B9]/40 shadow-xs"
       style={{
         boxShadow: isHovered
-          ? `0 10px 25px -5px ${prompt.color}15, 0 0 0 1px ${prompt.color}30`
+          ? `0 12px 28px -6px ${prompt.color}18, 0 0 0 1px ${prompt.color}35`
           : undefined,
       }}
     >
       {/* Top Accent Gradient Line */}
       <div
-        className="h-1 w-full transition-opacity duration-300"
+        className="h-1.5 w-full transition-opacity duration-300"
         style={{
           background: `linear-gradient(90deg, transparent, ${prompt.color}, transparent)`,
-          opacity: isHovered || isExpanded ? 1 : 0.6,
+          opacity: isHovered ? 1 : 0.65,
         }}
       />
 
       <div className="p-5 sm:p-6 flex-1 flex flex-col">
         {/* Top Header Row */}
-        <div className="flex items-center justify-between gap-2 mb-4">
+        <div className="flex items-center justify-between gap-2 mb-3.5">
           <div className="flex items-center gap-2.5">
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105"
+              className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 shadow-xs"
               style={{
                 backgroundColor: `${prompt.color}15`,
                 border: `1px solid ${prompt.color}40`,
                 color: prompt.color,
               }}
             >
-              <PillarIcon name={prompt.icon} className="w-4 h-4" />
+              <PillarIcon name={prompt.icon} className="w-5 h-5" />
             </div>
 
             <div>
@@ -97,35 +99,57 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               >
                 PILLAR 0{prompt.pillarNumber}
               </span>
-              <div className="text-[11px] text-[#64748B] mt-0.5">
+              <div className="text-[11px] font-medium text-[#64748B] mt-0.5">
                 {prompt.pillarName}
               </div>
             </div>
           </div>
 
-          {/* Quick Preview Modal Button */}
+          {/* Direct Modal Open Icon Button */}
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation()
               onOpenPreview()
             }}
-            title="Open Fullscreen Reader & Editor"
-            className="p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#EDF2F7] text-[#64748B] hover:text-[#4355B9] border border-[#E2E8F0] transition-colors cursor-pointer"
+            title="Open Rich Prompt Studio"
+            className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-[#EDF2F7] text-[#64748B] hover:text-[#4355B9] border border-[#E2E8F0] transition-colors cursor-pointer group/icon"
           >
-            <Maximize2 className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-4 h-4 group-hover/icon:translate-x-0.5 group-hover/icon:-translate-y-0.5 transition-transform" />
           </button>
         </div>
 
         {/* Prompt Name & Subtitle */}
         <div className="mb-4">
-          <h3 className="text-lg font-bold text-[#1A202C] tracking-tight group-hover:text-[#4355B9] transition-colors">
+          <h3
+            onClick={onOpenPreview}
+            className="text-lg font-bold text-[#1A202C] tracking-tight group-hover:text-[#4355B9] transition-colors cursor-pointer"
+          >
             {prompt.promptName}
           </h3>
           <p className="text-xs text-[#64748B] leading-relaxed mt-1 line-clamp-2">
             Multi-lens teardown examining {prompt.lensCount} strategic dimensions grounded in {prompt.frameworkCount} frameworks.
           </p>
         </div>
+
+        {/* Grounded Framework Chips Teaser */}
+        {topFrameworks.length > 0 && (
+          <div className="mb-4">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-[#94A3B8] mb-1.5">
+              Grounded Frameworks
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {topFrameworks.map((fw) => (
+                <span
+                  key={fw.name}
+                  className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] truncate max-w-[200px]"
+                >
+                  {fw.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Metadata Badges */}
         <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
@@ -151,7 +175,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
         </div>
 
         {/* Prompt Sweet Spot Indicator */}
-        <div className="mb-4 pt-2 border-t border-[#E2E8F0]">
+        <div className="mt-auto pt-2 border-t border-[#E2E8F0]">
           <div className="flex items-center justify-between text-[11px] text-[#64748B] mb-1.5">
             <span className="flex items-center gap-1">
               <span>Context Sweet Spot</span>
@@ -183,82 +207,40 @@ export const PromptCard: React.FC<PromptCardProps> = ({
             />
           </div>
         </div>
-
-        {/* Inline Expandable Prompt Preview */}
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="overflow-hidden mb-4"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] text-[#64748B] uppercase tracking-wider">
-                  Prompt Body Preview
-                </span>
-                <button
-                  type="button"
-                  onClick={onOpenPreview}
-                  className="text-[11px] text-[#4355B9] hover:text-[#364599] flex items-center gap-1 cursor-pointer font-medium"
-                >
-                  <span>Edit in Modal</span>
-                  <Maximize2 className="w-3 h-3" />
-                </button>
-              </div>
-
-              <PromptSyntaxViewer
-                content={prompt.fullPrompt}
-                color={prompt.color}
-                maxHeight="max-h-80"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
 
-      {/* Card Footer Actions */}
-      <div className="px-5 sm:px-6 py-3.5 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-3">
-        {/* Toggle Expand Inline */}
+      {/* Card Footer Actions: Direct View Modal + Quick Copy */}
+      <div className="px-5 sm:px-6 py-3.5 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-2.5">
+        {/* Primary View Prompt Button -> Directly launches rich modal */}
         <button
           type="button"
-          onClick={onToggleExpand}
-          className="text-xs font-medium text-[#64748B] hover:text-[#1A202C] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
+          onClick={onOpenPreview}
+          className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#4355B9]/10 text-[#4355B9] hover:bg-[#4355B9] hover:text-white border border-[#4355B9]/25 transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95 group/view"
         >
-          {isExpanded ? (
-            <>
-              <ChevronUp className="w-3.5 h-3.5" />
-              <span>Hide Prompt</span>
-            </>
-          ) : (
-            <>
-              <ChevronDown className="w-3.5 h-3.5" />
-              <span>View Prompt</span>
-            </>
-          )}
+          <Eye className="w-3.5 h-3.5 group-hover/view:scale-110 transition-transform" />
+          <span>View Prompt</span>
         </button>
 
-        {/* Copy Prompt CTA */}
+        {/* Quick Copy CTA */}
         <button
           type="button"
           onClick={() => onCopy(prompt)}
-          className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs ${
+          className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs active:scale-95 ${
             isCopied
               ? 'bg-[#107C41] text-white shadow-sm'
-              : 'bg-white hover:bg-[#F1F5F9] text-[#1A202C] border border-[#E2E8F0]'
+              : 'bg-white hover:bg-[#F1F5F9] text-[#1A202C] border border-[#CBD5E1]'
           }`}
-          title="Copy this prompt (or press Ctrl+C)"
+          title="Copy this prompt to clipboard"
         >
           {isCopied ? (
             <>
-              <Check className="w-3.5 h-3.5" />
+              <Check className="w-3.5 h-3.5 stroke-[2.5]" />
               <span>Copied!</span>
             </>
           ) : (
             <>
               <Copy className="w-3.5 h-3.5 text-[#4355B9]" />
-              <span>Copy Prompt</span>
+              <span>Quick Copy</span>
             </>
           )}
         </button>
