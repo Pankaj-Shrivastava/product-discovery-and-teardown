@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 
 interface PageTransitionProps {
@@ -7,6 +7,13 @@ interface PageTransitionProps {
 
 export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const shouldReduceMotion = useReducedMotion()
+
+  useLayoutEffect(() => {
+    // When a new stage mounts, pin the window to the top immediately
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+    document.body.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+  }, [])
 
   const pageVariants: Variants = {
     initial: {

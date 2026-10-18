@@ -2,10 +2,11 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Header } from './Header'
 import { StageProgressBar } from './StageProgressBar'
+import { FloatingScrollToTop } from './FloatingScrollToTop'
 
 export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#F4F6F9] text-[#1A202C] relative overflow-hidden flex flex-col selection:bg-[#4355B9]/15 selection:text-[#1A202C]">
+    <div className="min-h-screen bg-[#F4F6F9] text-[#1A202C] relative overflow-x-clip flex flex-col selection:bg-[#4355B9]/15 selection:text-[#1A202C]">
       {/* Skip to Main Content Link for WCAG Accessibility */}
       <a
         href="#main-content"
@@ -27,6 +28,9 @@ export const Layout: React.FC = () => {
       <main id="main-content" tabIndex={-1} className="w-full flex-1 pt-28 pb-16 flex flex-col focus:outline-none">
         <Outlet />
       </main>
+
+      {/* Floating CTA Scroll to Top with Scroll Progress Ring */}
+      <FloatingScrollToTop />
 
       {/* Minimal Footer */}
       <footer className="border-t border-[#E2E8F0] py-6 px-4 sm:px-6 lg:px-8 text-center text-xs text-[#64748B]">

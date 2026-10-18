@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion'
 import { AppProvider } from './context/AppContext'
 import { Layout } from './components/layout/Layout'
+import { ScrollToTop } from './components/layout/ScrollToTop'
 import { Stage1_ProductInput } from './pages/Stage1_ProductInput'
 import { Stage2_PromptGeneration } from './pages/Stage2_PromptGeneration'
 import { Stage3_ResearchGuide } from './pages/Stage3_ResearchGuide'
@@ -34,6 +35,7 @@ export function App() {
   return (
     <AppProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatedRoutes />
       </BrowserRouter>
     </AppProvider>
