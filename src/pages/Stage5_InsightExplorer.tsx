@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Search, Filter, CheckSquare } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
+import { StageUnderDevelopmentWrapper } from '../components/layout/StageUnderDevelopmentWrapper'
 import { useApp } from '../context/AppContext'
 import { PILLARS } from '../lib/constants'
 
@@ -16,7 +17,13 @@ export const Stage5_InsightExplorer: React.FC = () => {
 
   return (
     <PageTransition>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+      <StageUnderDevelopmentWrapper
+        stageNumber={5}
+        stageTitle="Insight Explorer"
+        featureTitle="Structured Insight Explorer Coming Soon"
+        description="Stages 1 to 3 give you everything needed to run comprehensive multi-LLM teardowns right now. In-browser markdown AST parsing, insight synthesis, and one-click PPTX export are under active development for the v2.0 release."
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Stage Tracker */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
@@ -100,6 +107,7 @@ export const Stage5_InsightExplorer: React.FC = () => {
           </button>
         </div>
       </div>
+      </StageUnderDevelopmentWrapper>
     </PageTransition>
   )
 }

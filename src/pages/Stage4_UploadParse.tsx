@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Upload, ShieldCheck } from 'lucide-react'
 import { PageTransition } from '../components/layout/PageTransition'
+import { StageUnderDevelopmentWrapper } from '../components/layout/StageUnderDevelopmentWrapper'
 import { useApp } from '../context/AppContext'
 
 export const Stage4_UploadParse: React.FC = () => {
@@ -15,7 +16,13 @@ export const Stage4_UploadParse: React.FC = () => {
 
   return (
     <PageTransition>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col items-center">
+      <StageUnderDevelopmentWrapper
+        stageNumber={4}
+        stageTitle="Upload & Parse"
+        featureTitle="Automated Document Ingestion Coming Soon"
+        description="Stages 1 to 3 give you everything needed to run comprehensive multi-LLM teardowns right now. In-browser markdown AST parsing, insight synthesis, and one-click PPTX export are under active development for the v2.0 release."
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col items-center">
         {/* Stage Tracker */}
         <div className="flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse" />
@@ -70,6 +77,7 @@ export const Stage4_UploadParse: React.FC = () => {
           </button>
         </div>
       </div>
+      </StageUnderDevelopmentWrapper>
     </PageTransition>
   )
 }

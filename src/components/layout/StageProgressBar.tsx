@@ -56,11 +56,16 @@ export const StageProgressBar: React.FC = () => {
                   </span>
                   <span
                     className={cn(
-                      'whitespace-nowrap transition-all duration-200',
-                      isActive ? 'inline-block' : 'hidden lg:inline-block'
+                      'whitespace-nowrap transition-all duration-200 flex items-center gap-1.5',
+                      isActive ? 'inline-flex' : 'hidden lg:inline-flex'
                     )}
                   >
-                    {stage.title}
+                    <span>{stage.title}</span>
+                    {stage.number >= 4 && (
+                      <span className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#EDF2F7] text-[#94A3B8] border border-[#CBD5E1]/60 leading-none">
+                        Soon
+                      </span>
+                    )}
                   </span>
                 </Link>
 

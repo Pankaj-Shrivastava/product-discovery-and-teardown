@@ -140,7 +140,7 @@ export const Stage1_ProductInput: React.FC = () => {
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1A202C] mb-3">
             Discover any product like a{' '}
-            <span className="text-[#4355B9]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#4355B9] via-[#2563EB] to-[#107C41]">
               Pro PM
             </span>
           </h1>

@@ -200,7 +200,7 @@ export const Stage2_PromptGeneration: React.FC = () => {
 
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1A202C] tracking-tight">
               Research Prompts for{' '}
-              <span className="text-[#4355B9]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#107C41] via-[#2563EB] to-[#4355B9]">
                 {state.product.name}
               </span>
             </h1>
