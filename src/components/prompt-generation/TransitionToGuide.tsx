@@ -65,7 +65,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse" />
-              <span className="text-xs font-mono font-semibold text-[#107C41] uppercase tracking-wider">
+              <span className="text-xs font-semibold text-[#107C41] uppercase tracking-wider">
                 Execution Playbook Ready
               </span>
             </div>
@@ -77,7 +77,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
             </p>
           </div>
 
-          <div className="shrink-0 flex items-center gap-2 text-xs font-mono text-[#64748B]">
+          <div className="shrink-0 flex items-center gap-2 text-xs text-[#64748B]">
             <Sparkles className="w-4 h-4 text-[#4355B9]" />
             <span>Multi-Model Compatible</span>
           </div>
@@ -95,7 +95,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#EDF2F7] text-[#64748B]">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#EDF2F7] text-[#64748B]">
                     {tool.badge}
                   </span>
                   <ExternalLink className="w-3 h-3 text-[#94A3B8] group-hover:text-[#4355B9] transition-colors" />
@@ -104,7 +104,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
                   {tool.name}
                 </div>
               </div>
-              <div className="text-[11px] font-mono text-[#64748B] mt-2">
+              <div className="text-[11px] text-[#64748B] mt-2">
                 {tool.model}
               </div>
             </a>

@@ -77,7 +77,7 @@ export const QuickPresets: React.FC<QuickPresetsProps> = ({ onSelectPreset, curr
               key={preset.name}
               type="button"
               onClick={() => onSelectPreset(preset)}
-              className={`px-3.5 py-2 min-h-[40px] rounded-lg text-xs font-mono transition-all duration-150 flex items-center gap-2 cursor-pointer border ${
+              className={`px-3.5 py-2 min-h-[40px] rounded-lg text-xs transition-all duration-150 flex items-center gap-2 cursor-pointer border ${
                 isActive
                   ? 'bg-[#4355B9]/10 text-[#4355B9] border-[#4355B9] shadow-xs font-semibold'
                   : 'bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#4355B9]/40 hover:text-[#1A202C] hover:bg-[#F8FAFC]'

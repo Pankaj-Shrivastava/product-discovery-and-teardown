@@ -39,7 +39,7 @@ export const StageProgressBar: React.FC = () => {
                 >
                   <span
                     className={cn(
-                      'w-5 h-5 rounded-full flex items-center justify-center font-mono text-[10px] transition-all',
+                      'w-5 h-5 rounded-full flex items-center justify-center text-[10px] transition-all',
                       isActive
                         ? 'bg-[#4355B9] text-white shadow-[0_2px_6px_rgba(67,85,185,0.35)] font-bold'
                         : isCompleted

@@ -19,14 +19,14 @@ export const Stage5_InsightExplorer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Stage Tracker */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs font-mono text-[#4355B9] shadow-xs">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#C0392B] animate-pulse" />
             <span>STAGE 05 / 06 : SYNTHESIS</span>
             <span className="text-[#CBD5E1]">•</span>
             <span className="text-[#C0392B]">INSIGHT EXPLORER</span>
           </div>
 
-          <div className="text-xs font-mono text-[#64748B]">
+          <div className="text-xs text-[#64748B]">
             Target Product: <span className="text-[#1A202C] font-semibold">{state.product.name}</span>
           </div>
         </div>
@@ -73,10 +73,10 @@ export const Stage5_InsightExplorer: React.FC = () => {
             >
               <div className="flex items-center justify-between mb-2">
                 <span className="w-2 h-2 rounded-full" style={{ backgroundColor: p.color }} />
-                <span className="text-[10px] font-mono text-[#64748B]">Pillar 0{p.number}</span>
+                <span className="text-[10px] text-[#64748B]">Pillar 0{p.number}</span>
               </div>
               <div className="text-xs font-semibold text-[#1A202C] truncate">{p.shortTitle}</div>
-              <div className="text-[11px] font-mono text-[#64748B] mt-1">Ready</div>
+              <div className="text-[11px] text-[#64748B] mt-1">Ready</div>
             </div>
           ))}
         </div>

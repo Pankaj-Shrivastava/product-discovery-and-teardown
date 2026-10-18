@@ -17,7 +17,7 @@ export const Stage4_UploadParse: React.FC = () => {
     <PageTransition>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col items-center">
         {/* Stage Tracker */}
-        <div className="flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs font-mono text-[#4355B9] shadow-xs">
+        <div className="flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse" />
           <span>STAGE 04 / 06 : INGESTION</span>
           <span className="text-[#CBD5E1]">•</span>
@@ -45,7 +45,7 @@ export const Stage4_UploadParse: React.FC = () => {
           <p className="text-xs text-[#64748B] mb-4">
             Supports Markdown (.md) or plain text (.txt) up to 10MB
           </p>
-          <div className="flex items-center gap-2 text-xs font-mono text-[#107C41] bg-[#107C41]/10 px-3 py-1 rounded-full border border-[#107C41]/30">
+          <div className="flex items-center gap-2 text-xs text-[#107C41] bg-[#107C41]/10 px-3 py-1 rounded-full border border-[#107C41]/30">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>100% In-Browser AST Parsing • Zero Network Transmission</span>
           </div>

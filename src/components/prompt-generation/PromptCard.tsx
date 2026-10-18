@@ -88,7 +88,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
 
             <div>
               <span
-                className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase inline-block"
+                className="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase inline-block"
                 style={{
                   backgroundColor: `${prompt.color}12`,
                   color: prompt.color,
@@ -97,7 +97,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               >
                 PILLAR 0{prompt.pillarNumber}
               </span>
-              <div className="text-[11px] font-mono text-[#64748B] mt-0.5">
+              <div className="text-[11px] text-[#64748B] mt-0.5">
                 {prompt.pillarName}
               </div>
             </div>
@@ -128,7 +128,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
         </div>
 
         {/* Metadata Badges */}
-        <div className="grid grid-cols-2 gap-2 mb-4 text-xs font-mono">
+        <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
           <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#1A202C]">
             <Layers className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>{prompt.lensCount} Lenses</span>
@@ -152,7 +152,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
 
         {/* Prompt Sweet Spot Indicator */}
         <div className="mb-4 pt-2 border-t border-[#E2E8F0]">
-          <div className="flex items-center justify-between text-[11px] font-mono text-[#64748B] mb-1.5">
+          <div className="flex items-center justify-between text-[11px] text-[#64748B] mb-1.5">
             <span className="flex items-center gap-1">
               <span>Context Sweet Spot</span>
               {wordCount > 4000 ? (
@@ -195,13 +195,13 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               className="overflow-hidden mb-4"
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
+                <span className="text-[11px] text-[#64748B] uppercase tracking-wider">
                   Prompt Body Preview
                 </span>
                 <button
                   type="button"
                   onClick={onOpenPreview}
-                  className="text-[11px] font-mono text-[#4355B9] hover:text-[#364599] flex items-center gap-1 cursor-pointer font-medium"
+                  className="text-[11px] text-[#4355B9] hover:text-[#364599] flex items-center gap-1 cursor-pointer font-medium"
                 >
                   <span>Edit in Modal</span>
                   <Maximize2 className="w-3 h-3" />
@@ -224,7 +224,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
         <button
           type="button"
           onClick={onToggleExpand}
-          className="text-xs font-mono font-medium text-[#64748B] hover:text-[#1A202C] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
+          className="text-xs font-medium text-[#64748B] hover:text-[#1A202C] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
         >
           {isExpanded ? (
             <>

@@ -46,7 +46,7 @@ export const Stage3_ResearchGuide: React.FC = () => {
                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                className={`px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-mono font-medium pointer-events-auto border ${
+                className={`px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-medium pointer-events-auto border ${
                   toast.type === 'success'
                     ? 'bg-[#F0FDF4] border-[#107C41]/30 text-[#107C41]'
                     : 'bg-[#FEF2F2] border-[#C0392B]/30 text-[#C0392B]'
@@ -65,14 +65,14 @@ export const Stage3_ResearchGuide: React.FC = () => {
 
         {/* Stage Tracker Pill */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs font-mono text-[#4355B9] shadow-xs">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse" />
             <span>STAGE 03 / 06 : PROTOCOL</span>
             <span className="text-[#CBD5E1]">•</span>
             <span className="text-[#107C41]">RESEARCH PLAYBOOK</span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
+          <div className="flex items-center gap-2 text-xs text-[#64748B]">
             <HelpCircle className="w-3.5 h-3.5 text-[#4355B9]" />
             <span>Informational Stage (No Gate)</span>
           </div>
@@ -81,10 +81,10 @@ export const Stage3_ResearchGuide: React.FC = () => {
         {/* Hero Section */}
         <div className="mb-10 pb-6 border-b border-[#E2E8F0]">
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-[#107C41]/10 text-[#107C41] border border-[#107C41]/30">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-[#107C41]/10 text-[#107C41] border border-[#107C41]/30">
               OPERATIONAL PLAYBOOK
             </span>
-            <span className="text-xs text-[#64748B] font-mono">
+            <span className="text-xs text-[#64748B]">
               Target: {productName} by {companyName}
             </span>
           </div>

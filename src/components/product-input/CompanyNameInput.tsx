@@ -36,7 +36,7 @@ export const CompanyNameInput: React.FC<CompanyNameInputProps> = ({
           <span className="text-[#DC2626] text-xs font-normal" title="Required field">*</span>
         </label>
         <span
-          className={`text-[11px] font-mono transition-colors ${
+          className={`text-[11px] transition-colors ${
             value.length > maxLength * 0.9 ? 'text-[#C07818]' : 'text-[#64748B]'
           }`}
           aria-live="polite"

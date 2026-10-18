@@ -164,7 +164,7 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
         <button
           type="button"
           onClick={() => setIsPreviewOpen((prev) => !prev)}
-          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
+          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
         >
           <span className="flex items-center gap-2">
             <Eye className="w-4 h-4 text-[#4355B9]" />
@@ -175,7 +175,7 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
 
         {isPreviewOpen && (
           <div className="p-5 bg-[#F8FAFC] border-t border-[#E2E8F0]">
-            <pre className="font-mono text-xs leading-relaxed text-[#334155] max-h-80 overflow-y-auto whitespace-pre-wrap selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
+            <pre className="text-xs leading-relaxed text-[#334155] max-h-80 overflow-y-auto whitespace-pre-wrap selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
               {templateMarkdown}
             </pre>
           </div>
@@ -187,7 +187,7 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
         <button
           type="button"
           onClick={() => setIsExampleOpen((prev) => !prev)}
-          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
+          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
         >
           <span className="flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-[#C07818]" />
@@ -197,7 +197,7 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
         </button>
 
         {isExampleOpen && (
-          <div className="p-5 bg-[#F8FAFC] border-t border-[#E2E8F0] text-xs text-[#334155] space-y-3 font-mono leading-relaxed max-h-80 overflow-y-auto selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
+          <div className="p-5 bg-[#F8FAFC] border-t border-[#E2E8F0] text-xs text-[#334155] space-y-3 leading-relaxed max-h-80 overflow-y-auto selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
             <div className="text-[#1A202C] font-bold text-sm"># Product Teardown Summary: Spotify</div>
             <div className="text-[#64748B]">Category: Entertainment & Media | Platform: Cross-platform | Business Model: Freemium B2C</div>
             <div className="text-[#107C41] font-bold pt-2">## 1. Strategic & Business Context</div>

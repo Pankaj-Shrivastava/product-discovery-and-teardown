@@ -59,7 +59,7 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({ value, onCha
           <span>Category</span>
           <span className="text-[#64748B] text-xs font-normal">Select the best fit</span>
         </label>
-        <span className="text-[11px] font-mono text-[#4355B9] bg-[#4355B9]/10 px-2 py-0.5 rounded border border-[#4355B9]/30">
+        <span className="text-[11px] text-[#4355B9] bg-[#4355B9]/10 px-2 py-0.5 rounded border border-[#4355B9]/30">
           {value}
         </span>
       </div>

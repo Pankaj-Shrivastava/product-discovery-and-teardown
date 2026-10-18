@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BookOpen, CheckCircle2 } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 import { STAGES } from '../../lib/constants'
 
@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
               <span className="font-semibold text-sm sm:text-base text-[#1A202C] tracking-tight leading-tight">
                 Product Discovery <span className="text-[#4355B9]">&amp;</span> Teardown
               </span>
-              <span className="text-[10px] text-[#64748B] font-mono tracking-wider uppercase -mt-0.5 hidden sm:inline">
+              <span className="text-[10px] text-[#64748B] tracking-wider uppercase -mt-0.5 hidden sm:inline">
                 Studio Edition
               </span>
             </div>
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
               <span className="text-[#94A3B8]">›</span>
               <span
                 title={`${state.product.name} ${state.product.companyName ? `(${state.product.companyName})` : ''}`}
-                className="px-2 py-0.5 rounded bg-[#F1F5F9] text-[#1A202C] font-medium font-mono text-[11px] border border-[#E2E8F0] truncate max-w-[220px] lg:max-w-xs flex items-center gap-1.5 cursor-default"
+                className="px-2 py-0.5 rounded bg-[#F1F5F9] text-[#1A202C] font-medium text-[11px] border border-[#E2E8F0] truncate max-w-[220px] lg:max-w-xs flex items-center gap-1.5 cursor-default"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#107C41] shrink-0" />
                 <span className="truncate">{state.product.name}</span>
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
           {/* Active Stage Badge */}
           <div
             aria-live="polite"
-            className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] text-xs font-mono text-[#64748B]"
+            className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#F1F5F9] border border-[#E2E8F0] text-xs text-[#64748B]"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#4355B9] animate-pulse" />
             <span>STAGE 0{currentStageInfo.number}</span>
@@ -69,22 +69,10 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Protocol Badge */}
-          <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-[#64748B] px-2.5 py-1 rounded bg-white border border-[#E2E8F0] shadow-xs">
+          <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-[#64748B] px-2.5 py-1 rounded bg-white border border-[#E2E8F0] shadow-xs">
             <CheckCircle2 className="w-3.5 h-3.5 text-[#107C41]" />
             <span>6-PILLAR PROTOCOL</span>
           </div>
-
-          {/* Docs Link */}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Documentation on GitHub"
-            className="flex items-center gap-1 text-xs text-[#64748B] hover:text-[#1A202C] px-2.5 py-1 rounded hover:bg-[#F1F5F9] focus:outline-none focus:ring-2 focus:ring-[#4355B9] transition-colors"
-          >
-            <BookOpen className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Docs</span>
-          </a>
         </div>
       </div>
     </header>

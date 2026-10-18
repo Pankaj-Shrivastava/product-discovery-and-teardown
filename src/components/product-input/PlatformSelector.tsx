@@ -29,7 +29,7 @@ export const PlatformSelector: React.FC<PlatformSelectorProps> = ({ value, onCha
           <Globe className="w-4 h-4 text-[#107C41]" />
           <span>Primary Platform</span>
         </label>
-        <span className="text-[11px] font-mono text-[#64748B]">Target Environment</span>
+        <span className="text-[11px] text-[#64748B]">Target Environment</span>
       </div>
 
       <div

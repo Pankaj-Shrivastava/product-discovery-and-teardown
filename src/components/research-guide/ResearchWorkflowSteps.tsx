@@ -63,7 +63,7 @@ export const ResearchWorkflowSteps: React.FC = () => {
             Follow this recommended sequence to generate exhaustive, evidence-backed product intelligence.
           </p>
         </div>
-        <span className="hidden sm:inline-block text-xs font-mono text-[#4355B9] px-2.5 py-1 rounded-full bg-[#4355B9]/10 border border-[#4355B9]/25 font-semibold">
+        <span className="hidden sm:inline-block text-xs text-[#4355B9] px-2.5 py-1 rounded-full bg-[#4355B9]/10 border border-[#4355B9]/25 font-semibold">
           STANDARD PROTOCOL
         </span>
       </div>
@@ -85,7 +85,7 @@ export const ResearchWorkflowSteps: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span
-                    className="font-mono text-xs font-bold px-2 py-0.5 rounded-md"
+                    className="text-xs font-bold px-2 py-0.5 rounded-md"
                     style={{
                       backgroundColor: `${stepItem.accent}15`,
                       color: stepItem.accent,
@@ -109,7 +109,7 @@ export const ResearchWorkflowSteps: React.FC = () => {
                 <h3 className="text-sm font-bold text-[#1A202C] mb-0.5 transition-colors">
                   {stepItem.title}
                 </h3>
-                <div className="text-[11px] font-mono text-[#4355B9] mb-2 font-medium">
+                <div className="text-[11px] text-[#4355B9] mb-2 font-medium">
                   {stepItem.subtitle}
                 </div>
                 <p className="text-xs text-[#64748B] leading-relaxed">

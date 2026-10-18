@@ -121,7 +121,7 @@ export const Stage1_ProductInput: React.FC = () => {
         )}
 
         {/* Stage Tracker Pill */}
-        <div className="flex items-center gap-2 mb-4 px-3.5 py-1 rounded-full bg-white border border-[#E2E8F0] text-xs font-mono text-[#4355B9] shadow-xs">
+        <div className="flex items-center gap-2 mb-4 px-3.5 py-1 rounded-full bg-white border border-[#E2E8F0] text-xs text-[#4355B9] shadow-xs">
           <span className="w-2 h-2 rounded-full bg-[#4355B9] animate-ping" />
           <span>STAGE 01 / 06 : SPECIFICATION</span>
           <span className="text-[#CBD5E1]">•</span>
@@ -178,7 +178,7 @@ export const Stage1_ProductInput: React.FC = () => {
                     : 'bg-[#C07818] shadow-[0_0_6px_rgba(192,120,24,0.4)] animate-pulse'
                 }`}
               />
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#1A202C] truncate">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#1A202C] truncate">
                 {isAllFilled ? (
                   <span
                     className="flex items-center gap-1.5 truncate max-w-xs sm:max-w-md"
@@ -206,7 +206,7 @@ export const Stage1_ProductInput: React.FC = () => {
 
             <div className="flex items-center gap-2 shrink-0">
               <span
-                className={`text-[11px] font-mono px-2.5 py-0.5 rounded border transition-colors ${
+                className={`text-[11px] px-2.5 py-0.5 rounded border transition-colors ${
                   isAllFilled
                     ? 'bg-[#107C41]/10 text-[#107C41] border-[#107C41]/30 font-semibold'
                     : 'bg-[#F1F5F9] text-[#64748B] border-[#E2E8F0]'
@@ -282,11 +282,11 @@ export const Stage1_ProductInput: React.FC = () => {
           {/* Pillars Coverage Preview (Empty state -> filled state feedback) */}
           <div className="mt-8 pt-6 border-t border-[#E2E8F0]">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] flex items-center gap-1.5">
+              <span className="text-xs uppercase tracking-wider text-[#64748B] flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 text-[#107C41]" />
                 <span>6 Research Pillars to be Composed</span>
               </span>
-              <span className="text-[11px] font-mono text-[#107C41] font-semibold">100% Client-Side AST</span>
+              <span className="text-[11px] text-[#107C41] font-semibold">100% Client-Side AST</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -356,7 +356,7 @@ export const Stage1_ProductInput: React.FC = () => {
                     initial={{ opacity: 0, y: -2 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -2 }}
-                    className="text-[11px] text-[#C07818] flex items-center gap-1 font-mono"
+                    className="text-[11px] text-[#C07818] flex items-center gap-1"
                   >
                     <AlertTriangle className="w-3 h-3" />
                     Complete required fields to continue
@@ -368,7 +368,7 @@ export const Stage1_ProductInput: React.FC = () => {
         </form>
 
         {/* Helpful Footnote */}
-        <div className="mt-6 flex items-center gap-2 text-xs text-[#64748B] font-mono">
+        <div className="mt-6 flex items-center gap-2 text-xs text-[#64748B]">
           <CheckCircle2 className="w-3.5 h-3.5 text-[#107C41]" />
           <span>Press Enter anywhere in the form to generate prompts</span>
         </div>

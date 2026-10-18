@@ -19,7 +19,7 @@ export const TransitionToUpload: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse" />
-              <span className="text-xs font-mono font-bold text-[#107C41] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#107C41] uppercase tracking-wider">
                 READY FOR DETERMINISTIC AST INGESTION
               </span>
             </div>
@@ -34,7 +34,7 @@ export const TransitionToUpload: React.FC = () => {
           </div>
 
           {/* Pre-Flight Checklist Card */}
-          <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] shrink-0 font-mono text-xs">
+          <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] shrink-0 text-xs">
             <span className="text-[11px] text-[#64748B] uppercase font-bold tracking-wider block mb-2.5">
               Pre-Upload Verification Checklist
             </span>

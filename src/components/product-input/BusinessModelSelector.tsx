@@ -59,7 +59,7 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
           <Briefcase className="w-4 h-4 text-[#C07818]" />
           <span>Business Model</span>
         </label>
-        <span className="text-[11px] font-mono text-[#C07818] bg-[#C07818]/10 px-2 py-0.5 rounded border border-[#C07818]/30">
+        <span className="text-[11px] text-[#C07818] bg-[#C07818]/10 px-2 py-0.5 rounded border border-[#C07818]/30">
           {value}
         </span>
       </div>
@@ -96,7 +96,7 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold font-mono tracking-wide text-[#1A202C]">
+                  <span className="text-xs font-bold tracking-wide text-[#1A202C]">
                     {model.label}
                   </span>
                   <span className="text-[10px] text-[#64748B] font-medium truncate ml-1">

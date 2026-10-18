@@ -89,7 +89,7 @@ export const AIToolCards: React.FC = () => {
           </p>
         </div>
 
-        <span className="text-xs font-mono text-[#64748B] flex items-center gap-1.5 self-start sm:self-auto">
+        <span className="text-xs text-[#64748B] flex items-center gap-1.5 self-start sm:self-auto">
           <Sparkles className="w-3.5 h-3.5 text-[#C07818]" />
           <span>All 4 engines tested with our prompts</span>
         </span>
@@ -107,7 +107,7 @@ export const AIToolCards: React.FC = () => {
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm font-mono shrink-0"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shrink-0"
                     style={{
                       backgroundColor: `${tool.accentColor}15`,
                       border: `1px solid ${tool.accentColor}30`,
@@ -123,7 +123,7 @@ export const AIToolCards: React.FC = () => {
                         {tool.name}
                       </h3>
                       <span
-                        className="px-2 py-0.5 rounded text-[10px] font-mono font-medium hidden sm:inline"
+                        className="px-2 py-0.5 rounded text-[10px] font-medium hidden sm:inline"
                         style={{
                           backgroundColor: `${tool.accentColor}12`,
                           color: tool.accentColor,
@@ -133,7 +133,7 @@ export const AIToolCards: React.FC = () => {
                         {tool.badge}
                       </span>
                     </div>
-                    <div className="text-xs font-mono text-[#64748B] flex items-center gap-2 mt-0.5">
+                    <div className="text-xs text-[#64748B] flex items-center gap-2 mt-0.5">
                       <span>{tool.provider}</span>
                       <span>•</span>
                       <span className="text-[#1A202C]">{tool.model}</span>
@@ -171,7 +171,7 @@ export const AIToolCards: React.FC = () => {
 
             {/* Launch Action */}
             <div className="pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
-              <span className="text-[11px] font-mono text-[#64748B]">
+              <span className="text-[11px] text-[#64748B]">
                 External LLM Session
               </span>
               <a
@@ -192,7 +192,7 @@ export const AIToolCards: React.FC = () => {
       <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] flex items-start gap-3 text-xs leading-relaxed shadow-xs">
         <Lightbulb className="w-5 h-5 text-[#C07818] shrink-0 mt-0.5" />
         <div>
-          <span className="font-bold text-[#1A202C] uppercase tracking-wider font-mono mr-1.5">
+          <span className="font-bold text-[#1A202C] uppercase tracking-wider mr-1.5">
             PRO STRATEGY:
           </span>
           <span className="text-[#334155]">

@@ -154,7 +154,7 @@ export const Stage2_PromptGeneration: React.FC = () => {
                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                className={`px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-mono font-medium pointer-events-auto border ${
+                className={`px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-medium pointer-events-auto border ${
                   toast.type === 'success'
                     ? 'bg-white border-[#107C41]/40 text-[#107C41]'
                     : 'bg-white border-[#DC2626]/40 text-[#DC2626]'
@@ -173,14 +173,14 @@ export const Stage2_PromptGeneration: React.FC = () => {
 
         {/* Stage Tracker Header Pill */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-xs font-mono text-[#4355B9] shadow-xs">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-xs text-[#4355B9] shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
             <span>STAGE 02 / 06 : GENERATION</span>
             <span className="text-[#CBD5E1]">•</span>
             <span className="text-[#2563EB]">RESEARCH PROMPTS</span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
+          <div className="flex items-center gap-2 text-xs text-[#64748B]">
             <span className="w-2 h-2 rounded-full bg-[#107C41]" />
             <span>6 Pillar Prompts Generated</span>
           </div>
@@ -190,10 +190,10 @@ export const Stage2_PromptGeneration: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#E2E8F0]">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-[#4355B9]/10 text-[#4355B9] border border-[#4355B9]/30">
+              <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-[#4355B9]/10 text-[#4355B9] border border-[#4355B9]/30">
                 PROMPT SUITE READY
               </span>
-              <span className="text-xs text-[#64748B] font-mono">
+              <span className="text-xs text-[#64748B]">
                 {state.product.companyName}
               </span>
             </div>
@@ -210,7 +210,7 @@ export const Stage2_PromptGeneration: React.FC = () => {
             </p>
 
             {/* Quick Aggregate Stats Strip */}
-            <div className="flex items-center gap-4 sm:gap-6 mt-4 text-xs font-mono text-[#64748B] flex-wrap">
+            <div className="flex items-center gap-4 sm:gap-6 mt-4 text-xs text-[#64748B] flex-wrap">
               <span className="flex items-center gap-1.5 text-[#1A202C]">
                 <Layers className="w-3.5 h-3.5 text-[#2563EB]" />
                 <span>{totalLenses} Research Lenses</span>
@@ -253,17 +253,17 @@ export const Stage2_PromptGeneration: React.FC = () => {
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold uppercase bg-[#C07818]/15 text-[#C07818] border border-[#C07818]/30">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-[#C07818]/15 text-[#C07818] border border-[#C07818]/30">
                         PILLAR 0{pillar.number}
                       </span>
-                      <span className="text-xs font-mono text-[#C07818]">Skill Missing</span>
+                      <span className="text-xs text-[#C07818]">Skill Missing</span>
                     </div>
                     <h3 className="text-lg font-bold text-[#1A202C] mb-2">{pillar.title}</h3>
                     <p className="text-xs text-[#64748B] leading-relaxed">
                       This research skill definition was unavailable at build time. Prompts for other pillars remain fully functional.
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-[#E2E8F0] text-xs text-[#C07818] font-mono flex items-center gap-1.5">
+                  <div className="pt-4 border-t border-[#E2E8F0] text-xs text-[#C07818] flex items-center gap-1.5">
                     <AlertTriangle className="w-4 h-4" />
                     <span>Prompt unavailable</span>
                   </div>

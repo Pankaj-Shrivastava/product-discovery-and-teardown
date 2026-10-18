@@ -18,14 +18,14 @@ export const Stage6_DeckBuilder: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {/* Stage Tracker */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs font-mono text-[#4355B9] shadow-xs">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs text-[#4355B9] shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse" />
             <span>STAGE 06 / 06 : DELIVERY</span>
             <span className="text-[#CBD5E1]">•</span>
             <span className="text-[#7C3AED]">BUILD YOUR DECK</span>
           </div>
 
-          <div className="text-xs font-mono text-[#64748B]">
+          <div className="text-xs text-[#64748B]">
             Executive Presentation Studio
           </div>
         </div>

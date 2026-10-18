@@ -58,7 +58,7 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#4355B9] animate-ping" />
-            <span className="px-3 py-1 rounded-full bg-[#4355B9]/10 text-[#4355B9] border border-[#4355B9]/25 text-xs font-mono font-bold tracking-wider uppercase">
+            <span className="px-3 py-1 rounded-full bg-[#4355B9]/10 text-[#4355B9] border border-[#4355B9]/25 text-xs font-bold tracking-wider uppercase">
               RECOMMENDED SYNTHESIS ENGINE
             </span>
           </div>
@@ -67,7 +67,7 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
             href="https://notebooklm.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono text-[#4355B9] hover:text-[#364599] font-medium flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+            className="text-xs text-[#4355B9] hover:text-[#364599] font-medium flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
             <span>Open notebooklm.google.com</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -86,7 +86,7 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
         </div>
 
         {/* 5-Step NotebookLM Workflow Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6 font-mono text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6 text-xs">
           <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
             <span className="text-[#4355B9] font-bold block mb-1">STEP 1</span>
             <span className="text-[#1A202C] font-semibold block">Open NotebookLM</span>
@@ -131,7 +131,7 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
         {/* NotebookLM Pre-Engineered Prompt Box */}
         <div className="rounded-xl bg-white border border-[#CBD5E1] p-4 sm:p-5 shadow-xs">
           <div className="flex items-center justify-between gap-3 mb-2">
-            <span className="text-xs font-mono font-semibold text-[#64748B] uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-[#4355B9]" />
               <span>Pre-Engineered NotebookLM Synthesis Prompt</span>
             </span>

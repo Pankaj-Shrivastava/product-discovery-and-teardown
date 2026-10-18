@@ -21,12 +21,12 @@ export const AdditionalContext: React.FC<AdditionalContextProps> = ({
         >
           <HelpCircle className="w-4 h-4 text-[#7C3AED]" />
           <span>Anything specific you want to explore?</span>
-          <span className="text-[11px] font-mono text-[#64748B] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">
+          <span className="text-[11px] text-[#64748B] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">
             OPTIONAL
           </span>
         </label>
         <span
-          className={`text-[11px] font-mono transition-colors ${
+          className={`text-[11px] transition-colors ${
             value.length > maxLength * 0.9 ? 'text-[#C07818]' : 'text-[#64748B]'
           }`}
           aria-live="polite"

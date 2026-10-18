@@ -32,7 +32,7 @@ export const Layout: React.FC = () => {
       <footer className="border-t border-[#E2E8F0] py-6 px-4 sm:px-6 lg:px-8 text-center text-xs text-[#64748B]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>Product Discovery &amp; Teardown Studio • 6-Pillar Intelligence Protocol</span>
-          <span className="font-mono text-[11px] text-[#94A3B8]">Zero-Server • 100% Client-Side Privacy</span>
+          <span className="text-[11px] text-[#94A3B8]">Zero-Server • 100% Client-Side Privacy</span>
         </div>
       </footer>
     </div>
