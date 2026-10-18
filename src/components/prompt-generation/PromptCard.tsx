@@ -55,10 +55,10 @@ export const PromptCard: React.FC<PromptCardProps> = ({
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative rounded-2xl glass-panel border border-[#232A44] hover:border-[#7C5CFC]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden outline-none focus:ring-2 focus:ring-[#7C5CFC]/50 shadow-lg"
+      className="group relative rounded-2xl glass-panel border border-[#E2E8F0] hover:border-[#4355B9]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden outline-none focus:ring-2 focus:ring-[#4355B9]/40 shadow-xs"
       style={{
         boxShadow: isHovered
-          ? `0 12px 30px -10px ${prompt.color}25, 0 0 0 1px ${prompt.color}40`
+          ? `0 10px 25px -5px ${prompt.color}15, 0 0 0 1px ${prompt.color}30`
           : undefined,
       }}
     >
@@ -90,14 +90,14 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               <span
                 className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase inline-block"
                 style={{
-                  backgroundColor: `${prompt.color}18`,
+                  backgroundColor: `${prompt.color}12`,
                   color: prompt.color,
-                  border: `1px solid ${prompt.color}35`,
+                  border: `1px solid ${prompt.color}30`,
                 }}
               >
                 PILLAR 0{prompt.pillarNumber}
               </span>
-              <div className="text-[11px] font-mono text-[#8B93B0] mt-0.5">
+              <div className="text-[11px] font-mono text-[#64748B] mt-0.5">
                 {prompt.pillarName}
               </div>
             </div>
@@ -111,7 +111,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               onOpenPreview()
             }}
             title="Open Fullscreen Reader & Editor"
-            className="p-2 rounded-lg bg-[#141A2D] hover:bg-[#202744] text-[#8B93B0] hover:text-[#CABEFF] border border-[#262E4C] transition-colors cursor-pointer"
+            className="p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#EDF2F7] text-[#64748B] hover:text-[#4355B9] border border-[#E2E8F0] transition-colors cursor-pointer"
           >
             <Maximize2 className="w-3.5 h-3.5" />
           </button>
@@ -119,65 +119,65 @@ export const PromptCard: React.FC<PromptCardProps> = ({
 
         {/* Prompt Name & Subtitle */}
         <div className="mb-4">
-          <h3 className="text-lg font-bold text-white tracking-tight group-hover:text-[#F3F4F8] transition-colors">
+          <h3 className="text-lg font-bold text-[#1A202C] tracking-tight group-hover:text-[#4355B9] transition-colors">
             {prompt.promptName}
           </h3>
-          <p className="text-xs text-[#94A3B8] leading-relaxed mt-1 line-clamp-2">
+          <p className="text-xs text-[#64748B] leading-relaxed mt-1 line-clamp-2">
             Multi-lens teardown examining {prompt.lensCount} strategic dimensions grounded in {prompt.frameworkCount} frameworks.
           </p>
         </div>
 
         {/* Metadata Badges */}
         <div className="grid grid-cols-2 gap-2 mb-4 text-xs font-mono">
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0F1424] border border-[#202740] text-[#CBD5E1]">
-            <Layers className="w-3.5 h-3.5 text-[#38BDF8]" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#1A202C]">
+            <Layers className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>{prompt.lensCount} Lenses</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0F1424] border border-[#202740] text-[#CBD5E1]">
-            <BookOpen className="w-3.5 h-3.5 text-[#FBBF24]" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#1A202C]">
+            <BookOpen className="w-3.5 h-3.5 text-[#C07818]" />
             <span>{prompt.frameworkCount} Frameworks</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0F1424] border border-[#202740] text-[#CBD5E1]">
-            <Sparkles className="w-3.5 h-3.5 text-[#A78BFA]" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#1A202C]">
+            <Sparkles className="w-3.5 h-3.5 text-[#7C3AED]" />
             <span>{prompt.wordCount.toLocaleString()} Words</span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#0F1424] border border-[#202740] text-[#CBD5E1]">
-            <Clock className="w-3.5 h-3.5 text-[#34D399]" />
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#1A202C]">
+            <Clock className="w-3.5 h-3.5 text-[#107C41]" />
             <span>{prompt.estimatedResearchTime}</span>
           </div>
         </div>
 
         {/* Prompt Sweet Spot Indicator */}
-        <div className="mb-4 pt-2 border-t border-[#1F263E]/60">
-          <div className="flex items-center justify-between text-[11px] font-mono text-[#8B93B0] mb-1.5">
+        <div className="mb-4 pt-2 border-t border-[#E2E8F0]">
+          <div className="flex items-center justify-between text-[11px] font-mono text-[#64748B] mb-1.5">
             <span className="flex items-center gap-1">
               <span>Context Sweet Spot</span>
               {wordCount > 4000 ? (
-                <span className="text-[10px] text-[#EF4444] font-medium">• Too Long (Amber/Red)</span>
+                <span className="text-[10px] text-[#DC2626] font-medium">• Too Long</span>
               ) : wordCount > 1600 ? (
-                <span className="text-[10px] text-[#FBBF24] font-medium">• Comprehensive</span>
+                <span className="text-[10px] text-[#C07818] font-medium">• Comprehensive</span>
               ) : wordCount >= 800 ? (
-                <span className="text-[10px] text-[#34D399] font-medium">• Optimal</span>
+                <span className="text-[10px] text-[#107C41] font-medium">• Optimal</span>
               ) : (
-                <span className="text-[10px] text-[#FBBF24] font-medium">• Compact</span>
+                <span className="text-[10px] text-[#C07818] font-medium">• Compact</span>
               )}
             </span>
-            <span className="text-white font-medium">{prompt.wordCount.toLocaleString()} words</span>
+            <span className="text-[#1A202C] font-medium">{prompt.wordCount.toLocaleString()} words</span>
           </div>
 
-          <div className="w-full h-1.5 rounded-full bg-[#13192C] overflow-hidden p-0.5">
+          <div className="w-full h-1.5 rounded-full bg-[#EDF2F7] overflow-hidden p-0.5">
             <div
               className="h-full rounded-full transition-all duration-500"
               style={{
                 width: `${sweetSpotPercent}%`,
                 background:
                   wordCount > 4000
-                    ? '#EF4444'
+                    ? '#DC2626'
                     : wordCount > 1600
-                    ? '#FBBF24'
+                    ? '#C07818'
                     : `linear-gradient(90deg, ${prompt.color}88, ${prompt.color})`,
               }}
             />
@@ -195,13 +195,13 @@ export const PromptCard: React.FC<PromptCardProps> = ({
               className="overflow-hidden mb-4"
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-mono text-[#8B93B0] uppercase tracking-wider">
+                <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
                   Prompt Body Preview
                 </span>
                 <button
                   type="button"
                   onClick={onOpenPreview}
-                  className="text-[11px] font-mono text-[#7C5CFC] hover:text-[#9B7FFF] flex items-center gap-1 cursor-pointer"
+                  className="text-[11px] font-mono text-[#4355B9] hover:text-[#364599] flex items-center gap-1 cursor-pointer font-medium"
                 >
                   <span>Edit in Modal</span>
                   <Maximize2 className="w-3 h-3" />
@@ -219,12 +219,12 @@ export const PromptCard: React.FC<PromptCardProps> = ({
       </div>
 
       {/* Card Footer Actions */}
-      <div className="px-5 sm:px-6 py-3.5 bg-[#0D1222]/80 border-t border-[#1F263E] flex items-center justify-between gap-3">
+      <div className="px-5 sm:px-6 py-3.5 bg-[#F8FAFC] border-t border-[#E2E8F0] flex items-center justify-between gap-3">
         {/* Toggle Expand Inline */}
         <button
           type="button"
           onClick={onToggleExpand}
-          className="text-xs font-mono font-medium text-[#94A3B8] hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer py-1"
+          className="text-xs font-mono font-medium text-[#64748B] hover:text-[#1A202C] transition-colors flex items-center gap-1.5 cursor-pointer py-1"
         >
           {isExpanded ? (
             <>
@@ -243,10 +243,10 @@ export const PromptCard: React.FC<PromptCardProps> = ({
         <button
           type="button"
           onClick={() => onCopy(prompt)}
-          className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-md ${
+          className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs ${
             isCopied
-              ? 'bg-[#10B981] text-white shadow-[0_0_15px_rgba(16,185,129,0.35)]'
-              : 'bg-[#1C233C] hover:bg-[#2A3459] text-white hover:text-white border border-[#2B355A]'
+              ? 'bg-[#107C41] text-white shadow-sm'
+              : 'bg-white hover:bg-[#F1F5F9] text-[#1A202C] border border-[#E2E8F0]'
           }`}
           title="Copy this prompt (or press Ctrl+C)"
         >
@@ -257,7 +257,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
             </>
           ) : (
             <>
-              <Copy className="w-3.5 h-3.5 text-[#7C5CFC]" />
+              <Copy className="w-3.5 h-3.5 text-[#4355B9]" />
               <span>Copy Prompt</span>
             </>
           )}

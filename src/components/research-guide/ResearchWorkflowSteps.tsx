@@ -15,7 +15,7 @@ const STEPS = [
     subtitle: 'From Stage 2',
     description: 'Grab one of your 6 framework-grounded prompts from the previous stage.',
     icon: Copy,
-    accent: '#7C5CFC',
+    accent: '#4355B9',
   },
   {
     step: '02',
@@ -23,7 +23,7 @@ const STEPS = [
     subtitle: 'Claude, ChatGPT, etc.',
     description: 'Open your preferred LLM with web browsing or deep research capabilities enabled.',
     icon: ExternalLink,
-    accent: '#38BDF8',
+    accent: '#2563EB',
   },
   {
     step: '03',
@@ -31,7 +31,7 @@ const STEPS = [
     subtitle: 'Let the AI analyze',
     description: 'Paste the prompt. The AI executes systematically across all lenses and frameworks.',
     icon: Search,
-    accent: '#34D399',
+    accent: '#107C41',
   },
   {
     step: '04',
@@ -39,7 +39,7 @@ const STEPS = [
     subtitle: 'Full strategic depth',
     description: 'Execute each pillar in a fresh chat session for focused, unconstrained research.',
     icon: RefreshCw,
-    accent: '#FBBF24',
+    accent: '#C07818',
   },
   {
     step: '05',
@@ -47,7 +47,7 @@ const STEPS = [
     subtitle: 'Single Markdown doc',
     description: 'Combine all findings under the 6 pillar headings using our template or NotebookLM.',
     icon: FileCheck2,
-    accent: '#FB7185',
+    accent: '#C0392B',
   },
 ]
 
@@ -56,14 +56,14 @@ export const ResearchWorkflowSteps: React.FC = () => {
     <div className="mb-12">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-lg font-bold text-white tracking-tight">
+          <h2 className="text-lg font-bold text-[#1A202C] tracking-tight">
             5-Step Research Execution Protocol
           </h2>
-          <p className="text-xs text-[#8B93B0] mt-0.5">
+          <p className="text-xs text-[#64748B] mt-0.5">
             Follow this recommended sequence to generate exhaustive, evidence-backed product intelligence.
           </p>
         </div>
-        <span className="hidden sm:inline-block text-xs font-mono text-[#7C5CFC] px-2.5 py-1 rounded-full bg-[#7C5CFC]/10 border border-[#7C5CFC]/25">
+        <span className="hidden sm:inline-block text-xs font-mono text-[#4355B9] px-2.5 py-1 rounded-full bg-[#4355B9]/10 border border-[#4355B9]/25 font-semibold">
           STANDARD PROTOCOL
         </span>
       </div>
@@ -74,7 +74,7 @@ export const ResearchWorkflowSteps: React.FC = () => {
           return (
             <div
               key={stepItem.step}
-              className="relative p-4 rounded-xl glass-panel border border-[#232A44] hover:border-[#7C5CFC]/40 transition-all flex flex-col justify-between group overflow-hidden"
+              className="relative p-4 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#4355B9]/40 hover:shadow-md transition-all flex flex-col justify-between group overflow-hidden shadow-xs"
             >
               {/* Top Accent Line */}
               <div
@@ -106,20 +106,20 @@ export const ResearchWorkflowSteps: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-sm font-bold text-white mb-0.5 group-hover:text-[#F1F5F9] transition-colors">
+                <h3 className="text-sm font-bold text-[#1A202C] mb-0.5 transition-colors">
                   {stepItem.title}
                 </h3>
-                <div className="text-[11px] font-mono text-[#7C5CFC] mb-2 font-medium">
+                <div className="text-[11px] font-mono text-[#4355B9] mb-2 font-medium">
                   {stepItem.subtitle}
                 </div>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">
+                <p className="text-xs text-[#64748B] leading-relaxed">
                   {stepItem.description}
                 </p>
               </div>
 
               {idx < STEPS.length - 1 && (
-                <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-[#475569] pointer-events-none">
-                  <ArrowRight className="w-4 h-4 opacity-40" />
+                <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-[#94A3B8] pointer-events-none">
+                  <ArrowRight className="w-4 h-4 opacity-50" />
                 </div>
               )}
             </div>

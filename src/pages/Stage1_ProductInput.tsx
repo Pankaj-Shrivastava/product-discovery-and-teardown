@@ -113,7 +113,7 @@ export const Stage1_ProductInput: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="w-full mb-4 px-4 py-3 rounded-xl bg-[#FBBF24]/10 border border-[#FBBF24]/40 text-[#FBBF24] text-xs flex items-center gap-2.5 shadow-lg"
+            className="w-full mb-4 px-4 py-3 rounded-xl bg-[#C07818]/10 border border-[#C07818]/30 text-[#C07818] text-xs flex items-center gap-2.5 shadow-sm"
           >
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span className="font-medium">{redirectMessage}</span>
@@ -121,31 +121,31 @@ export const Stage1_ProductInput: React.FC = () => {
         )}
 
         {/* Stage Tracker Pill */}
-        <div className="flex items-center gap-2 mb-4 px-3.5 py-1 rounded-full bg-[#1C2237] border border-[#2A3150] text-xs font-mono text-[#CABEFF] shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-[#7C5CFC] animate-ping" />
+        <div className="flex items-center gap-2 mb-4 px-3.5 py-1 rounded-full bg-white border border-[#E2E8F0] text-xs font-mono text-[#4355B9] shadow-xs">
+          <span className="w-2 h-2 rounded-full bg-[#4355B9] animate-ping" />
           <span>STAGE 01 / 06 : SPECIFICATION</span>
-          <span className="text-[#2A3150]">•</span>
-          <span className="text-[#34D399] font-medium">PRODUCT INGESTION</span>
+          <span className="text-[#CBD5E1]">•</span>
+          <span className="text-[#107C41] font-medium">PRODUCT INGESTION</span>
         </div>
 
         {/* Hero Section */}
         <div className="text-center max-w-xl mb-8 flex flex-col items-center">
           <div className="mb-4 relative group">
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-[#7C5CFC] via-[#38BDF8] to-[#34D399] rounded-2xl blur-md opacity-35 group-hover:opacity-60 transition duration-500" />
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-[#4355B9] via-[#2563EB] to-[#107C41] rounded-2xl blur-md opacity-25 group-hover:opacity-40 transition duration-500" />
             <img
               src="/icon.png"
               alt="Product Discovery & Teardown Studio"
-              className="relative w-16 h-16 rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
+              className="relative w-16 h-16 rounded-2xl object-contain shadow-lg ring-1 ring-black/5"
             />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1A202C] mb-3">
             Discover any product like a{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C5CFC] via-[#CABEFF] to-[#38BDF8]">
+            <span className="text-[#4355B9]">
               Pro PM
             </span>
           </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-[#7C5CFC] to-[#38BDF8] rounded-full mx-auto mb-3 shadow-[0_0_12px_rgba(124,92,252,0.5)]" />
-          <p className="text-sm sm:text-base text-[#8B93B0] leading-relaxed">
+          <div className="h-1 w-20 bg-gradient-to-r from-[#4355B9] to-[#2563EB] rounded-full mx-auto mb-3 shadow-xs" />
+          <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
             Generate framework-backed research prompts across 6 strategic pillars, guide multi-LLM teardowns, and synthesize insights into presentation decks.
           </p>
         </div>
@@ -164,33 +164,33 @@ export const Stage1_ProductInput: React.FC = () => {
           noValidate
           className={`w-full rounded-2xl p-5 sm:p-8 relative transition-all duration-300 border ${
             isAllFilled
-              ? 'glass-panel-elevated ring-1 ring-[#7C5CFC]/30 shadow-[0_16px_48px_-12px_rgba(124,92,252,0.25)]'
+              ? 'glass-panel-elevated ring-1 ring-[#4355B9]/25 shadow-md'
               : 'glass-panel'
           }`}
         >
           {/* Card Dynamic Status Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#2A3150]/70 gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-[#E2E8F0] gap-2">
             <div className="flex items-center gap-2 min-w-0">
               <span
                 className={`w-2.5 h-2.5 rounded-full shrink-0 transition-all duration-300 ${
                   isAllFilled
-                    ? 'bg-[#34D399] shadow-[0_0_10px_rgba(52,211,153,0.8)]'
-                    : 'bg-[#FBBF24] shadow-[0_0_8px_rgba(251,191,36,0.6)] animate-pulse'
+                    ? 'bg-[#107C41] shadow-[0_0_8px_rgba(16,124,65,0.4)]'
+                    : 'bg-[#C07818] shadow-[0_0_6px_rgba(192,120,24,0.4)] animate-pulse'
                 }`}
               />
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-white truncate">
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[#1A202C] truncate">
                 {isAllFilled ? (
                   <span
                     className="flex items-center gap-1.5 truncate max-w-xs sm:max-w-md"
                     title={`${state.product.name} (${state.product.companyName})`}
                   >
-                    <span className="text-white font-semibold truncate">
+                    <span className="text-[#1A202C] font-semibold truncate">
                       Target:{' '}
                       {state.product.name.length > 40
                         ? `${state.product.name.slice(0, 40)}...`
                         : state.product.name}
                     </span>
-                    <span className="text-[#8B93B0] font-normal truncate">
+                    <span className="text-[#64748B] font-normal truncate">
                       (
                       {state.product.companyName.length > 30
                         ? `${state.product.companyName.slice(0, 30)}...`
@@ -208,8 +208,8 @@ export const Stage1_ProductInput: React.FC = () => {
               <span
                 className={`text-[11px] font-mono px-2.5 py-0.5 rounded border transition-colors ${
                   isAllFilled
-                    ? 'bg-[#34D399]/15 text-[#34D399] border-[#34D399]/40 font-semibold'
-                    : 'bg-[#131827] text-[#8B93B0] border-[#2A3150]'
+                    ? 'bg-[#107C41]/10 text-[#107C41] border-[#107C41]/30 font-semibold'
+                    : 'bg-[#F1F5F9] text-[#64748B] border-[#E2E8F0]'
                 }`}
               >
                 {isAllFilled
@@ -267,12 +267,12 @@ export const Stage1_ProductInput: React.FC = () => {
               />
 
               {/* Edge Case: Unknown/Niche Product Guidance Tip */}
-              <div className="p-3 rounded-xl bg-[#131827]/70 border border-[#2A3150]/60 flex items-start gap-2.5 text-xs text-[#8B93B0]">
-                <Info className="w-4 h-4 text-[#38BDF8] shrink-0 mt-0.5" />
+              <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-start gap-2.5 text-xs text-[#64748B]">
+                <Info className="w-4 h-4 text-[#0284C7] shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
-                  <span className="text-white font-medium">Early-stage or niche product?</span>{' '}
+                  <span className="text-[#1A202C] font-medium">Early-stage or niche product?</span>{' '}
                   Public AI data may be limited. Add known user personas, workflows, or target
-                  monetization to <span className="text-[#A78BFA] font-medium">Additional Context</span> for
+                  monetization to <span className="text-[#4355B9] font-medium">Additional Context</span> for
                   sharper prompt synthesis.
                 </p>
               </div>
@@ -280,13 +280,13 @@ export const Stage1_ProductInput: React.FC = () => {
           </div>
 
           {/* Pillars Coverage Preview (Empty state -> filled state feedback) */}
-          <div className="mt-8 pt-6 border-t border-[#2A3150]/70">
+          <div className="mt-8 pt-6 border-t border-[#E2E8F0]">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#8B93B0] flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[#34D399]" />
+              <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-[#107C41]" />
                 <span>6 Research Pillars to be Composed</span>
               </span>
-              <span className="text-[11px] font-mono text-[#34D399]">100% Client-Side AST</span>
+              <span className="text-[11px] font-mono text-[#107C41] font-semibold">100% Client-Side AST</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -295,15 +295,15 @@ export const Stage1_ProductInput: React.FC = () => {
                   key={p.id}
                   className={`p-2.5 rounded-lg border text-xs transition-all duration-200 flex items-center gap-2 ${
                     isAllFilled
-                      ? 'bg-[#131827] border-[#2A3150] text-[#F0F2F8]'
-                      : 'bg-[#131827]/40 border-[#2A3150]/40 text-[#8B93B0]'
+                      ? 'bg-[#F8FAFC] border-[#E2E8F0] text-[#1A202C]'
+                      : 'bg-[#F8FAFC]/50 border-[#E2E8F0]/60 text-[#64748B]'
                   }`}
                 >
                   <span
                     className="w-2 h-2 rounded-full shrink-0"
                     style={{
                       backgroundColor: p.color,
-                      boxShadow: isAllFilled ? `0 0 8px ${p.color}80` : 'none',
+                      boxShadow: isAllFilled ? `0 0 6px ${p.color}50` : 'none',
                     }}
                   />
                   <span className="truncate font-medium">{p.shortTitle}</span>
@@ -313,9 +313,9 @@ export const Stage1_ProductInput: React.FC = () => {
           </div>
 
           {/* Form Action Footer */}
-          <div className="mt-8 pt-6 border-t border-[#2A3150]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs text-[#8B93B0] order-2 sm:order-1">
-              <ShieldCheck className="w-4 h-4 text-[#34D399] shrink-0" />
+          <div className="mt-8 pt-6 border-t border-[#E2E8F0] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs text-[#64748B] order-2 sm:order-1">
+              <ShieldCheck className="w-4 h-4 text-[#107C41] shrink-0" />
               <span>Zero server dependencies • Client-side privacy</span>
             </div>
 
@@ -333,8 +333,8 @@ export const Stage1_ProductInput: React.FC = () => {
                 disabled={!isFormValid}
                 className={`w-full sm:w-auto min-h-[48px] px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer ${
                   isFormValid
-                    ? 'bg-gradient-to-r from-[#7C5CFC] via-[#8B6DFD] to-[#9B7FFF] text-white hover:shadow-[0_0_24px_rgba(124,92,252,0.5)] hover:scale-[1.02] active:scale-[0.98]'
-                    : 'bg-[#1C2237] text-[#8B93B0] border border-[#2A3150] cursor-not-allowed opacity-60'
+                    ? 'bg-gradient-to-r from-[#4355B9] via-[#4F62C8] to-[#5C6EC9] text-white hover:shadow-[0_4px_16px_rgba(67,85,185,0.3)] hover:scale-[1.01] active:scale-[0.99]'
+                    : 'bg-[#EDF2F7] text-[#94A3B8] border border-[#E2E8F0] cursor-not-allowed'
                 }`}
                 title={
                   isFormValid
@@ -356,7 +356,7 @@ export const Stage1_ProductInput: React.FC = () => {
                     initial={{ opacity: 0, y: -2 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -2 }}
-                    className="text-[11px] text-[#FBBF24] flex items-center gap-1 font-mono"
+                    className="text-[11px] text-[#C07818] flex items-center gap-1 font-mono"
                   >
                     <AlertTriangle className="w-3 h-3" />
                     Complete required fields to continue
@@ -368,8 +368,8 @@ export const Stage1_ProductInput: React.FC = () => {
         </form>
 
         {/* Helpful Footnote */}
-        <div className="mt-6 flex items-center gap-2 text-xs text-[#8B93B0]/70 font-mono">
-          <CheckCircle2 className="w-3.5 h-3.5 text-[#34D399]" />
+        <div className="mt-6 flex items-center gap-2 text-xs text-[#64748B] font-mono">
+          <CheckCircle2 className="w-3.5 h-3.5 text-[#107C41]" />
           <span>Press Enter anywhere in the form to generate prompts</span>
         </div>
       </div>

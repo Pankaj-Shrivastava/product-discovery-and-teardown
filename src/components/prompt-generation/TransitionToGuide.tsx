@@ -7,28 +7,28 @@ const AI_TOOLS = [
   {
     name: 'ChatGPT Plus / Pro',
     model: 'GPT-4o / Canvas',
-    color: '#10A37F',
+    color: '#107C41',
     badge: 'High Reasoning',
     url: 'https://chat.openai.com',
   },
   {
     name: 'Claude Pro',
     model: 'Claude 3.5 Sonnet',
-    color: '#D97706',
+    color: '#C07818',
     badge: 'Artifacts & Style',
     url: 'https://claude.ai',
   },
   {
     name: 'Google Gemini',
     model: 'Gemini 2.0 Pro',
-    color: '#38BDF8',
+    color: '#0284C7',
     badge: 'Deep Search & Recency',
     url: 'https://gemini.google.com',
   },
   {
     name: 'Perplexity AI',
     model: 'Sonar / Pro Search',
-    color: '#22D3EE',
+    color: '#2563EB',
     badge: 'Citations & Sources',
     url: 'https://www.perplexity.ai',
   },
@@ -58,27 +58,27 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
   }
 
   return (
-    <div className="mt-12 pt-8 border-t border-[#1F263E]">
+    <div className="mt-12 pt-8 border-t border-[#E2E8F0]">
       {/* Recommended AI Tools Banner */}
-      <div className="p-6 rounded-2xl glass-panel border border-[#232B45] mb-8 bg-gradient-to-b from-[#10162A]/60 to-[#0A0E1A]/80">
+      <div className="p-6 rounded-2xl glass-panel border border-[#E2E8F0] mb-8 bg-white shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-              <span className="text-xs font-mono font-semibold text-[#34D399] uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse" />
+              <span className="text-xs font-mono font-semibold text-[#107C41] uppercase tracking-wider">
                 Execution Playbook Ready
               </span>
             </div>
-            <h4 className="text-base sm:text-lg font-bold text-white">
+            <h4 className="text-base sm:text-lg font-bold text-[#1A202C]">
               Take these prompts to your preferred AI intelligence tools
             </h4>
-            <p className="text-xs text-[#8B93B0] max-w-xl mt-1">
+            <p className="text-xs text-[#64748B] max-w-xl mt-1">
               For best results, execute one pillar prompt per chat session. Then compile the findings into a single Markdown summary document for Stage 4 ingestion.
             </p>
           </div>
 
-          <div className="shrink-0 flex items-center gap-2 text-xs font-mono text-[#8B93B0]">
-            <Sparkles className="w-4 h-4 text-[#7C5CFC]" />
+          <div className="shrink-0 flex items-center gap-2 text-xs font-mono text-[#64748B]">
+            <Sparkles className="w-4 h-4 text-[#4355B9]" />
             <span>Multi-Model Compatible</span>
           </div>
         </div>
@@ -91,20 +91,20 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-[#0C101E] border border-[#1E253D] hover:border-[#7C5CFC]/40 transition-all group flex flex-col justify-between"
+              className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#4355B9]/40 hover:bg-white transition-all group flex flex-col justify-between shadow-xs"
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#151C30] text-[#8B93B0]">
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#EDF2F7] text-[#64748B]">
                     {tool.badge}
                   </span>
-                  <ExternalLink className="w-3 h-3 text-[#64748B] group-hover:text-[#7C5CFC] transition-colors" />
+                  <ExternalLink className="w-3 h-3 text-[#94A3B8] group-hover:text-[#4355B9] transition-colors" />
                 </div>
-                <div className="text-xs font-semibold text-white group-hover:text-[#CABEFF] transition-colors">
+                <div className="text-xs font-semibold text-[#1A202C] group-hover:text-[#4355B9] transition-colors">
                   {tool.name}
                 </div>
               </div>
-              <div className="text-[11px] font-mono text-[#8B93B0] mt-2">
+              <div className="text-[11px] font-mono text-[#64748B] mt-2">
                 {tool.model}
               </div>
             </a>
@@ -117,7 +117,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
         <button
           type="button"
           onClick={handleBack}
-          className="px-4 py-2.5 rounded-xl bg-[#131827] border border-[#232B45] text-xs sm:text-sm text-[#8B93B0] hover:text-white transition-colors flex items-center gap-2 cursor-pointer font-medium"
+          className="px-4 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#64748B] hover:text-[#1A202C] hover:bg-[#F8FAFC] transition-colors flex items-center gap-2 cursor-pointer font-medium shadow-xs"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Product Input</span>
@@ -126,7 +126,7 @@ export const TransitionToGuide: React.FC<TransitionToGuideProps> = ({ hasCustomE
         <button
           type="button"
           onClick={handleProceed}
-          className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#7C5CFC] to-[#9B7FFF] text-white font-semibold text-sm hover:shadow-[0_0_25px_rgba(124,92,252,0.45)] transition-all flex items-center gap-2 cursor-pointer shadow-lg"
+          className="px-6 py-3 rounded-xl bg-[#4355B9] hover:bg-[#364599] text-white font-semibold text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs"
         >
           <span>Continue to Research Guide</span>
           <ArrowRight className="w-4 h-4" />

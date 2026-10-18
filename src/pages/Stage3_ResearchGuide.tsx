@@ -46,10 +46,10 @@ export const Stage3_ResearchGuide: React.FC = () => {
                 initial={{ opacity: 0, y: 15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                className={`px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-mono font-medium pointer-events-auto border ${
+                className={`px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-mono font-medium pointer-events-auto border ${
                   toast.type === 'success'
-                    ? 'bg-[#0B1516] border-[#10B981]/50 text-[#10B981]'
-                    : 'bg-[#180D10] border-[#F43F5E]/50 text-[#F43F5E]'
+                    ? 'bg-[#F0FDF4] border-[#107C41]/30 text-[#107C41]'
+                    : 'bg-[#FEF2F2] border-[#C0392B]/30 text-[#C0392B]'
                 }`}
               >
                 {toast.type === 'success' ? (
@@ -65,38 +65,38 @@ export const Stage3_ResearchGuide: React.FC = () => {
 
         {/* Stage Tracker Pill */}
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141A2D] border border-[#232B45] text-xs font-mono text-[#CABEFF] shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#CBD5E1] text-xs font-mono text-[#4355B9] shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse" />
             <span>STAGE 03 / 06 : PROTOCOL</span>
-            <span className="text-[#2B3558]">•</span>
-            <span className="text-[#34D399]">RESEARCH PLAYBOOK</span>
+            <span className="text-[#CBD5E1]">•</span>
+            <span className="text-[#107C41]">RESEARCH PLAYBOOK</span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-[#8B93B0]">
-            <HelpCircle className="w-3.5 h-3.5 text-[#7C5CFC]" />
+          <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
+            <HelpCircle className="w-3.5 h-3.5 text-[#4355B9]" />
             <span>Informational Stage (No Gate)</span>
           </div>
         </div>
 
         {/* Hero Section */}
-        <div className="mb-10 pb-6 border-b border-[#1E253D]">
+        <div className="mb-10 pb-6 border-b border-[#E2E8F0]">
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-[#34D399]/15 text-[#34D399] border border-[#34D399]/30">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-[#107C41]/10 text-[#107C41] border border-[#107C41]/30">
               OPERATIONAL PLAYBOOK
             </span>
-            <span className="text-xs text-[#8B93B0] font-mono">
+            <span className="text-xs text-[#64748B] font-mono">
               Target: {productName} by {companyName}
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1A202C] tracking-tight">
             Multi-LLM Research Protocol for{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#34D399] via-[#38BDF8] to-[#7C5CFC]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#107C41] via-[#2563EB] to-[#4355B9]">
               {productName}
             </span>
           </h1>
 
-          <p className="text-sm text-[#94A3B8] max-w-2xl mt-2 leading-relaxed">
+          <p className="text-sm text-[#64748B] max-w-2xl mt-2 leading-relaxed">
             Learn how to deploy your 6 generated prompts into external frontier AI engines (ChatGPT, Claude, Gemini, Perplexity), synthesize findings with NotebookLM, and format your summary document for automated AST parsing in Stage 4.
           </p>
         </div>

@@ -48,17 +48,17 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
   }
 
   return (
-    <div className="mb-12 relative rounded-2xl glass-panel border border-[#7C5CFC]/40 bg-gradient-to-br from-[#12102A]/90 via-[#0B0F1F]/90 to-[#070A14]/90 p-6 sm:p-8 overflow-hidden shadow-2xl">
+    <div className="mb-12 relative rounded-2xl border border-[#CBD5E1] bg-gradient-to-br from-[#EEF2FF] via-[#F8FAFC] to-[#F1F5F9] p-6 sm:p-8 overflow-hidden shadow-xs">
       {/* Decorative Background Glows */}
-      <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#7C5CFC]/15 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#38BDF8]/10 blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#4355B9]/10 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#2563EB]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10">
         {/* Header Badge */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#7C5CFC] animate-ping" />
-            <span className="px-3 py-1 rounded-full bg-[#7C5CFC]/15 text-[#CABEFF] border border-[#7C5CFC]/30 text-xs font-mono font-bold tracking-wider uppercase">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#4355B9] animate-ping" />
+            <span className="px-3 py-1 rounded-full bg-[#4355B9]/10 text-[#4355B9] border border-[#4355B9]/25 text-xs font-mono font-bold tracking-wider uppercase">
               RECOMMENDED SYNTHESIS ENGINE
             </span>
           </div>
@@ -67,7 +67,7 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
             href="https://notebooklm.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono text-[#38BDF8] hover:text-[#7DD3FC] flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+            className="text-xs font-mono text-[#4355B9] hover:text-[#364599] font-medium flex items-center gap-1.5 transition-colors self-start sm:self-auto"
           >
             <span>Open notebooklm.google.com</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -76,63 +76,63 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
 
         {/* Title & Value Prop */}
         <div className="mb-6">
-          <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+          <h3 className="text-xl sm:text-2xl font-bold text-[#1A202C] tracking-tight flex items-center gap-2">
             <span>Synthesize All 6 Pillars in Google NotebookLM</span>
-            <Sparkles className="w-5 h-5 text-[#FBBF24]" />
+            <Sparkles className="w-5 h-5 text-[#C07818]" />
           </h3>
-          <p className="text-sm text-[#CAD1E9] leading-relaxed max-w-3xl mt-1.5">
+          <p className="text-sm text-[#475569] leading-relaxed max-w-3xl mt-1.5">
             Instead of manually stitching together 6 disparate AI chat responses, upload all 6 raw outputs into Google NotebookLM. Its multi-document context window cross-references findings across pillars and synthesizes a unified, citation-grounded summary document ready for Stage 4.
           </p>
         </div>
 
         {/* 5-Step NotebookLM Workflow Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-6 font-mono text-xs">
-          <div className="p-3.5 rounded-xl bg-[#080C18]/80 border border-[#1E253D]">
-            <span className="text-[#7C5CFC] font-bold block mb-1">STEP 1</span>
-            <span className="text-white font-medium block">Open NotebookLM</span>
-            <p className="text-[#8B93B0] text-[11px] font-sans mt-1">
+          <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+            <span className="text-[#4355B9] font-bold block mb-1">STEP 1</span>
+            <span className="text-[#1A202C] font-semibold block">Open NotebookLM</span>
+            <p className="text-[#64748B] text-[11px] font-sans mt-1">
               Visit notebooklm.google.com (free with Google account).
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#080C18]/80 border border-[#1E253D]">
-            <span className="text-[#38BDF8] font-bold block mb-1">STEP 2</span>
-            <span className="text-white font-medium block">Create Notebook</span>
-            <p className="text-[#8B93B0] text-[11px] font-sans mt-1">
+          <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+            <span className="text-[#2563EB] font-bold block mb-1">STEP 2</span>
+            <span className="text-[#1A202C] font-semibold block">Create Notebook</span>
+            <p className="text-[#64748B] text-[11px] font-sans mt-1">
               Name it &ldquo;{safeName} Teardown Intelligence&rdquo;.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#080C18]/80 border border-[#1E253D]">
-            <span className="text-[#34D399] font-bold block mb-1">STEP 3</span>
-            <span className="text-white font-medium block">Upload 6 Outputs</span>
-            <p className="text-[#8B93B0] text-[11px] font-sans mt-1">
+          <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+            <span className="text-[#107C41] font-bold block mb-1">STEP 3</span>
+            <span className="text-[#1A202C] font-semibold block">Upload 6 Outputs</span>
+            <p className="text-[#64748B] text-[11px] font-sans mt-1">
               Add the 6 raw chat responses as source text notes.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#080C18]/80 border border-[#1E253D]">
-            <span className="text-[#FBBF24] font-bold block mb-1">STEP 4</span>
-            <span className="text-white font-medium block">Run Synthesis</span>
-            <p className="text-[#8B93B0] text-[11px] font-sans mt-1">
+          <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+            <span className="text-[#C07818] font-bold block mb-1">STEP 4</span>
+            <span className="text-[#1A202C] font-semibold block">Run Synthesis</span>
+            <p className="text-[#64748B] text-[11px] font-sans mt-1">
               Paste the structured prompt below to unite all 6 pillars.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-[#080C18]/80 border border-[#1E253D]">
-            <span className="text-[#FB7185] font-bold block mb-1">STEP 5</span>
-            <span className="text-white font-medium block">Export for Stage 4</span>
-            <p className="text-[#8B93B0] text-[11px] font-sans mt-1">
+          <div className="p-3.5 rounded-xl bg-white border border-[#E2E8F0] shadow-xs">
+            <span className="text-[#C0392B] font-bold block mb-1">STEP 5</span>
+            <span className="text-[#1A202C] font-semibold block">Export for Stage 4</span>
+            <p className="text-[#64748B] text-[11px] font-sans mt-1">
               Copy the Markdown summary document for upload.
             </p>
           </div>
         </div>
 
         {/* NotebookLM Pre-Engineered Prompt Box */}
-        <div className="rounded-xl bg-[#060914] border border-[#1E253D] p-4 sm:p-5">
+        <div className="rounded-xl bg-white border border-[#CBD5E1] p-4 sm:p-5 shadow-xs">
           <div className="flex items-center justify-between gap-3 mb-2">
-            <span className="text-xs font-mono font-semibold text-[#8B93B0] uppercase tracking-wider flex items-center gap-1.5">
-              <Cpu className="w-3.5 h-3.5 text-[#7C5CFC]" />
+            <span className="text-xs font-mono font-semibold text-[#64748B] uppercase tracking-wider flex items-center gap-1.5">
+              <Cpu className="w-3.5 h-3.5 text-[#4355B9]" />
               <span>Pre-Engineered NotebookLM Synthesis Prompt</span>
             </span>
 
@@ -141,8 +141,8 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
               onClick={handleCopyPrompt}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                 copiedPrompt
-                  ? 'bg-[#10B981] text-white shadow-[0_0_15px_rgba(16,185,129,0.35)]'
-                  : 'bg-[#1C233C] hover:bg-[#2A3459] text-white border border-[#2B355A]'
+                  ? 'bg-[#107C41] text-white shadow-xs'
+                  : 'bg-[#4355B9] hover:bg-[#364599] text-white shadow-xs'
               }`}
             >
               {copiedPrompt ? (
@@ -152,14 +152,14 @@ export const NotebookLMBanner: React.FC<NotebookLMBannerProps> = ({
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5 text-[#7C5CFC]" />
+                  <Copy className="w-3.5 h-3.5 text-white" />
                   <span>Copy Synthesis Prompt</span>
                 </>
               )}
             </button>
           </div>
 
-          <pre className="font-mono text-xs leading-relaxed text-[#94A3B8] p-3 rounded-lg bg-[#0A0E1A] overflow-x-auto whitespace-pre-wrap selection:bg-[#7C5CFC]/30 selection:text-white">
+          <pre className="font-mono text-xs leading-relaxed text-[#334155] p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] overflow-x-auto whitespace-pre-wrap selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
             {notebookLmSynthesisPrompt}
           </pre>
         </div>

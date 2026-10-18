@@ -55,11 +55,11 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <label className="text-sm font-semibold text-white flex items-center gap-1.5">
-          <Briefcase className="w-4 h-4 text-[#FBBF24]" />
+        <label className="text-sm font-semibold text-[#1A202C] flex items-center gap-1.5">
+          <Briefcase className="w-4 h-4 text-[#C07818]" />
           <span>Business Model</span>
         </label>
-        <span className="text-[11px] font-mono text-[#FBBF24] bg-[#FBBF24]/10 px-2 py-0.5 rounded border border-[#FBBF24]/30">
+        <span className="text-[11px] font-mono text-[#C07818] bg-[#C07818]/10 px-2 py-0.5 rounded border border-[#C07818]/30">
           {value}
         </span>
       </div>
@@ -82,13 +82,13 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
               onClick={() => onChange(model.label)}
               className={`relative flex items-start gap-3 p-3 min-h-[44px] rounded-xl border text-left transition-all duration-200 outline-none cursor-pointer ${
                 isSelected
-                  ? 'bg-[#1C2237] text-white border-[#FBBF24] shadow-[0_0_16px_rgba(251,191,36,0.2)] ring-1 ring-[#FBBF24]/40'
-                  : 'bg-[#131827]/80 text-[#8B93B0] border-[#2A3150] hover:border-[#3B4468] hover:text-[#F0F2F8] hover:bg-[#1C2237]/60'
+                  ? 'bg-[#EDF2F7] text-[#1A202C] border-[#C07818] shadow-xs ring-1 ring-[#C07818]/30'
+                  : 'bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#1A202C] hover:bg-[#F8FAFC]'
               }`}
             >
               <div
                 className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                  isSelected ? 'bg-[#FBBF24]/20 text-[#FBBF24]' : 'bg-[#1C2237] text-[#8B93B0]'
+                  isSelected ? 'bg-[#C07818]/15 text-[#C07818]' : 'bg-[#F1F5F9] text-[#64748B]'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -96,14 +96,14 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold font-mono tracking-wide text-white">
+                  <span className="text-xs font-bold font-mono tracking-wide text-[#1A202C]">
                     {model.label}
                   </span>
-                  <span className="text-[10px] text-[#8B93B0] font-medium truncate ml-1">
+                  <span className="text-[10px] text-[#64748B] font-medium truncate ml-1">
                     {model.name}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#8B93B0] leading-snug mt-0.5 line-clamp-2">
+                <p className="text-[11px] text-[#64748B] leading-snug mt-0.5 line-clamp-2">
                   {model.description}
                 </p>
               </div>
@@ -111,7 +111,7 @@ export const BusinessModelSelector: React.FC<BusinessModelSelectorProps> = ({
               {isSelected && (
                 <motion.div
                   layoutId="model-active-ring"
-                  className="w-1.5 h-1.5 rounded-full bg-[#FBBF24] shrink-0 self-center"
+                  className="w-1.5 h-1.5 rounded-full bg-[#C07818] shrink-0 self-center"
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}

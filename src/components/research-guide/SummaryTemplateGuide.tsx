@@ -115,11 +115,11 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
     <div className="mb-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div>
-          <h2 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+          <h2 className="text-lg font-bold text-[#1A202C] tracking-tight flex items-center gap-2">
             <span>Summary Document Guide &amp; Template</span>
-            <FileText className="w-4 h-4 text-[#38BDF8]" />
+            <FileText className="w-4 h-4 text-[#4355B9]" />
           </h2>
-          <p className="text-xs text-[#8B93B0] mt-0.5">
+          <p className="text-xs text-[#64748B] mt-0.5">
             Stage 4 uses deterministic AST parsing to extract insight cards directly from your Markdown headers and tables.
           </p>
         </div>
@@ -127,7 +127,7 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
         <button
           type="button"
           onClick={handleDownloadTemplate}
-          className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#38BDF8] to-[#2563EB] text-white font-semibold text-xs sm:text-sm hover:shadow-[0_0_20px_rgba(56,189,248,0.35)] transition-all flex items-center gap-2 cursor-pointer shadow-md self-start sm:self-auto"
+          className="px-4 py-2 rounded-xl bg-[#4355B9] hover:bg-[#364599] text-white font-semibold text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer shadow-xs self-start sm:self-auto"
         >
           <Download className="w-4 h-4" />
           <span>Download Summary Template (.md)</span>
@@ -135,47 +135,47 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
       </div>
 
       {/* Formatting Requirements Card */}
-      <div className="p-5 rounded-2xl glass-panel border border-[#232A44] mb-4">
-        <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-[#34D399]" />
+      <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] mb-4 shadow-xs">
+        <h3 className="text-sm font-bold text-[#1A202C] mb-2 flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-[#107C41]" />
           <span>Stage 4 Ingestion Requirements</span>
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-[#94A3B8]">
-          <div className="p-3 rounded-xl bg-[#090D18] border border-[#1E253D]">
-            <strong className="text-white block mb-1">1. Exact Pillar Headers</strong>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-[#475569]">
+          <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+            <strong className="text-[#1A202C] block mb-1">1. Exact Pillar Headers</strong>
             <span>Use Level 2 headings (`## 1. Strategic & Business Context`, etc.). The parser relies on these for 100% accurate pillar mapping.</span>
           </div>
 
-          <div className="p-3 rounded-xl bg-[#090D18] border border-[#1E253D]">
-            <strong className="text-white block mb-1">2. Markdown Tables</strong>
+          <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+            <strong className="text-[#1A202C] block mb-1">2. Markdown Tables</strong>
             <span>Format competitor teardowns and pricing tiers as Markdown tables. Stage 4 automatically parses these into structured data cards.</span>
           </div>
 
-          <div className="p-3 rounded-xl bg-[#090D18] border border-[#1E253D]">
-            <strong className="text-white block mb-1">3. Factual Findings</strong>
+          <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+            <strong className="text-[#1A202C] block mb-1">3. Factual Findings</strong>
             <span>Include observable data points, metrics, and quotes. Bullet points (`- `) are converted into distinct Insight Cards.</span>
           </div>
         </div>
       </div>
 
       {/* Template Preview Accordion */}
-      <div className="rounded-2xl glass-panel border border-[#232A44] overflow-hidden mb-4">
+      <div className="rounded-2xl bg-white border border-[#E2E8F0] overflow-hidden mb-4 shadow-xs">
         <button
           type="button"
           onClick={() => setIsPreviewOpen((prev) => !prev)}
-          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#CBD5E1] hover:text-white transition-colors cursor-pointer bg-[#0F1426]/50"
+          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
         >
           <span className="flex items-center gap-2">
-            <Eye className="w-4 h-4 text-[#7C5CFC]" />
+            <Eye className="w-4 h-4 text-[#4355B9]" />
             <span>Preview Summary Template Structure (`{sanitizedSlug}-teardown-template.md`)</span>
           </span>
-          {isPreviewOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          {isPreviewOpen ? <ChevronUp className="w-4 h-4 text-[#64748B]" /> : <ChevronDown className="w-4 h-4 text-[#64748B]" />}
         </button>
 
         {isPreviewOpen && (
-          <div className="p-5 bg-[#070A14] border-t border-[#1E253D]">
-            <pre className="font-mono text-xs leading-relaxed text-[#94A3B8] max-h-80 overflow-y-auto whitespace-pre-wrap selection:bg-[#7C5CFC]/30 selection:text-white">
+          <div className="p-5 bg-[#F8FAFC] border-t border-[#E2E8F0]">
+            <pre className="font-mono text-xs leading-relaxed text-[#334155] max-h-80 overflow-y-auto whitespace-pre-wrap selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
               {templateMarkdown}
             </pre>
           </div>
@@ -183,51 +183,51 @@ export const SummaryTemplateGuide: React.FC<SummaryTemplateGuideProps> = ({
       </div>
 
       {/* Real-World Sample Summary Accordion */}
-      <div className="rounded-2xl glass-panel border border-[#232A44] overflow-hidden">
+      <div className="rounded-2xl bg-white border border-[#E2E8F0] overflow-hidden shadow-xs">
         <button
           type="button"
           onClick={() => setIsExampleOpen((prev) => !prev)}
-          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#CBD5E1] hover:text-white transition-colors cursor-pointer bg-[#0F1426]/50"
+          className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-mono font-medium text-[#1A202C] hover:bg-[#F8FAFC] transition-colors cursor-pointer bg-white"
         >
           <span className="flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-[#FBBF24]" />
+            <BookOpen className="w-4 h-4 text-[#C07818]" />
             <span>View Example Teardown Summary (Spotify Case Study)</span>
           </span>
-          {isExampleOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          {isExampleOpen ? <ChevronUp className="w-4 h-4 text-[#64748B]" /> : <ChevronDown className="w-4 h-4 text-[#64748B]" />}
         </button>
 
         {isExampleOpen && (
-          <div className="p-5 bg-[#070A14] border-t border-[#1E253D] text-xs text-[#CBD5E1] space-y-3 font-mono leading-relaxed max-h-80 overflow-y-auto selection:bg-[#7C5CFC]/30 selection:text-white">
-            <div className="text-white font-bold text-sm"># Product Teardown Summary: Spotify</div>
-            <div className="text-[#8B93B0]">Category: Entertainment & Media | Platform: Cross-platform | Business Model: Freemium B2C</div>
-            <div className="text-[#34D399] font-bold pt-2">## 1. Strategic & Business Context</div>
-            <p className="text-[#94A3B8]">
+          <div className="p-5 bg-[#F8FAFC] border-t border-[#E2E8F0] text-xs text-[#334155] space-y-3 font-mono leading-relaxed max-h-80 overflow-y-auto selection:bg-[#4355B9]/20 selection:text-[#1A202C]">
+            <div className="text-[#1A202C] font-bold text-sm"># Product Teardown Summary: Spotify</div>
+            <div className="text-[#64748B]">Category: Entertainment & Media | Platform: Cross-platform | Business Model: Freemium B2C</div>
+            <div className="text-[#107C41] font-bold pt-2">## 1. Strategic & Business Context</div>
+            <p className="text-[#475569]">
               - **Mission**: Unlock the potential of human creativity by giving a million creative artists the opportunity to live off their art.<br />
               - **Monetization**: Ad-supported free tier (~12% gross margin) serves as the top-of-funnel customer acquisition engine for Premium subscriptions (~30% gross margin).<br />
               - **Moat**: Algorithmic personalization engine (Discover Weekly, Daylist) combined with high playlist migration switching costs.
             </p>
-            <div className="text-[#FBBF24] font-bold pt-2">## 2. Market & Competition</div>
-            <p className="text-[#94A3B8]">
+            <div className="text-[#C07818] font-bold pt-2">## 2. Market & Competition</div>
+            <p className="text-[#475569]">
               - **Market Position**: Global streaming audio market leader with ~31% market share ahead of Apple Music (~15%) and Amazon Music (~13%).<br />
               - **Growth Loops**: User-generated playlist SEO loop + Spotify Wrapped annual viral distribution loop generating massive zero-CAC acquisition spikes.
             </p>
-            <div className="text-[#38BDF8] font-bold pt-2">## 3. Users & Product Craft</div>
-            <p className="text-[#94A3B8]">
+            <div className="text-[#2563EB] font-bold pt-2">## 3. Users & Product Craft</div>
+            <p className="text-[#475569]">
               - **Core JTBD**: When I want an emotional soundtrack for my commute/workout, I want personalized instant music without decision fatigue, so I can elevate my mental state.<br />
               - **Aha Moment**: First time Discover Weekly predicts an unknown artist the user immediately saves.
             </p>
-            <div className="text-[#22D3EE] font-bold pt-2">## 4. Technical Architecture</div>
-            <p className="text-[#94A3B8]">
+            <div className="text-[#0284C7] font-bold pt-2">## 4. Technical Architecture</div>
+            <p className="text-[#475569]">
               - **Client**: Native C++ audio rendering core wrapped in Swift/Kotlin and React Native UI overlays.<br />
               - **Infrastructure**: Google Cloud Platform, BigQuery for telemetry, Cassandra for playlist graph storage, and custom Spotify Connect protocol for device handoff.
             </p>
-            <div className="text-[#FB7185] font-bold pt-2">## 5. Behavioral Psychology</div>
-            <p className="text-[#94A3B8]">
+            <div className="text-[#C0392B] font-bold pt-2">## 5. Behavioral Psychology</div>
+            <p className="text-[#475569]">
               - **Hook Model**: Trigger (End of workday / boredom) → Action (Tap play on Daylist) → Variable Reward (Fresh sonic discoveries) → Investment (Hearting songs, building library).<br />
               - **Endowment Effect**: Users value playlists they personally curated far above generic albums.
             </p>
-            <div className="text-[#A78BFA] font-bold pt-2">## 6. Trust, Safety & Ethics</div>
-            <p className="text-[#94A3B8]">
+            <div className="text-[#7C3AED] font-bold pt-2">## 6. Trust, Safety & Ethics</div>
+            <p className="text-[#475569]">
               - **Artist Royalty Friction**: Stream-share royalty model pays ~$0.003–$0.005 per stream, drawing recurring artist compensation criticisms.<br />
               - **Data Privacy**: Extensive listening telemetry collected, though users retain granular private session and social listening toggle controls.
             </p>

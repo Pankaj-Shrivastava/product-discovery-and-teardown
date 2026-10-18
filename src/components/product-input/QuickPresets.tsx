@@ -61,9 +61,9 @@ export const PRESET_PRODUCTS: Array<{
 export const QuickPresets: React.FC<QuickPresetsProps> = ({ onSelectPreset, currentName }) => {
   return (
     <div className="w-full flex flex-col gap-2">
-      <div className="flex items-center justify-between text-xs text-[#8B93B0]">
-        <span className="flex items-center gap-1.5 font-medium text-white/80">
-          <Sparkles className="w-3.5 h-3.5 text-[#7C5CFC]" />
+      <div className="flex items-center justify-between text-xs text-[#64748B]">
+        <span className="flex items-center gap-1.5 font-medium text-[#1A202C]">
+          <Sparkles className="w-3.5 h-3.5 text-[#4355B9]" />
           <span>Or populate from curated PM teardown templates:</span>
         </span>
       </div>
@@ -79,13 +79,13 @@ export const QuickPresets: React.FC<QuickPresetsProps> = ({ onSelectPreset, curr
               onClick={() => onSelectPreset(preset)}
               className={`px-3.5 py-2 min-h-[40px] rounded-lg text-xs font-mono transition-all duration-150 flex items-center gap-2 cursor-pointer border ${
                 isActive
-                  ? 'bg-[#7C5CFC]/20 text-[#CABEFF] border-[#7C5CFC] shadow-[0_0_12px_rgba(124,92,252,0.2)]'
-                  : 'bg-[#131827] text-[#8B93B0] border-[#2A3150] hover:border-[#7C5CFC]/50 hover:text-white hover:bg-[#1C2237]'
+                  ? 'bg-[#4355B9]/10 text-[#4355B9] border-[#4355B9] shadow-xs font-semibold'
+                  : 'bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#4355B9]/40 hover:text-[#1A202C] hover:bg-[#F8FAFC]'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" />
-              <span className="font-semibold text-white">{preset.name}</span>
-              <span className="text-[#8B93B0] text-[10px] hidden sm:inline">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#107C41]" />
+              <span className="font-semibold text-[#1A202C]">{preset.name}</span>
+              <span className="text-[#64748B] text-[10px] hidden sm:inline">
                 ({preset.tagline})
               </span>
             </button>

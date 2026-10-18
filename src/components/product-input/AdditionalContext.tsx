@@ -17,17 +17,17 @@ export const AdditionalContext: React.FC<AdditionalContextProps> = ({
       <div className="flex items-center justify-between">
         <label
           htmlFor="additional-context-input"
-          className="text-sm font-semibold text-white flex items-center gap-1.5"
+          className="text-sm font-semibold text-[#1A202C] flex items-center gap-1.5"
         >
-          <HelpCircle className="w-4 h-4 text-[#A78BFA]" />
+          <HelpCircle className="w-4 h-4 text-[#7C3AED]" />
           <span>Anything specific you want to explore?</span>
-          <span className="text-[11px] font-mono text-[#8B93B0] bg-[#1C2237] px-2 py-0.5 rounded border border-[#2A3150]">
+          <span className="text-[11px] font-mono text-[#64748B] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">
             OPTIONAL
           </span>
         </label>
         <span
           className={`text-[11px] font-mono transition-colors ${
-            value.length > maxLength * 0.9 ? 'text-[#FBBF24]' : 'text-[#8B93B0]'
+            value.length > maxLength * 0.9 ? 'text-[#C07818]' : 'text-[#64748B]'
           }`}
           aria-live="polite"
         >
@@ -43,10 +43,10 @@ export const AdditionalContext: React.FC<AdditionalContextProps> = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="e.g., Focus on issue triage velocity, multiplayer sync engine, keyboard-first UX, retention hooks, and enterprise pricing expansion..."
-          className="w-full px-4 py-3 rounded-xl text-sm font-normal text-white placeholder-[#8B93B0]/50 bg-[#131827] border border-[#2A3150] transition-all duration-200 outline-none resize-none focus:border-[#A78BFA] focus:ring-2 focus:ring-[#A78BFA]/30 group-hover:border-[#3B4468]"
+          className="w-full px-4 py-3 rounded-xl text-sm font-normal text-[#1A202C] placeholder-[#94A3B8] bg-white border border-[#E2E8F0] transition-all duration-200 outline-none resize-none focus:border-[#4355B9] focus:ring-2 focus:ring-[#4355B9]/20 group-hover:border-[#CBD5E1] shadow-xs"
         />
       </div>
-      <p className="text-[11px] text-[#8B93B0]">
+      <p className="text-[11px] text-[#64748B]">
         Adding focused angles here primes prompt synthesis to dig into tailored mechanics.
       </p>
     </div>

@@ -26,15 +26,15 @@ interface CategoryOption {
 }
 
 const CATEGORIES: CategoryOption[] = [
-  { label: 'Productivity & Tools', icon: Zap, color: '#38BDF8' },
-  { label: 'Social & Communication', icon: MessageSquare, color: '#7C5CFC' },
-  { label: 'E-commerce & Marketplace', icon: ShoppingBag, color: '#34D399' },
-  { label: 'Finance & Fintech', icon: CreditCard, color: '#FBBF24' },
-  { label: 'Developer Tools', icon: Code2, color: '#22D3EE' },
-  { label: 'Entertainment & Media', icon: Film, color: '#FB7185' },
-  { label: 'Health & Wellness', icon: Heart, color: '#F472B6' },
-  { label: 'Education & Learning', icon: GraduationCap, color: '#A78BFA' },
-  { label: 'Other', icon: Layers, color: '#8B93B0' },
+  { label: 'Productivity & Tools', icon: Zap, color: '#0284C7' },
+  { label: 'Social & Communication', icon: MessageSquare, color: '#4355B9' },
+  { label: 'E-commerce & Marketplace', icon: ShoppingBag, color: '#107C41' },
+  { label: 'Finance & Fintech', icon: CreditCard, color: '#C07818' },
+  { label: 'Developer Tools', icon: Code2, color: '#2563EB' },
+  { label: 'Entertainment & Media', icon: Film, color: '#C0392B' },
+  { label: 'Health & Wellness', icon: Heart, color: '#DB2777' },
+  { label: 'Education & Learning', icon: GraduationCap, color: '#7C3AED' },
+  { label: 'Other', icon: Layers, color: '#64748B' },
 ]
 
 export const CategorySelector: React.FC<CategorySelectorProps> = ({ value, onChange }) => {
@@ -54,12 +54,12 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({ value, onCha
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <label className="text-sm font-semibold text-white flex items-center gap-1.5">
-          <Layers className="w-4 h-4 text-[#CABEFF]" />
+        <label className="text-sm font-semibold text-[#1A202C] flex items-center gap-1.5">
+          <Layers className="w-4 h-4 text-[#4355B9]" />
           <span>Category</span>
-          <span className="text-[#8B93B0] text-xs font-normal">Select the best fit</span>
+          <span className="text-[#64748B] text-xs font-normal">Select the best fit</span>
         </label>
-        <span className="text-[11px] font-mono text-[#38BDF8] bg-[#38BDF8]/10 px-2 py-0.5 rounded border border-[#38BDF8]/30">
+        <span className="text-[11px] font-mono text-[#4355B9] bg-[#4355B9]/10 px-2 py-0.5 rounded border border-[#4355B9]/30">
           {value}
         </span>
       </div>
@@ -84,13 +84,13 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({ value, onCha
               onKeyDown={(e) => handleKeyDown(e, idx)}
               className={`relative group flex items-center gap-2.5 px-3 py-2.5 min-h-[44px] rounded-xl border text-left text-xs transition-all duration-200 outline-none cursor-pointer ${
                 isSelected
-                  ? 'bg-[#1C2237] text-white border-[#7C5CFC] shadow-[0_0_16px_rgba(124,92,252,0.25)] ring-1 ring-[#7C5CFC]/50'
-                  : 'bg-[#131827]/80 text-[#8B93B0] border-[#2A3150] hover:border-[#3B4468] hover:text-[#F0F2F8] hover:bg-[#1C2237]/60'
+                  ? 'bg-[#EDF2F7] text-[#1A202C] border-[#4355B9] shadow-xs ring-1 ring-[#4355B9]/40 font-semibold'
+                  : 'bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#1A202C] hover:bg-[#F8FAFC]'
               }`}
             >
               <div
                 className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
-                  isSelected ? 'bg-[#7C5CFC]/20' : 'bg-[#1C2237] group-hover:bg-[#2A3150]'
+                  isSelected ? 'bg-[#4355B9]/15' : 'bg-[#F1F5F9] group-hover:bg-[#E2E8F0]'
                 }`}
               >
                 <Icon
@@ -99,12 +99,12 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({ value, onCha
                 />
               </div>
 
-              <span className="truncate font-medium flex-1">{cat.label}</span>
+              <span className="truncate flex-1">{cat.label}</span>
 
               {isSelected && (
                 <motion.span
                   layoutId="category-active-dot"
-                  className="w-1.5 h-1.5 rounded-full bg-[#7C5CFC] shrink-0"
+                  className="w-1.5 h-1.5 rounded-full bg-[#4355B9] shrink-0"
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 />
               )}

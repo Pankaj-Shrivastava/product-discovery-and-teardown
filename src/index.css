@@ -2,43 +2,43 @@
 
 @layer base {
   :root {
-    --background: #0B0F1A;
-    --foreground: #F0F2F8;
+    --background: #F4F6F9;
+    --foreground: #1A202C;
 
-    --card: #131827;
-    --card-foreground: #F0F2F8;
+    --card: #FFFFFF;
+    --card-foreground: #1A202C;
 
-    --popover: #131827;
-    --popover-foreground: #F0F2F8;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A202C;
 
-    --primary: #7C5CFC;
+    --primary: #4355B9;
     --primary-foreground: #FFFFFF;
 
-    --secondary: #1C2237;
-    --secondary-foreground: #F0F2F8;
+    --secondary: #EDF2F7;
+    --secondary-foreground: #1A202C;
 
-    --muted: #1A2138;
-    --muted-foreground: #8B93B0;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
 
-    --accent: #2A3150;
-    --accent-foreground: #F0F2F8;
+    --accent: #E2E8F0;
+    --accent-foreground: #1A202C;
 
     --destructive: #EF4444;
     --destructive-foreground: #FFFFFF;
 
-    --border: #2A3150;
-    --input: #1C2237;
-    --ring: #7C5CFC;
+    --border: #E2E8F0;
+    --input: #FFFFFF;
+    --ring: #4355B9;
 
     --radius: 0.75rem;
 
-    /* Pillar Accents */
-    --pillar-strategic: #34D399;
-    --pillar-market: #FBBF24;
-    --pillar-users: #38BDF8;
-    --pillar-technical: #22D3EE;
-    --pillar-behavioral: #FB7185;
-    --pillar-ethics: #A78BFA;
+    /* Nordic Studio Pillar Accents */
+    --pillar-strategic: #107C41;
+    --pillar-market: #C07818;
+    --pillar-users: #2563EB;
+    --pillar-technical: #0284C7;
+    --pillar-behavioral: #C0392B;
+    --pillar-ethics: #7C3AED;
   }
 
   * {
@@ -46,7 +46,7 @@
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     scroll-behavior: smooth;
   }
@@ -66,46 +66,44 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F1A;
+  background: #F4F6F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A3150;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B4468;
+  background: #94A3B8;
 }
 
-/* Glassmorphism utility classes */
+/* Clean Card Utility Classes (Nordic Studio) */
 .glass-panel {
-  background: rgba(19, 24, 39, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(42, 49, 80, 0.75);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .glass-panel-elevated {
-  background: rgba(28, 34, 55, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(124, 92, 252, 0.25);
-  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
 }
 
 .glass-header {
-  background: rgba(11, 15, 26, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(42, 49, 80, 0.7);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E2E8F0;
 }
 
-/* Glow effects */
+/* Restful Indigo Glow Effects */
 .glow-primary {
-  box-shadow: 0 0 24px rgba(124, 92, 252, 0.35);
+  box-shadow: 0 4px 14px rgba(67, 85, 185, 0.2);
 }
 
 .glow-subtle {
-  box-shadow: 0 0 16px rgba(124, 92, 252, 0.15);
+  box-shadow: 0 2px 8px rgba(67, 85, 185, 0.1);
 }
+

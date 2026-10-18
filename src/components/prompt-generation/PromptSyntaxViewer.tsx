@@ -9,7 +9,7 @@ interface PromptSyntaxViewerProps {
 
 export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
   content,
-  color = '#7C5CFC',
+  color = '#4355B9',
   className = '',
   maxHeight = 'max-h-96',
 }) => {
@@ -17,7 +17,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
 
   return (
     <div
-      className={`font-mono text-xs leading-relaxed overflow-y-auto p-4 rounded-xl bg-[#090D18]/90 border border-[#232942] text-[#CAD1E9] space-y-1.5 selection:bg-[#7C5CFC]/30 selection:text-white ${maxHeight} ${className}`}
+      className={`font-mono text-xs leading-relaxed overflow-y-auto p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] space-y-1.5 selection:bg-[#4355B9]/20 selection:text-[#1A202C] ${maxHeight} ${className}`}
     >
       {lines.map((line, idx) => {
         const trimmed = line.trim()
@@ -27,7 +27,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
         }
 
         if (trimmed === '---') {
-          return <hr key={idx} className="border-[#232942] my-3" />
+          return <hr key={idx} className="border-[#E2E8F0] my-3" />
         }
 
         // Top level H1
@@ -35,7 +35,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
           return (
             <div
               key={idx}
-              className="text-sm font-bold tracking-wide pt-2 pb-1 border-b border-[#232942]"
+              className="text-sm font-bold tracking-wide pt-2 pb-1 border-b border-[#E2E8F0]"
               style={{ color }}
             >
               {line}
@@ -48,7 +48,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
           return (
             <div
               key={idx}
-              className="text-xs font-bold text-white uppercase tracking-wider pt-3 pb-0.5 flex items-center gap-2"
+              className="text-xs font-bold text-[#1A202C] uppercase tracking-wider pt-3 pb-0.5 flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
               <span>{line.replace('## ', '')}</span>
@@ -61,7 +61,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
           return (
             <div
               key={idx}
-              className="font-semibold text-xs pt-1.5 pl-2 border-l-2 text-[#E2E8F0]"
+              className="font-semibold text-xs pt-1.5 pl-2 border-l-2 text-[#1A202C]"
               style={{ borderColor: color }}
             >
               {line.replace('### ', '')}
@@ -72,7 +72,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
         // Sub-lens H4
         if (line.startsWith('#### ')) {
           return (
-            <div key={idx} className="font-semibold text-xs text-[#93C5FD] pl-3">
+            <div key={idx} className="font-semibold text-xs text-[#4355B9] pl-3">
               {line.replace('#### ', '')}
             </div>
           )
@@ -82,8 +82,8 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
         if (trimmed.startsWith('- ')) {
           const bulletContent = trimmed.substring(2)
           return (
-            <div key={idx} className="pl-4 flex items-start gap-2 text-[#CBD5E1]">
-              <span className="text-[#64748B] select-none mt-0.5">•</span>
+            <div key={idx} className="pl-4 flex items-start gap-2 text-[#334155]">
+              <span className="text-[#94A3B8] select-none mt-0.5">•</span>
               <span className="leading-relaxed">{bulletContent}</span>
             </div>
           )
@@ -92,8 +92,8 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
         // Indented bullet
         if (line.startsWith('  - ')) {
           return (
-            <div key={idx} className="pl-8 flex items-start gap-2 text-[#94A3B8]">
-              <span className="text-[#475569] select-none mt-0.5">◦</span>
+            <div key={idx} className="pl-8 flex items-start gap-2 text-[#475569]">
+              <span className="text-[#94A3B8] select-none mt-0.5">◦</span>
               <span className="leading-relaxed">{line.trim().substring(2)}</span>
             </div>
           )
@@ -104,7 +104,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
           return (
             <div
               key={idx}
-              className="px-2 py-0.5 rounded bg-[#13182A] text-[#93C5FD] font-mono text-[11px] overflow-x-auto"
+              className="px-2 py-0.5 rounded bg-[#EDF2F7] text-[#1E293B] border border-[#E2E8F0] font-mono text-[11px] overflow-x-auto"
             >
               {line}
             </div>
@@ -113,7 +113,7 @@ export const PromptSyntaxViewer: React.FC<PromptSyntaxViewerProps> = ({
 
         // General text
         return (
-          <div key={idx} className="leading-relaxed text-[#94A3B8]">
+          <div key={idx} className="leading-relaxed text-[#475569]">
             {line}
           </div>
         )

@@ -97,10 +97,10 @@ export const BatchActions: React.FC<BatchActionsProps> = ({
         type="button"
         disabled={isCopyingAll || prompts.length === 0}
         onClick={handleCopyAll}
-        className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer shadow-md ${
+        className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer shadow-xs ${
           isCopiedAll
-            ? 'bg-[#10B981] text-white shadow-[0_0_20px_rgba(16,185,129,0.35)]'
-            : 'bg-gradient-to-r from-[#7C5CFC] to-[#9B7FFF] hover:from-[#6B4BE8] hover:to-[#8B6FE8] text-white shadow-[0_0_20px_rgba(124,92,252,0.35)]'
+            ? 'bg-[#107C41] text-white'
+            : 'bg-[#4355B9] hover:bg-[#364599] text-white'
         }`}
         title="Copy all 6 prompts to clipboard with dividers"
       >
@@ -121,10 +121,10 @@ export const BatchActions: React.FC<BatchActionsProps> = ({
       <button
         type="button"
         onClick={handleDownloadMd}
-        className="px-3.5 py-2 rounded-xl bg-[#141A2D] hover:bg-[#202744] text-[#CBD5E1] hover:text-white border border-[#262E4C] text-xs sm:text-sm font-medium flex items-center gap-2 transition-colors cursor-pointer"
+        className="px-3.5 py-2 rounded-xl bg-white hover:bg-[#F8FAFC] text-[#1A202C] border border-[#CBD5E1] text-xs sm:text-sm font-medium flex items-center gap-2 transition-colors cursor-pointer shadow-xs"
         title="Download all prompts as structured Markdown (.md)"
       >
-        <FileText className="w-4 h-4 text-[#38BDF8]" />
+        <FileText className="w-4 h-4 text-[#2563EB]" />
         <span>Download .md</span>
       </button>
 
@@ -132,10 +132,10 @@ export const BatchActions: React.FC<BatchActionsProps> = ({
       <button
         type="button"
         onClick={handleDownloadTxt}
-        className="px-3.5 py-2 rounded-xl bg-[#141A2D] hover:bg-[#202744] text-[#CBD5E1] hover:text-white border border-[#262E4C] text-xs sm:text-sm font-medium flex items-center gap-2 transition-colors cursor-pointer"
+        className="px-3.5 py-2 rounded-xl bg-white hover:bg-[#F8FAFC] text-[#1A202C] border border-[#CBD5E1] text-xs sm:text-sm font-medium flex items-center gap-2 transition-colors cursor-pointer shadow-xs"
         title="Download all prompts as plain text (.txt)"
       >
-        <Download className="w-4 h-4 text-[#A78BFA]" />
+        <Download className="w-4 h-4 text-[#4355B9]" />
         <span>Download .txt</span>
       </button>
     </div>
