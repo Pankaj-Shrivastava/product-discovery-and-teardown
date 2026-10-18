@@ -14,10 +14,10 @@ export const StageProgressBar: React.FC = () => {
 
   return (
     <div className="fixed top-14 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <nav
           aria-label="Teardown Stages Progress"
-          className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-2.5 no-scrollbar justify-between"
+          className="flex items-center justify-between gap-1 sm:gap-2 py-2 px-1.5 overflow-x-auto no-scrollbar"
         >
           {STAGES.map((stage, idx) => {
             const isActive = idx === activeIndex
@@ -27,19 +27,20 @@ export const StageProgressBar: React.FC = () => {
               <React.Fragment key={stage.number}>
                 <Link
                   to={stage.path}
+                  title={`Stage ${stage.number}: ${stage.title}${isCompleted ? ' (Completed)' : isActive ? ' (Current)' : ''}`}
                   aria-current={isActive ? 'step' : undefined}
                   className={cn(
-                    'group flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0 select-none focus:outline-none focus:ring-2 focus:ring-[#4355B9] focus:ring-offset-1 focus:ring-offset-white',
+                    'group flex items-center gap-1.5 sm:gap-2 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0 select-none focus:outline-none focus:ring-2 focus:ring-[#4355B9] focus:ring-offset-1 focus:ring-offset-white border',
                     isActive
-                      ? 'bg-[#EDF2F7] text-[#4355B9] ring-1 ring-[#4355B9]/40 shadow-xs font-semibold'
+                      ? 'bg-[#EDF2F7] text-[#4355B9] border-[#4355B9]/50 shadow-xs font-semibold px-2.5 sm:px-3'
                       : isCompleted
-                      ? 'text-[#1A202C] hover:bg-[#F1F5F9] hover:text-[#4355B9]'
-                      : 'text-[#64748B] hover:bg-[#F1F5F9] hover:text-[#1A202C]'
+                      ? 'text-[#1A202C] hover:bg-[#F1F5F9] hover:text-[#4355B9] border-transparent px-1.5 sm:px-2.5 lg:px-3'
+                      : 'text-[#64748B] hover:bg-[#F1F5F9] hover:text-[#1A202C] border-transparent px-1.5 sm:px-2.5 lg:px-3'
                   )}
                 >
                   <span
                     className={cn(
-                      'w-5 h-5 rounded-full flex items-center justify-center text-[10px] transition-all',
+                      'w-5 h-5 rounded-full flex items-center justify-center text-[10px] transition-all shrink-0',
                       isActive
                         ? 'bg-[#4355B9] text-white shadow-[0_2px_6px_rgba(67,85,185,0.35)] font-bold'
                         : isCompleted
@@ -53,11 +54,21 @@ export const StageProgressBar: React.FC = () => {
                       <span aria-hidden="true">{stage.number}</span>
                     )}
                   </span>
-                  <span className="whitespace-nowrap">{stage.title}</span>
+                  <span
+                    className={cn(
+                      'whitespace-nowrap transition-all duration-200',
+                      isActive ? 'inline-block' : 'hidden lg:inline-block'
+                    )}
+                  >
+                    {stage.title}
+                  </span>
                 </Link>
 
                 {idx < STAGES.length - 1 && (
-                  <ChevronRight className="w-3.5 h-3.5 text-[#CBD5E1] shrink-0" aria-hidden="true" />
+                  <ChevronRight
+                    className="w-3.5 h-3.5 text-[#CBD5E1] shrink-0"
+                    aria-hidden="true"
+                  />
                 )}
               </React.Fragment>
             )
